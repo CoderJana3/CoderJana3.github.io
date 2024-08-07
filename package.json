@@ -1,0 +1,15 @@
+{
+  "name": "CoderJana3.github.io",
+  "version": "1.0.0",
+  "description": "Test PowerUp",
+  "main": "index.js",
+  "repository": "https://github.com/CoderJana3/CoderJana3.github.io",
+  "author": "Jana Dahlmann <jana.dahlmann@tu-dortmund.de>",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/html/*.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
