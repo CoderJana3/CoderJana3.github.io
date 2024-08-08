@@ -1,3 +1,4 @@
+console.log('Hello World!');
 
 var t = TrelloPowerUp.iframe();
 
