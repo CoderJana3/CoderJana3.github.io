@@ -45,11 +45,11 @@ window.TrelloPowerUp.initialize({
         }); 
      },
      'authorization-status': function(t, options){
-        /* return t.get("member", "private", "authToken")
+        return t.get("member", "private", "authToken")
         .then(function(authToken){
             console.log('managed to get here');
             return {authorized: authToken != null}
-        }); */
-        return {authorized: false};
+        }); 
+        // return {authorized: false};
      }
 });
