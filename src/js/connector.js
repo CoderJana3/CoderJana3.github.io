@@ -24,7 +24,7 @@ window.TrelloPowerUp.initialize({
         {
             icon: 'https://github.com/CoderJana3/CoderJana3.github.io/blob/0b87e37974f133babff89a6d13ac16ecd7a84fae/src/testicon.png',
             text: estimate || 'No estimate',
-            color: 'red',
+            color: 'blue'
         },   
         ];
         }); 
