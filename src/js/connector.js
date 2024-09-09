@@ -18,18 +18,26 @@ window.TrelloPowerUp.initialize({
     'card-badges': function(t, options){
         return t.get("card", "shared", "estimate")
         .then(function(estimate){
-            return [
-        {
+            return [{
+        
             //icon: needs to be a specific format 
             text: estimate || 'No estimate',
             color: estimate ? null : 'red' //finally worked after removing icon links???
-        },   
-        ];
+        }];   //deleted comma between klammern
+        
         }); 
     },
     'card-detail-badges': function(t, options){
-        return [{
-            text:'estimate'
-        }]
-    }
+        return t.get("card", "shared", "estimate")
+        .then(function(estimate){
+            return [{
+                title:'Estimate',
+                text: estimate || 'No estimate'
+            }];
+        });
+/*         return [{
+            title:'Estimate',
+            
+        }] // no semicolon if you just return json object
+ */    }
 });
