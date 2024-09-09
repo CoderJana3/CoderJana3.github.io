@@ -50,6 +50,6 @@ window.TrelloPowerUp.initialize({
             console.log('managed to get here');
             return {authorized: authToken != null}
         }); 
-        // return {authorized: false};
+        // return {authorized: false}; test
      }
 });
