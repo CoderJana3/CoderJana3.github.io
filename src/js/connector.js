@@ -49,7 +49,7 @@ window.TrelloPowerUp.initialize({
         .then(function(authToken){
             console.log('managed to get here');
             return {authorized: authToken != null}
-            //return {authorized: true}; 
+            //return {authorized: true}; test
         }); 
         
      }
