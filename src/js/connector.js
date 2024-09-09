@@ -20,7 +20,7 @@ window.TrelloPowerUp.initialize({
     'card-badges': function(t, options){
         return [
         {
-           // icon: 'https://github.com/CoderJana3/CoderJana3.github.io/blob/0b87e37974f133babff89a6d13ac16ecd7a84fae/src/testicon.png',
+            icon: 'https://github.com/CoderJana3/CoderJana3.github.io/blob/0b87e37974f133babff89a6d13ac16ecd7a84fae/src/testicon.png',
             text: '3'
         },   
         ]
