@@ -22,9 +22,16 @@ window.TrelloPowerUp.initialize({
         {
             //icon: needs to be a specific format 
             text: estimate || 'No estimate',
-            color: estimate ? null : 'red' //still uses color blue even though its changed in the code... why?
+            color: estimate ? null : 'red' //finally worked after removing icon links???
         },   
         ];
         }); 
     },
+    'card-detail-badges': function(t, options){
+        return [
+            {
+                text:'estimate'
+            }
+        ];
+    }
 });
