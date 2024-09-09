@@ -48,8 +48,8 @@ window.TrelloPowerUp.initialize({
         return t.get("member", "private", "authToken")
         .then(function(authToken){
             console.log('managed to get here');
-            //return {authorized: authToken != null}
-            return {authorized: true}; 
+            return {authorized: authToken != null}
+            //return {authorized: true}; 
         }); 
         
      }
