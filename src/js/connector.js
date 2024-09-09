@@ -23,7 +23,7 @@ window.TrelloPowerUp.initialize({
             //icon: needs to be a specific format 
             text: estimate || 'No estimate',
             color: estimate ? null : 'red' //finally worked after removing icon links???
-        }];   //deleted comma between klammern
+        },];   //deleted comma between klammern
         
         }); 
     },
