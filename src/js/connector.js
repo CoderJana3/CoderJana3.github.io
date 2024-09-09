@@ -34,6 +34,7 @@ window.TrelloPowerUp.initialize({
             return [{
                 title:'Estimate',
                 text: estimate || 'No estimate',
+                color: estimate ? null : 'red',
                 callback: function(t){
                     return t.popup({
                         title: 'Estimation',
