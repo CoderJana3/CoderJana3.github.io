@@ -28,10 +28,8 @@ window.TrelloPowerUp.initialize({
         }); 
     },
     'card-detail-badges': function(t, options){
-        return [
-            {
-                text:'estimate'
-            }
-        ];
+        return [{
+            text:'estimate'
+        }]
     }
 });
