@@ -16,14 +16,14 @@ t.render(function (){
 
 
 
-/*window.estimate.addEventListener("submit", function(event){
+window.estimate.addEventListener("submit", function(event){
     event.preventDefault(); //Stops the browser trying to submit the form itself
     return t
     .set("card", "shared", "estimate", window.estimateSize.value)
     .then(function() {
         t.closePopup();
     });
-});*/
+});
 
 
 //method to check plugindata for eventlistener
