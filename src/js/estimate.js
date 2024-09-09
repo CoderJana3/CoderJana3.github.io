@@ -16,11 +16,9 @@ t.render(function (){
     .get("card", "shared", "estimate")
     .then(function(estimate){
         window.estimateSize.value = estimate;
-        console.log('estimate set');
     })
     .then(function(){
         t.sizeTo("#estimate").done();
-        console.log('sizeTo done');
    });
     
 });
