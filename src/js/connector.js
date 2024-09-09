@@ -43,9 +43,5 @@ window.TrelloPowerUp.initialize({
                 }
             }];
         }); 
-         /* return [{
-            text:'Estimate',
-            
-        }];  */
      }
 });
