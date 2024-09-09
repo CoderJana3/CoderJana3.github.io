@@ -35,7 +35,6 @@ window.TrelloPowerUp.initialize({
                 title:'Estimate',
                 text: estimate || 'No estimate',
                 callback: function(t){
-                    console.log('popup');
                     return t.popup({
                         title: 'Estimation',
                         url: "estimate.html"
