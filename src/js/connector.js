@@ -28,16 +28,22 @@ window.TrelloPowerUp.initialize({
         }); 
     },
     'card-detail-badges': function(t, options){
-        /* return t.get("card", "shared", "estimate")
+        return t.get("card", "shared", "estimate")
         .then(function(estimate){
             return [{
                 title:'Estimate',
-                text: estimate || 'No estimate'
+                text: estimate || 'No estimate',
+                callback: function(t){
+                    return t.popup({
+                        title: 'Estimation',
+                        url: "estimate.html"
+                    });
+                }
             }];
-        }); */
-         return [{
+        }); 
+         /* return [{
             text:'Estimate',
             
-        }]; // no semicolon if you just return json object
+        }];  */
      }
 });
