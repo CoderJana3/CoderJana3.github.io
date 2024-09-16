@@ -23,6 +23,10 @@ app.use(express.static('public'));
 //     console.log("Listening on port %s", server.address().port);
 //   });
 
+var server = app.listen(443, function(){
+    console.log("Server up and running");
+});
+
 
 app.post("/auth", function(request, response){
     response.send({
