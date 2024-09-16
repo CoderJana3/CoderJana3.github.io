@@ -4,7 +4,7 @@ t.render(function(){
     return t.sizeTo("#content");
 });
 
-var oauthUr1 = window.origin + "/3rd-party/authorize.html";
+var oauthUrl = window.origin + "/3rd-party/authorize.html";
 
 var authBtn = document.getElementById("authorize");
 authBtn.addEventListener("click", function(){
