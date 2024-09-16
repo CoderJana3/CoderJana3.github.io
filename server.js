@@ -1,6 +1,6 @@
 var cors = require('cors');
 var express = require('express');
-var app = express();
+const app = express();
 
 //from Glitch tutorial
 app.use(compression());
@@ -13,15 +13,15 @@ app.use(cors({ origin: 'https://trello.com' }));
 app.use(express.static('public'));
 
 // listen for requests :)
-// const listener = app.listen(process.env.PORT, function () {
-//   console.info(`Node Version: ${process.version}`);
-//   console.log('Trello Power-Up Server listening on port ' + listener.address().port);
-// });
+const listener = app.listen(process.env.PORT, function () {
+  console.info(`Node Version: ${process.version}`);
+  console.log('Trello Power-Up Server listening on port ' + listener.address().port);
+});
 
-var server = app.listen(3000, function () {
-    console.log('Server up and running...🏃🏃🏻');
-    console.log("Listening on port %s", server.address().port);
-  });
+// var server = app.listen(3000, function () {
+//     console.log('Server up and running...🏃🏃🏻');
+//     console.log("Listening on port %s", server.address().port);
+//   });
 
 
 app.post("/auth", function(request, response){
