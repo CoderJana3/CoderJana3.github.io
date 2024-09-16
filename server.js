@@ -3,7 +3,7 @@ var express = require('express');
 const app = express();
 
 //from Glitch tutorial
-app.use(compression());
+//app.use(compression());
 
 
 app.use(cors({ origin: 'https://trello.com' }));
