@@ -1,7 +1,7 @@
 var cors = require('cors');
 var express = require('express');
 const app = express();
-
+console.log("entered server.js");
 //from Glitch tutorial
 //app.use(compression());
 
