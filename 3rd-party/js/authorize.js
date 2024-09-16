@@ -8,7 +8,7 @@ authBtn.addEventListener("click", function(){
             Accept: "application/json",
             "Content-Type": "application/json",
         },
-        method: "POST",
+        method: "post",
         body:JSON.stringify({
             username: username.value,
             password: password.value,
