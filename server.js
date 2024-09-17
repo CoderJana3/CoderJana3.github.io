@@ -10,7 +10,7 @@ app.use(cors({ origin: 'https://trello.com' }));
 
 //From glitch tutorial
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+//app.use(express.static('public'));
 
 // listen for requests :)
 // const listener = app.listen(process.env.PORT, function () {
