@@ -17,7 +17,7 @@ authBtn.addEventListener("click", function(){
         const token = response.token;
         if(window.opener && typeof window.opener.authorize ==="function"){
             window.opener.authorize(token);
-            console.log("set token to"+ token);
+            console.log("set token to "+ token);
         } else {
             sessionStorage.setItem("token", token);
             console.log("save token");
