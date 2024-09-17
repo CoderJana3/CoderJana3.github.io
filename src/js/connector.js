@@ -47,13 +47,14 @@ window.TrelloPowerUp.initialize({
      'authorization-status': function(t, options){
         return t.get("member", "private", "authToken")
         .then(function(authToken){
-            console.log('managed to get here');
+            console.log('entered authorization-status in conenctor.js');
             return {authorized: authToken != null}
             //return {authorized: true}; test
             console.log("authorized true");
         });  
      },
      'show-authorization': function(t, options){
+        console.log("entered show-authorization in connector.js")
         return t.popup({
             title: 'Authorize Test Account',
             url: './auth.html',
