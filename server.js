@@ -7,6 +7,7 @@ console.log("entered server.js");
 
 
 app.use(cors({ origin: 'https://trello.com' }));
+app.use(cors({origin: 'https://coderjana3.github.io/'}));
 
 //From glitch tutorial
 // http://expressjs.com/en/starter/static-files.html
