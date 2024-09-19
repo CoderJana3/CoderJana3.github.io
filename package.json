@@ -6,6 +6,9 @@
   "repository": "https://github.com/CoderJana3/CoderJana3.github.io",
   "author": "Jana Dahlmann <jana.dahlmann@tu-dortmund.de>",
   "license": "MIT",
+  "scripts": {
+      "start": "node server.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.0"
