@@ -2,7 +2,7 @@
   "name": "CoderJana3.github.io",
   "version": "1.0.0",
   "description": "Test PowerUp",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/CoderJana3/CoderJana3.github.io",
   "author": "Jana Dahlmann <jana.dahlmann@tu-dortmund.de>",
   "license": "MIT",
