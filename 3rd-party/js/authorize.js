@@ -5,7 +5,7 @@ authBtn.addEventListener("click", function(){
     console.log("got to 3rdParty authorize.js");
     fetch("/auth", {
         headers: {
-            Accept: "application/json",
+            "Accept": "application/json",
             "Content-Type": "application/json",
         },
         method: "POST",
