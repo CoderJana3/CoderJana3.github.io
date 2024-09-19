@@ -31,7 +31,8 @@ app.use(cors({origin: 'https://coderjana3.github.io/'}));
 //     });
 // });
 
-app.post("https://coderjana3.github.io/auth", function(request, response){
+app.post("/authorize", function(request, response){
+    console.log("sending response in server.js");
     response.send({
         token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
     });
