@@ -24,18 +24,18 @@ app.use(cors({origin: 'https://coderjana3.github.io/'}));
 //     console.log("Listening on port %s", server.address().port);
 //   });
 
-app.all("/auth", function(request, response){
-    console.log("entered app.all in server.js");
-    response.send({
-        token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
-    });
-});
-
-// app.post("/auth", function(request, response){
+// app.all("/auth", function(request, response){
+//     console.log("entered app.all in server.js");
 //     response.send({
 //         token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
 //     });
 // });
+
+app.post("https://coderjana3.github.io/auth", function(request, response){
+    response.send({
+        token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+    });
+});
 
 var server = app.listen(443, function(){ //found Portnumber through Remoteadress, still not working though
     console.log("Server up and running", server.address().port);
