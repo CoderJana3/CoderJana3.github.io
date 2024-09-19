@@ -3,7 +3,7 @@ var password = document.getElementById("password");
 var authBtn = document.getElementById("authorize");
 authBtn.addEventListener("click", function(){
     console.log("got to 3rdParty authorize.js");
-    fetch("/authorize", {
+    fetch("/auth", {
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
