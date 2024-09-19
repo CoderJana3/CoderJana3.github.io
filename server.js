@@ -13,11 +13,18 @@ app.use(cors({origin: 'https://coderjana3.github.io/'}));
 // http://expressjs.com/en/starter/static-files.html
 //app.use(express.static('public'));
 
-// listen for requests :)
-// const listener = app.listen(process.env.PORT, function () {
-//   console.info(`Node Version: ${process.version}`);
-//   console.log('Trello Power-Up Server listening on port ' + listener.address().port);
-// });
+app.post("/authorize", function(request, response){
+    console.log("sending response in server.js");
+    response.send({
+        token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+    });
+});
+
+//listen for requests :)
+const listener = app.listen(process.env.PORT, function () {
+  console.info(`Node Version: ${process.version}`);
+  console.log('Trello Power-Up Server listening on port ' + listener.address().port);
+});
 
 // var server = app.listen(3000, function () {
 //     console.log('Server up and running...🏃🏃🏻');
@@ -31,15 +38,10 @@ app.use(cors({origin: 'https://coderjana3.github.io/'}));
 //     });
 // });
 
-app.post("/authorize", function(request, response){
-    console.log("sending response in server.js");
-    response.send({
-        token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
-    });
-});
 
-var server = app.listen(443, function(){ //found Portnumber through Remoteadress, still not working though
-    console.log("Server up and running", server.address().port);
-});
+
+// var server = app.listen(443, function(){ //found Portnumber through Remoteadress, still not working though
+//     console.log("Server up and running", server.address().port);
+// });
 
 
