@@ -6,7 +6,7 @@ console.log("entered server.js");
 //app.use(compression());
 
 
-app.use(cors({ origin: 'https://trello.com' }));
+//app.use(cors({ origin: 'https://trello.com' }));
 app.use(cors({origin: 'https://coderjana3.github.io/'}));
 
 //From glitch tutorial
