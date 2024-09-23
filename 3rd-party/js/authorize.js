@@ -16,10 +16,10 @@ authBtn.addEventListener("click", function(){
         // })
      });
 
-     var test = function(response){
+     
         const token = response.token;
         console.log("Token is set: " + token);
-     };
+    
      
      //.then(function(response){
     //     const token = response.token;
