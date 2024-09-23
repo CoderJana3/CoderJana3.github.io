@@ -14,7 +14,9 @@ app.use(cors({origin: 'https://coderjana3.github.io/3rd-party/authorize.html'}))
 app.use(express.static('/'));
 //app.use(express.json());
 
-app.route('/auth').all(function (req, res, next){}).post(function (req, res, next){
+app.route('/auth').all(function (req, res, next){}).get(function (req, res, next){
+  console.log("Get Request Accepted");
+}).post(function (req, res, next){
   res.json({
     token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
   })
