@@ -2,12 +2,12 @@
   "name": "CoderJana3.github.io",
   "version": "1.0.0",
   "description": "Test PowerUp",
-  "main": "server.js",
+  "main": "index.js",
   "repository": "https://github.com/CoderJana3/CoderJana3.github.io",
   "author": "Jana Dahlmann <jana.dahlmann@tu-dortmund.de>",
   "license": "MIT",
   "scripts": {
-      "start": "node server.js"
+      "start": "node index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
