@@ -14,7 +14,7 @@ app.use(cors({origin: 'https://coderjana3.github.io/3rd-party/authorize.html'}))
 // app.use("/auth", express.static('app'));
 app.use(express.json());
 
-app.use(function(request, response){
+app.use('/auth', function(request, response){
   response.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
 });
 
