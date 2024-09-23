@@ -6,8 +6,8 @@ authBtn.addEventListener("click", function(){
     fetch("/auth", {  
         method: "POST",                              // don't know if it would help anything but can't hurt to try
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         },
         
         body:JSON.stringify({
