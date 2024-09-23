@@ -11,7 +11,8 @@ app.use(cors({origin: 'https://coderjana3.github.io/'}));
 
 //From glitch tutorial
 // http://expressjs.com/en/starter/static-files.html
-app.use("/auth", express.static('app'));
+// app.use("/auth", express.static('app'));
+app.use(express.json());
 
 app.post("/auth", function(request, response){
     console.log("sending response in server.js");
