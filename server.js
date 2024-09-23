@@ -22,15 +22,15 @@ app.post('/auth', function (request, response){
 });
 
 //listen for requests :)
-const listener = app.listen(process.env.PORT, function () {
-  console.info(`Node Version: ${process.version}`);
-  console.log('Trello Power-Up Server listening on port ' + listener.address().port);
-});
+// const listener = app.listen(process.env.PORT, function () {
+//   console.info(`Node Version: ${process.version}`);
+//   console.log('Trello Power-Up Server listening on port ' + listener.address().port);
+// });
 
-// var server = app.listen(3000, function () {
-//     console.log('Server up and running...🏃🏃🏻');
-//     console.log("Listening on port %s", server.address().port);
-//   });
+var server = app.listen(3000, function () {
+    console.log('Server up and running...🏃🏃🏻');
+    console.log("Listening on port %s", server.address().port);
+  });
 
 // app.all("/auth", function(request, response){
 //     console.log("entered app.all in server.js");
