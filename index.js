@@ -18,16 +18,20 @@ app.use(cors(corsOptions));
 app.use(express.static('/'));
 //app.use(express.json());
 
-app.route('/auth').all(function (req, res, next){}).get(function (req, res, next){
-  console.log("Get Request Accepted");
-  res.send({
-    token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
-  })
-}).post(function (req, res, next){
-  res.json({
-    token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
-  })
+
+app.get("/auth", function(req, res){
+    res.sendStatus(202);
 });
+// app.route('/auth').all(function (req, res, next){}).get(function (req, res, next){
+//   console.log("Get Request Accepted");
+//   res.send({
+//     token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+//   })
+// }).post(function (req, res, next){
+//   res.json({
+//     token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+//   })
+// });
 
 // app.use('/auth', function(request, response){
 //   response.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
