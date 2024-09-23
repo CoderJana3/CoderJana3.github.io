@@ -14,7 +14,7 @@ app.use(cors({origin: 'https://coderjana3.github.io/'}));
 // app.use("/auth", express.static('app'));
 app.use(express.json());
 
-app.post('/auth', function (request, response){
+app.all('/auth', function (request, response){
     console.log("sending response in server.js");
     response.send({
         token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
@@ -22,10 +22,10 @@ app.post('/auth', function (request, response){
 });
 
 //listen for requests :)
-// const listener = app.listen(process.env.PORT, function () {
-//   console.info(`Node Version: ${process.version}`);
-//   console.log('Trello Power-Up Server listening on port ' + listener.address().port);
-// });
+const listener = app.listen(process.env.PORT, function () {
+  console.info(`Node Version: ${process.version}`);
+  console.log('Trello Power-Up Server listening on port ' + listener.address().port);
+});
 
 var server = app.listen(3000, function () {
     console.log('Server up and running...🏃🏃🏻');
