@@ -50,7 +50,7 @@ window.TrelloPowerUp.initialize({
             console.log('entered authorization-status in conenctor.js');
             return {authorized: authToken != null}
             //return {authorized: true}; test
-            console.log("authorized true");
+            
         });  
      },
      'show-authorization': function(t, options){

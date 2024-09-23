@@ -9,6 +9,7 @@ var corsOptions = {
   origin: ['https://trello.com','https://coderjana3.github.io']
 };
 
+app.use(cors(corsOptions));
 // app.use(cors({ origin: 'https://trello.com' }));
 // app.use(cors({origin: 'https://coderjana3.github.io/3rd-party/authorize.html'}));
 
