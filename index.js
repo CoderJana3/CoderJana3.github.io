@@ -11,7 +11,7 @@ app.use(cors({origin: 'https://coderjana3.github.io/3rd-party/authorize.html'}))
 
 //From glitch tutorial
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
+app.use(express.static('/'));
 //app.use(express.json());
 
 app.route('/auth').all(function (req, res, next){}).post(function (req, res, next){
