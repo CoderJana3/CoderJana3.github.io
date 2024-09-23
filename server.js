@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.use('/auth', function(request, response){
   response.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+  console.log("setHeader");
 });
 
 app.post('/auth', function (request, response){
