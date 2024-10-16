@@ -18,11 +18,18 @@ app.use(cors(corsOptions));
 app.use(express.static('/'));
 //app.use(express.json());
 
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.post('/auth', function (request, response){
   console.log("sending response in server.js");
-  // response.send({
-  //     token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
-  // });
+  response.send({
+      token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+  });
 });
 
 app.get("/auth", function(req, res){
