@@ -20,7 +20,9 @@ app.use(express.static('/'));
 
 
 app.get("/auth", function(req, res){
-    res.sendStatus(202);
+  res.send({
+        token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+      });
 });
 // app.route('/auth').all(function (req, res, next){}).get(function (req, res, next){
 //   console.log("Get Request Accepted");
