@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post('/auth', function (request, response){
+app.post('/', function (request, response){
   console.log("sending response in server.js");
   response.send({
       token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
