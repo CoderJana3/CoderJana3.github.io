@@ -18,6 +18,12 @@ app.use(cors(corsOptions));
 app.use(express.static('/'));
 //app.use(express.json());
 
+app.post('/auth', function (request, response){
+  console.log("sending response in server.js");
+  // response.send({
+  //     token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
+  // });
+});
 
 app.get("/auth", function(req, res){
   res.send({
@@ -40,12 +46,7 @@ app.get("/auth", function(req, res){
 //   console.log("setHeader");
 // });
 
-// app.post('/auth', function (request, response){
-//     console.log("sending response in server.js");
-//     // response.send({
-//     //     token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
-//     // });
-// });
+
 
 //listen for requests :)
 // const listener = app.listen(process.env.PORT, function () {
