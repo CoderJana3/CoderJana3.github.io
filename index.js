@@ -6,7 +6,7 @@ console.log("entered server.js");
 //app.use(compression());
 
 var corsOptions = {
-  origin: ['https://trello.com','https://coderjana3.github.io']
+  origin: ['https://trello.com','https://coderjana3.github.io', 'https://coderjana3.netlify.app']
 };
 
 app.use(cors(corsOptions));
