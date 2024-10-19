@@ -6,7 +6,7 @@ authBtn.addEventListener("click", function(){
     fetch("https://coderjana3.netlify.app/auth", {                                //fetch get got the status 200 so worked fine
          method: "POST",                              
          headers: {
-            Accept: 'application/json',
+            //Accept: 'application/json',
             "Content-Type": "application/json",
          },
         
