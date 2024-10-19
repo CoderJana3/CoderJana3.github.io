@@ -10,7 +10,7 @@ var corsOptions = {
 
   //app.use(express.static('/'));
 
-  app.post('/auth', function (request, response){
+  app.post('/coderjana3.github.io/auth', function (request, response){
     response.send({
         token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
     });
