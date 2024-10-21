@@ -10,7 +10,7 @@ var corsOptions = {
 
   //app.use(express.static('/'));
 
-  app.post('/authorize', function (request, response){
+  app.post('/3rd-party/authorize', function (request, response){
     response.send({
         token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
     });
