@@ -1,5 +1,6 @@
 var cors = require('cors');
-var express = require('express');
+const express = require('express');
+const serverless = require('serverless-http');
 const app = express();
 
 var corsOptions = {
@@ -15,3 +16,5 @@ var corsOptions = {
         token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f",
     });
   });
+
+  module.exports.handler = serverless(app);
