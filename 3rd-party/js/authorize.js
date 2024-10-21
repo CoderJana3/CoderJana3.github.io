@@ -15,6 +15,7 @@ authBtn.addEventListener("click", function(){
             password: password.value,
         })
     }).then(function(response){
+        response => response.JSON();
         const token = response.token;
         console.log("Response Status: " + response.status);
         console.log("Token is: " + token);
