@@ -3,9 +3,9 @@ exports.handler = async function(event, context) {
   const eventBody = event.Body
   return {
     statusCode: 200,
-    body: JSON.stringify({
+    body: {
       token: "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f"
-    })
+    }
   }
 }
 
