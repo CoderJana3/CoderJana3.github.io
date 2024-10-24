@@ -1,7 +1,9 @@
 
+const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f"
+
 exports.handler = async function(event, context) {
   const eventBody = event.Body
-  const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f"
+  
   return {
     statusCode: 200,
     body: token
