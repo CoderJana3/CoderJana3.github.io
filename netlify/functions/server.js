@@ -1,9 +1,9 @@
 
 const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f"
+const response = new Response(token);
 
 exports.handler = async function(event, context) {
   const eventBody = event.Body
-  const response = new Response(token);
   
   return {
     statusCode: 200,
