@@ -6,7 +6,7 @@ exports.handler = async function(event, context) {
   const eventBody = event.Body
   console.log(eventBody.username);
   return {
-    statusCode: 200,
+    //statusCode: 200,
     body: JSON.stringify({
       token: token,
     }) //add JSON.stringify again to test (but first try comments in authorize.js)
