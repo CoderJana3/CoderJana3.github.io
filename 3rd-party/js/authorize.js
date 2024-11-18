@@ -13,10 +13,10 @@ authBtn.addEventListener("click", function(){
         body:JSON.stringify({
             username: username.value,
             password: password.value,
-        })
-    }).then(function(response){
-        response => response.JSON();
-        const token = response.token;
+        })                              //fetch gets the repsonse from my server.js, so take-
+    }).then(function(response){         // -another look at how to specify response body in functions & how to get the data from the response body
+        response => response.JSON();    //try to remove this and return in server.js just token as string
+        const token = response.token; //maybe response.token here is why token is undefined? 
         console.log("Response Status: " + response.status);
         console.log("Token is: " + token);
         if(window.opener && typeof window.opener.authorize ==="function"){
