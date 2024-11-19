@@ -6,9 +6,9 @@ exports.handler = async function(event, context) {
   const eventBody = event.Body
   
   return {
-    //statusCode: 200,
-    eventBody: JSON.stringify({
-      token: token,
+      statusCode: 200,
+      body: JSON.stringify({
+        message: 'Hello World!'
     }) //add JSON.stringify again to test (but first try comments in authorize.js)
   }
 }
