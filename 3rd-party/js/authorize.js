@@ -16,7 +16,7 @@ authBtn.addEventListener("click", async () => {
         })                              
     }).then(//function(response){         
         response => response.json() //JSON  is wrong cause it is not a function, the function is json()
-    ).then((data) => {for (const body of data.body) {
+    ).then((data) => {for (const body of data.body) { //data.body is undefined 
             const token = body.token;
     }});   
         const resp = JSON.stringify(response);
