@@ -22,7 +22,7 @@ authBtn.addEventListener("click", async () => {
         const resp = JSON.stringify(response);
         console.log("Response: " + resp); 
         console.log("Response Status:" + response.status);
-        console.log("Token is: " + token);
+        console.log("Token is: " + resp.token);
         if(window.opener && typeof window.opener.authorize ==="function"){
             window.opener.authorize(resp.token);
             console.log("set token to "+ resp.token);
