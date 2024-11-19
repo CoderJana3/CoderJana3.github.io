@@ -8,7 +8,7 @@ exports.handler = async function(event, context) {
   return {
       statusCode: 200,
       body: JSON.stringify({
-        message: 'Hello World!'
+        token: token,
     }) //add JSON.stringify again to test (but first try comments in authorize.js)
   }
 }
