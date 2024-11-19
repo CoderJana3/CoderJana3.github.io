@@ -9,6 +9,7 @@ exports.handler = async function(event, context) {
       statusCode: 200,
       body: JSON.stringify({
         token: token,
+        statusCode: 200,
     }) //add JSON.stringify again to test (but first try comments in authorize.js)
   }
 }
