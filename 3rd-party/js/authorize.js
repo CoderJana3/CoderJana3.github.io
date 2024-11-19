@@ -15,10 +15,10 @@ authBtn.addEventListener("click", async () => {
             password: password.value,
         })                              
     }).then(//function(response){         
-        response => response.json() //JSON  is wrong cause it is not a function, the function is json()
-    ).then((data) => {for (const body of data.body) { //data.body is undefined 
-            const token = body.token;
-    }});   
+        response => response.json()) //JSON  is wrong cause it is not a function, the function is json()
+    // ).then((data) => {for (const body of data.body) { //data.body is undefined 
+    //         const token = body.token;
+    // }});   
         const resp = JSON.stringify(response);
         console.log("Response: " + resp); 
         console.log("Response Status:" + response.status);
