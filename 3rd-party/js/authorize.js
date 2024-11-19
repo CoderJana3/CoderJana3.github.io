@@ -20,7 +20,7 @@ authBtn.addEventListener("click", async () => {
         console.log("Response Status:" + resp.statusCode);
         console.log("Token is: " + resp.token);
         if(window.opener && typeof window.opener.authorize ==="function"){
-            window.opener.authorize(token);
+            window.opener.authorize(resp.token);
             console.log("set token to "+ resp.token);
         } else {
             sessionStorage.setItem("token", token);
