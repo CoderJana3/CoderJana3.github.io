@@ -13,7 +13,7 @@ exports.handler = async function(event, context) {
   }
 }
 
-console.log(eventBody.username);
+//console.log(eventBody.username); 
 
 
 // var cors = require('cors');
