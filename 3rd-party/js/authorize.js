@@ -15,10 +15,10 @@ authBtn.addEventListener("click", async () => {
             password: password.value,
         })                              
     }).then(//function(response){         
-        response => response.json())    //JSON maybe wrong 
+        response => response.json())    //JSON  is wrong cause it is not a function, the function is json()
         const token = JSON.stringify(response); 
         console.log("Response Status: " + response.statusCode);
-        console.log("Token is: " + token);
+        console.log("Token is: " + response);
         if(window.opener && typeof window.opener.authorize ==="function"){
             window.opener.authorize(token);
             console.log("set token to "+ token);
