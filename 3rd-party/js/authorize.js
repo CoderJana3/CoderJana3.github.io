@@ -20,7 +20,7 @@ authBtn.addEventListener("click", async () => {
         const resp = response; //don't need to stringify response cause I already stringify it in server
         const JSONresp = JSON.stringify(response);
         console.log("Response: " + JSONresp); 
-        console.log("Response Status:" + resp.status);
+        console.log("Response Status:" + resp.statusCode);
         console.log("Token is: " + resp.token); //without stringify token finally gets the correct answer
         if(window.opener && typeof window.opener.authorize ==="function"){
             window.opener.authorize(resp.token);
