@@ -14,8 +14,7 @@ authBtn.addEventListener("click", async () => {
             username: username.value,
             password: password.value,
         })                              
-    }).then(  
-        console.log("response: " + response.status),     
+    }).then(
         response => response.json()) //JSON  is wrong cause it is not a function, the function is json()   
         //const resp = JSON.stringify(response);
         const resp = response; //don't need to stringify response cause I already stringify it in server
