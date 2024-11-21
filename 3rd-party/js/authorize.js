@@ -19,10 +19,11 @@ authBtn.addEventListener("click", async () => {
     // ).then((data) => {for (const body of data.body) { //data.body is undefined 
     //         const token = body.token;
     // }});   
-        const resp = JSON.stringify(response);
+        //const resp = JSON.stringify(response);
+        const resp = response;
         console.log("Response: " + resp); 
         console.log("Response Status:" + response.status);
-        console.log("Token is: " + resp.token);
+        console.log("Token is: " + resp.token); //still undefined ;( why?????
         if(window.opener && typeof window.opener.authorize ==="function"){
             window.opener.authorize(resp.token);
             console.log("set token to "+ resp.token);
