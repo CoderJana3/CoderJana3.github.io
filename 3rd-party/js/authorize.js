@@ -29,9 +29,9 @@ authBtn.addEventListener("click", async () => {
             sessionStorage.setItem("token", resp.token);
             console.log("save token");
         }
-        // setTimeout(function(){
-        //     window.close();
-        // }, 1*1000);
+         setTimeout(function(){
+             window.close();
+         }, 1*1000);
     //}); 
 });
 
