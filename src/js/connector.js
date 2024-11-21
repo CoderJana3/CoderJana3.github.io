@@ -48,6 +48,7 @@ window.TrelloPowerUp.initialize({
         return t.get("member", "private", "authToken")
         .then(function(authToken){
             console.log('entered authorization-status in conenctor.js');
+            console.log("AuthToken: " + authToken);
             return {authorized: authToken != null}
             //return {authorized: true}; test
             
