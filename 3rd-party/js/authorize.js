@@ -14,21 +14,19 @@ authBtn.addEventListener("click", async () => {
             username: username.value,
             password: password.value,
         })                              
-    }).then(//function(response){         
-        response => response.json()) //JSON  is wrong cause it is not a function, the function is json()
-    // ).then((data) => {for (const body of data.body) { //data.body is undefined 
-    //         const token = body.token;
-    // }});   
+    }).then(        
+        response => response.json()) //JSON  is wrong cause it is not a function, the function is json()   
         //const resp = JSON.stringify(response);
-        const resp = response;
-        console.log("Response: " + resp); 
-        console.log("Response Status:" + response.status);
-        console.log("Token is: " + resp.token); //still undefined ;( why?????
+        const resp = response; //don't need to stringify response cause I already stringify it in server
+        const JSONresp = JSON.stringify(response);
+        console.log("Response: " + JSONresp); 
+        console.log("Response Status:" + resp.status);
+        console.log("Token is: " + resp.token); //without stringify token finally gets the correct answer
         if(window.opener && typeof window.opener.authorize ==="function"){
             window.opener.authorize(resp.token);
             console.log("set token to "+ resp.token);
         } else {
-            sessionStorage.setItem("token", token);
+            sessionStorage.setItem("token", resp.token);
             console.log("save token");
         }
         // setTimeout(function(){
