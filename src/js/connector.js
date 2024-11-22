@@ -30,6 +30,7 @@ window.TrelloPowerUp.initialize({
     'card-detail-badges': function(t, options){
         return t.get("card", "shared", "estimate")
         .then(function(estimate){
+            console.log(t.get("card", "shared", "estimate"));
             console.log('functionestimate');
             return [{
                 title:'Estimate',
