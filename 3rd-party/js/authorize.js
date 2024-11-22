@@ -2,8 +2,8 @@ var username = document.getElementById("username");
 var password = document.getElementById("password");
 var authBtn = document.getElementById("authorize");
 authBtn.addEventListener("click", async () => {
-    console.log("got to 3rdParty authorize.js");   //try changing fetch post to fetch get and check if that method is also not allowed,
-    const response = await fetch("/.netlify/functions/server", {              //without the dot in /.netlify/... it doesnt work    //(github pages)fetch get got the status 200 so worked fine
+    console.log("got to 3rdParty authorize.js");   //try changing fetch post to fetch get and check if that method is also not allowed (github pages only does get methods)
+    const response = await fetch("/.netlify/functions/server", {   //without the dot in /.netlify/... it doesnt work    //(github pages)fetch get got the status 200 so worked fine
          method: "POST",                              
          headers: {
             Accept: 'application/json',
