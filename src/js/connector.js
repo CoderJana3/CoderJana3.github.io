@@ -71,7 +71,7 @@ window.TrelloPowerUp.initialize({
                 const ob = JSON.stringify(opts); 
                 //const resp = opts.json();
                 console.log("opts:" + opts.name);
-                console.log("Anhang ID: " + resp.id);
+                //console.log("Anhang ID: " + resp.id);
                 console.log("Mime Type: " + ob.mimeType);
                 console.log("Upload: " + opts.isUpload);
             }
