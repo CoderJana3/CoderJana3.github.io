@@ -67,6 +67,7 @@ window.TrelloPowerUp.initialize({
         console.log("entered save-attachment!");
         return {
             callback: function(t, opts){
+                const ob = JSON.stringify(ob);
                 console.log("opts:" + opts);
             }
         }
