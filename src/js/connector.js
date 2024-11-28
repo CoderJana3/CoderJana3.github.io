@@ -30,7 +30,7 @@ window.TrelloPowerUp.initialize({
     'card-detail-badges': function(t, options){
         return t.get("card", "shared", "estimate")
         .then(function(estimate){
-            console.log(t.get("card", "shared", "estimate")); //get cardid from URL in browser; still check how to get it per code though
+           // console.log(t.get("card", "shared", "estimate")); //get cardid from URL in browser; still check how to get it per code though
             console.log('functionestimate');
             return [{
                 title:'Estimate',
@@ -68,11 +68,12 @@ window.TrelloPowerUp.initialize({
         return {
             callback: function(t, opts){
                 //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
-                const ob = JSON.stringify(opts); //doesn't work
-                const resp = opts.json();
+                const ob = JSON.stringify(opts); 
+                //const resp = opts.json();
                 console.log("opts:" + opts.name);
                 console.log("Anhang ID: " + resp.id);
                 console.log("Mime Type: " + ob.mimeType);
+                console.log("Upload: " + opts.isUpload);
             }
         }
      }
