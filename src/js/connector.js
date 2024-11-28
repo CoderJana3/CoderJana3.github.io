@@ -68,9 +68,10 @@ window.TrelloPowerUp.initialize({
         return {
             callback: function(t, opts){
                 //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
-                //const ob = JSON.stringify(ob); //doesn't work
+                const ob = JSON.stringify(opts); //doesn't work
                 console.log("opts:" + opts.name);
-                console.log("Anhang ID:" + opts.mimeType);
+                console.log("Anhang ID: " + ob.id);
+                console.log("Mime Type: " + ob.mimeType);
             }
         }
      }
