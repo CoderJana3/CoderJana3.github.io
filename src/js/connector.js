@@ -30,7 +30,7 @@ window.TrelloPowerUp.initialize({
     'card-detail-badges': function(t, options){
         return t.get("card", "shared", "estimate")
         .then(function(estimate){
-            console.log(t.get("card", "shared", "estimate"));
+            console.log(t.get("card", "shared", "estimate")); //get cardid from URL in browser; still check how to get it per code though
             console.log('functionestimate');
             return [{
                 title:'Estimate',
@@ -62,5 +62,13 @@ window.TrelloPowerUp.initialize({
             url: './auth.html',
             height: 140,
         });
+     }, 
+     'save-attachment': function(t, options){
+        console.log("entered save-attachment!");
+        return {
+            callback: function(t, opts){
+                console.log("opts:" + opts);
+            }
+        }
      }
 });
