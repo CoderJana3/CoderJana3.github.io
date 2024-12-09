@@ -73,7 +73,7 @@ window.TrelloPowerUp.initialize({
                 console.log("opts:" + opts.name);
                 //console.log("Anhang ID: " + resp.id);
                 console.log("Mime Type: " + ob.mimeType);
-                console.log("Upload: " + opts.isUpload);
+                console.log("Upload: " + ob.isUpload);
                 const id = t.get("card", "shared", "id");
                 console.log("Card ID: " + id);
             }
