@@ -82,6 +82,7 @@ window.TrelloPowerUp.initialize({
                     console.log(JSON.stringify(data, null, 2));
                 const authToken = t.get("member", "private", "authToken");
                 if(authToken != null){
+                    console.log("AuthToken: " + authToken);
                     console.log("authorized");
                 }
 });
