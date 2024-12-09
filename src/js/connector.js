@@ -68,12 +68,13 @@ window.TrelloPowerUp.initialize({
         return {
             callback: function(t, opts){
                 //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
+                opts => opts.json();
                 const ob = JSON.stringify(opts); 
                 //const resp = opts.json();
                 console.log("opts:" + opts.name);
                 //console.log("Anhang ID: " + resp.id);
-                console.log("Mime Type: " + ob.mimeType);
-                console.log("Upload: " + ob.isUpload);
+                console.log("Mime Type: " + opts.mimeType);
+                console.log("Upload: " + opts.isUpload);
                 const id = t.get("card", "shared", "id");
                 console.log("Card ID: " + id);
             }
