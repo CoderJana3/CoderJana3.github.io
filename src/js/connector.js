@@ -69,7 +69,7 @@ window.TrelloPowerUp.initialize({
             callback: function(t, opts){
                 //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
                 opts => opts.json();
-                const ob = JSON.stringify(opts); 
+                const ob = opts; 
                 //const resp = opts.json();
                 console.log("opts:" + opts.name);
                 //console.log("Anhang ID: " + resp.id);
