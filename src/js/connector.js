@@ -73,13 +73,16 @@ window.TrelloPowerUp.initialize({
                 //const resp = opts.json();
                 console.log("opts:" + opts.name);
                 //console.log("Anhang ID: " + resp.id);
-                console.log("Mime Type: " + opts.mimeType);
+                console.log("Mime Type: " + ob.mimeType);
                 console.log("Upload: " + opts.isUpload);
                 const id = t.get("card", "shared", "id");
                 console.log("Card ID: " + id);
                 t.get('card', 'shared', 'id') //card is here enough because it's called on the card you use it on
                 .then(function (data) {
                     console.log(JSON.stringify(data, null, 2));
+                if(authToken != null){
+                    console.log("authorized");
+                }
 });
             }
         }
