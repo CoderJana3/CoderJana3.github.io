@@ -77,7 +77,7 @@ window.TrelloPowerUp.initialize({
                 console.log("Upload: " + opts.isUpload);
                 const id = t.get("card", "shared", "id");
                 console.log("Card ID: " + id);
-                t.get('card', 'private') //card is here enough because it's called on the card you use it on
+                t.get('card', 'shared', 'id') //card is here enough because it's called on the card you use it on
                 .then(function (data) {
                     console.log(JSON.stringify(data, null, 2));
 });
