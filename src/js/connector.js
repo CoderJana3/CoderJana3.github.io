@@ -77,6 +77,10 @@ window.TrelloPowerUp.initialize({
                 console.log("Upload: " + opts.isUpload);
                 const id = t.get("card", "shared", "id");
                 console.log("Card ID: " + id);
+                t.get('card', 'shared')
+                .then(function (data) {
+                    console.log(JSON.stringify(data, null, 2));
+});
             }
         }
      }
