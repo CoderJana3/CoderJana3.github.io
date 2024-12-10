@@ -84,6 +84,9 @@ window.TrelloPowerUp.initialize({
                 t.get("member", "private", "authToken")
                 .then(function(authToken){
                     const authT = authToken;
+                })
+                .catch(function(){
+                    console.log("unhandled Promise rejection");
                 });
                 if(authT != null){
                     console.log("AuthToken: " + authT);
