@@ -93,6 +93,13 @@ window.TrelloPowerUp.initialize({
                 //     console.log("AuthToken: " + authT);
                 //     console.log("authorized");
                 // };
+
+                var context = t.getContext();
+                console.log(JSON.stringify(context, null, 2));
+
+
+                //need to use Fetch to get ID and Attachments, probably can delete all the above 
+                //check why name is available over opts and nothings else
                 
 });
             }
