@@ -83,11 +83,12 @@ window.TrelloPowerUp.initialize({
                                                //error in this and next two lines somewhere check what
                 t.get("member", "private", "authToken")
                 .then(function(authToken){
-                    if(authToken != null){
-                        console.log("AuthToken: " + authT);
-                        console.log("authorized");
-                    }
+                    const authT = authToken;
                 });
+                if(authToken != null){
+                    console.log("AuthToken: " + authT);
+                    console.log("authorized");
+                };
                 
 });
             }
