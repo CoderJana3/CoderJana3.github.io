@@ -79,6 +79,7 @@ window.TrelloPowerUp.initialize({
                 console.log("Card ID: " + opts.id);
                 t.get('card', 'shared')                         //card is here enough because it's called on the card you use it on
                 .then(function (data) {
+                    console.log("card:" + card)
                     console.log(JSON.stringify(data, null, 2));
                                         
                 t.get("member", "private", "authToken")
