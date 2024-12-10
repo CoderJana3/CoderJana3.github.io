@@ -71,9 +71,58 @@ window.TrelloPowerUp.initialize({
 
                 var context = t.getContext();
                 console.log(JSON.stringify(context, null, 2));
-                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=APIKey&token=APIToken';
+                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments'; //?key=APIKey&token=APIToken';
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'
                 console.log(URL);
+
+                 const response  = fetch(URL, {
+                 method: 'GET',
+                 headers: {
+                     'Accept': 'application/json'
+                 }
+                 })
+                 .then(response => {
+                     console.log(
+                     `Response: ${response.status} ${response.statusText}`
+                     );
+                     return response.text();
+                 })
+                 .then(text => console.log(text))
+                 .catch(err => console.error(err));
+                //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
+                //opts => opts.json();
+                //const ob = opts; 
+                //const resp = opts.json();
+                //console.log("opts:" + opts.name);
+                //console.log("Anhang ID: " + resp.id);
+                //console.log("Mime Type: " + ob.mimeType);
+                //console.log("Upload: " + opts.isUpload);
+                //const id = t.get("card", "shared", "id");
+                //console.log("Card ID: " + opts.id);
+                //t.get('card', 'shared')                         //card is here enough because it's called on the card you use it on
+                //.then(function (data) {
+                   //console.log("card:" + card)                    
+                   // console.log(JSON.stringify(data, null, 2));
+                                        
+                //t.get("member", "private", "authToken")
+                //.then(function(authToken){
+                  //  const authT = authToken;
+                //})
+                //.catch(function(){
+                  //  console.log("unhandled Promise rejection");
+                //});
+                // if(authT != null){                               //this causes an unhandled rejection error
+                //     console.log("AuthToken: " + authT);
+                //     console.log("authorized");
+                // };
+
+                
+                //console.log(JSON.stringify(context.card));       //gives the "Card ID"
+                //console.log(context.card);                          //gives the Card ID
+
+
+                //need to use Fetch to get ID and Attachments, probably can delete all the above 
+                //check why name is available over opts and nothings else
                
                             
             })
