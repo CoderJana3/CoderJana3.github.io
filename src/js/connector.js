@@ -88,10 +88,10 @@ window.TrelloPowerUp.initialize({
                 .catch(function(){
                     console.log("unhandled Promise rejection");
                 });
-                if(authT != null){
-                    console.log("AuthToken: " + authT);
-                    console.log("authorized");
-                };
+                // if(authT != null){
+                //     console.log("AuthToken: " + authT);
+                //     console.log("authorized");
+                // };
                 
 });
             }
