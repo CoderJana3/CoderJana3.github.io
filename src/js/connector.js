@@ -76,11 +76,11 @@ window.TrelloPowerUp.initialize({
                 console.log("Mime Type: " + ob.mimeType);
                 console.log("Upload: " + opts.isUpload);
                 const id = t.get("card", "shared", "id");
-                console.log("Card ID: " + id);
-                t.get('card', 'shared', 'id') //card is here enough because it's called on the card you use it on
+                console.log("Card ID: " + opts.id);
+                t.get('card', 'shared')                         //card is here enough because it's called on the card you use it on
                 .then(function (data) {
                     console.log(JSON.stringify(data, null, 2));
-                                               //error in this and next two lines somewhere check what
+                                        
                 t.get("member", "private", "authToken")
                 .then(function(authToken){
                     const authT = authToken;
@@ -88,7 +88,7 @@ window.TrelloPowerUp.initialize({
                 .catch(function(){
                     console.log("unhandled Promise rejection");
                 });
-                // if(authT != null){
+                // if(authT != null){                               //this causes an unhandled rejection error
                 //     console.log("AuthToken: " + authT);
                 //     console.log("authorized");
                 // };
