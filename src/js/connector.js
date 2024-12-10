@@ -97,6 +97,7 @@ window.TrelloPowerUp.initialize({
                 var context = t.getContext();
                 console.log(JSON.stringify(context, null, 2));
                 console.log(JSON.stringify(context.card));
+                console.log(context.card);
 
 
                 //need to use Fetch to get ID and Attachments, probably can delete all the above 
