@@ -73,7 +73,10 @@ window.TrelloPowerUp.initialize({
                 console.log(JSON.stringify(context, null, 2));
                 var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments'; //?key=APIKey&token=APIToken'; 
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
-                console.log(URL);                                                   
+                console.log(URL);  
+                
+                var all = t.getAll();
+                console.log(JSON.stringify(all, null, 2));
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
@@ -90,7 +93,7 @@ window.TrelloPowerUp.initialize({
                 //  .then(text => console.log(text))
                 //  .catch(err => console.error(err));
 
-                
+
                 //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
                 //opts => opts.json();
                 //const ob = opts; 
@@ -106,17 +109,17 @@ window.TrelloPowerUp.initialize({
                    //console.log("card:" + card)                    
                    // console.log(JSON.stringify(data, null, 2));
                                         
-                t.get("member", "private", "authToken")
-                .then(function(authToken){
-                    var authT = authToken;
-                })
-                .catch(function(){
-                    console.log("unhandled Promise rejection");
-                });
-                 if(authT != null){                               //this causes an unhandled rejection error
-                     console.log("AuthToken: " + authT);
-                     console.log("authorized");
-                 };
+                // t.get("member", "private", "authToken")
+                // .then(function(authToken){
+                //     var authT = authToken;
+                // })
+                // .catch(function(){
+                //     console.log("unhandled Promise rejection");
+                // });
+                //  if(authT != null){                               //this causes an unhandled rejection error
+                //      console.log("AuthToken: " + authT);            //with var authT in line111 it causes reference
+                //      console.log("authorized");
+                //  };
 
                 
                 //console.log(JSON.stringify(context.card));       //gives the "Card ID"
