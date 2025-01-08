@@ -75,8 +75,9 @@ window.TrelloPowerUp.initialize({
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
                 console.log(URL);  
                 
-                var all = t.getAll();
-                console.log(JSON.stringify(all, null, 2));
+                // var all = t.getAll();
+                // console.log(JSON.stringify(all, null, 2));
+                console.log(process.env.API_KEY_TEST);
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
