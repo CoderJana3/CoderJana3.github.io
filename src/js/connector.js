@@ -71,13 +71,13 @@ window.TrelloPowerUp.initialize({
 
                 var context = t.getContext();
                 console.log(JSON.stringify(context, null, 2));
-                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments'; //?key=APIKey&token=APIToken'; 
+                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=APIKey&token=APIToken'; //?key=APIKey&token=APIToken'; 
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
                 console.log(URL);  
                 
                 // var all = t.getAll();
                 // console.log(JSON.stringify(all, null, 2));
-                console.log(env.API_KEY_TEST);
+                console.log(API_KEY_TEST);
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
