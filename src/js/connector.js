@@ -77,7 +77,11 @@ window.TrelloPowerUp.initialize({
                 
                 // var all = t.getAll();
                 // console.log(JSON.stringify(all, null, 2));
-                console.log($API_KEY_TEST);
+                var test = false;
+                if(process.env.API_KEY_TEST == 101){
+                    test = true;
+                }
+                console.log(test);
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
