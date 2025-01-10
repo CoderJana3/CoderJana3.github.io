@@ -1,5 +1,8 @@
 //console.log('Hello World!');
 
+const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
+                .then(envvar => envvar);
+
 window.TrelloPowerUp.initialize({
     'card-buttons': function(t, options){
         //return an array at card-badges 
@@ -48,8 +51,8 @@ window.TrelloPowerUp.initialize({
      'authorization-status': function(t, options){
         return t.get("member", "private", "authToken")
         .then(function(authToken){
-            console.log('entered authorization-status in conenctor.js');
-            console.log("AuthToken: " + authToken);
+            console.log('entered authorization-status in connector.js');
+            //console.log("AuthToken: " + authToken);
             return {authorized: authToken != null}
             //return {authorized: true}; test
             
@@ -90,7 +93,8 @@ window.TrelloPowerUp.initialize({
                     // If this returns false, the Promise won't resolve.
                     return /^[0-9a-f]{64}$/.test(token);
                   }
-                console.log("Token test worked:" + tokenLooksValid(token));     //to document if tokenloosvalid test worked
+                console.log("Token test worked:" + tokenLooksValid(token));     //to document if tokenloosvalid test worked(tokenlooksvalid is a function, 
+                                                                                //so it needs an input to return a result)
                 
                 /*Section: creating the URL */
                 var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token=APIToken'; //?key=APIKey&token=APIToken'; 
@@ -112,6 +116,15 @@ window.TrelloPowerUp.initialize({
                 //  })
                 //  .then(text => console.log(text))
                 //  .catch(err => console.error(err));
+
+                /*Testing Section:*/
+                var authorized = function (t) {
+                    return t
+                      .getRestApi()
+                      .isAuthorized()
+                    };
+                console.log("Client is authorized: " + authorized(t));
+                    
 
 
                 /*Section: Junk, Things I tried that I don't need anymore prbly */
@@ -155,6 +168,11 @@ window.TrelloPowerUp.initialize({
                             
             })
             }
-        }
-     });
+        },
+     },
+    {
+        appKey: envvar,
+        appName: "TestCard-PowerUp",
+        appAuthor: "J D",
+    });
 //});
