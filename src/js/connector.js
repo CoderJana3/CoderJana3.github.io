@@ -1,7 +1,9 @@
 //console.log('Hello World!');
-
-const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
+var getEnv = async function(t) {
+    const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
                 .then(envvar => envvar);
+}
+
 
 window.TrelloPowerUp.initialize({
     'card-buttons': function(t, options){
