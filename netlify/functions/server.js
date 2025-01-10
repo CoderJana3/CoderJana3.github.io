@@ -14,6 +14,7 @@ exports.handler = async function(event, context) {
       // ]
       body: JSON.stringify({
          token: token,
+         testkey: testkey,
          statusCode: 200
      }) //add JSON.stringify again to test (but first try comments in authorize.js)
   }
