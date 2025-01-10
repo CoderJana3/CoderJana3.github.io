@@ -66,7 +66,7 @@ window.TrelloPowerUp.initialize({
      'save-attachment': function(t, options){
         console.log("entered save-attachment!");
         return {
-            callback: (function(t, opts){
+            callback: (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
                 //const fetch = require('node-fetch');
 
                 var context = t.getContext();
@@ -77,10 +77,12 @@ window.TrelloPowerUp.initialize({
                 
                 // var all = t.getAll();
                 // console.log(JSON.stringify(all, null, 2));
-                var test = false;
+                var test = false;                                      //can get env via function
                 //var testkey = process.env.API_Test_KEY;             //env is set up
-                
-                if(testkey == 101){
+                const response = await fetch("/.netlify/functions/envvar")
+                .then(response => response.json());
+
+                if(response.testkey == 101){
                     test = true;
                 }
                 console.log(test);
