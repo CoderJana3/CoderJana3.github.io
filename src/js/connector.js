@@ -87,7 +87,7 @@ window.TrelloPowerUp.initialize({
                 }
                 console.log("process.env works:" + test);
                 
-                const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f";
+                const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";
                 const tokenLooksValid = function(token) {                         //from Trello Power Up Example from glitch
                     // If this returns false, the Promise won't resolve.
                     return /^[0-9a-f]{64}$/.test(token);
