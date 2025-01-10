@@ -92,7 +92,7 @@ window.TrelloPowerUp.initialize({
                     // If this returns false, the Promise won't resolve.
                     return /^[0-9a-f]{64}$/.test(token);
                   }
-                console.log(token + "Token test worked:" + tokenLooksValid);
+                console.log("Token test worked:" + tokenLooksValid(token));
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
