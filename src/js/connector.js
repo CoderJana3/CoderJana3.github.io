@@ -69,31 +69,35 @@ window.TrelloPowerUp.initialize({
             callback: (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
                 //const fetch = require('node-fetch');
 
-                var context = t.getContext();
+                /* Section: Getting the Card-ID*/
+                var context = t.getContext();                                           //gives JSON-Resp with detailed information
                 console.log(JSON.stringify(context, null, 2));
-                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=APIKey&token=APIToken'; //?key=APIKey&token=APIToken'; 
-                //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
-                console.log(URL);  
                 
-                // var all = t.getAll();
-                // console.log(JSON.stringify(all, null, 2));
-                var test = false;                                      //can get env via function
-                //var testkey = process.env.API_Test_KEY;             //env is set up
-                const response = await fetch("/.netlify/functions/envvar")
-                .then(response => response.json());
+                /*Section: Getting the API_KEY*/
+                var test = false;                                                      //env is set up
+                const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
+                .then(envvar => envvar.json());
 
-                if(response.testkey == 101){
+                if(envvar.testkey == 101){                                            //test to check if above function works
                     test = true;
                 }
-                console.log("process.env works:" + test);
+                console.log("process.env works:" + test);                               //to document if envvar test worked
                 
-                const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";
+                /* Section: Getting the Token */
+                
+                const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";       //test token for tokenlooksvalid
                 const tokenLooksValid = function(token) {                         //from Trello Power Up Example from glitch
                     // If this returns false, the Promise won't resolve.
                     return /^[0-9a-f]{64}$/.test(token);
                   }
-                console.log("Token test worked:" + tokenLooksValid(token));
-
+                console.log("Token test worked:" + tokenLooksValid(token));     //to document if tokenloosvalid test worked
+                
+                /*Section: creating the URL */
+                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token=APIToken'; //?key=APIKey&token=APIToken'; 
+                //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
+                console.log(URL);  
+                
+                /*Section: Getting the Attachments*/ 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
                 //  headers: {
@@ -110,6 +114,7 @@ window.TrelloPowerUp.initialize({
                 //  .catch(err => console.error(err));
 
 
+                /*Section: Junk, Things I tried that I don't need anymore prbly */
                 //opts erlaubt hier sofort Zugriff auf den Anhang der Karte bei welcher man die Funktion aufruft
                 //opts => opts.json();
                 //const ob = opts; 
@@ -140,7 +145,9 @@ window.TrelloPowerUp.initialize({
                 
                 //console.log(JSON.stringify(context.card));       //gives the "Card ID"
                 //console.log(context.card);                          //gives the Card ID
-
+                
+                // var all = t.getAll();                            //gives PluginData
+                // console.log(JSON.stringify(all, null, 2));
 
                 //need to use Fetch to get ID and Attachments, probably can delete all the above 
                 //check why name is available over opts and nothings else
