@@ -85,7 +85,7 @@ window.TrelloPowerUp.initialize({
                 if(response.testkey == 101){
                     test = true;
                 }
-                console.log(test);
+                console.log("process.env works:" + test);
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
