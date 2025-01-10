@@ -86,6 +86,13 @@ window.TrelloPowerUp.initialize({
                     test = true;
                 }
                 console.log("process.env works:" + test);
+                
+                const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f";
+                var tokenLooksValid = function(token) {
+                    // If this returns false, the Promise won't resolve.
+                    return /^[0-9a-f]{64}$/.test(token);
+                  }
+                console.log("Token test worked:" + tokenLooksValid);
 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
