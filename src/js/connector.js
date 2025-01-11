@@ -102,7 +102,7 @@ window.TrelloPowerUp.initialize({
                 /*Section: creating the URL */
                 var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token=APIToken'; //?key=APIKey&token=APIToken'; 
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
-                console.log(URL);  
+                //console.log(URL);             //don't use anymore, secrets 
                 
                 /*Section: Getting the Attachments*/ 
                 //  const response  = fetch(URL, {
