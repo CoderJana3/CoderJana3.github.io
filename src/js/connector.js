@@ -6,7 +6,7 @@ const apikey = "";
         .then(envvar => envvar.json());  
    envkey = JSON.stringify(envvar.apikey);                      //save apikey in the actual thing not just null
 };
-apikey = getEnv(envkey);                                                                               
+apikey = getEnv(apikey);                                                                               
 
 
 window.TrelloPowerUp.initialize({
