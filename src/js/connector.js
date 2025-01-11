@@ -133,7 +133,7 @@ window.TrelloPowerUp.initialize({
 
                 var isAuth = undefined;
                 async function authorizedTest (t, auth) {
-                    return t
+                    return await t
                       .getRestApi()
                       .isAuthorized()
                       .then(function(authorized){
