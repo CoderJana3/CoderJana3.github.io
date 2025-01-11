@@ -125,6 +125,8 @@ window.TrelloPowerUp.initialize({
                 //  .catch(err => console.error(err));
 
                 /*Testing Section:*/
+                console.log(envvar.testkey);
+
                 const isAuth = null;
                 function authorizedTest (t, isAuth) {
                     return t
