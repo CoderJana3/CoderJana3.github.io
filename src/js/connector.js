@@ -3,7 +3,8 @@
 const apikey = "";
  async function getEnv(apikey) {
    apikey = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(apikey => envvar.apikey);                         //save apikey in the actual thing not just null
+        .then(apikey => envvar.apikey);  
+    apikey = JSON.stringify(apikey);                      //save apikey in the actual thing not just null
 }                                                                               
 
 
