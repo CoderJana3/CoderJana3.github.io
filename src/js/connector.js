@@ -131,7 +131,7 @@ window.TrelloPowerUp.initialize({
                 const testkey2 = JSON.stringify(envvar.testkey);
                 console.log("Test 1: " + testkey1, '\n', "Test 2: " + testkey2);
 
-                const isAuth = undefined;
+                var isAuth = undefined;
                 function authorizedTest (t, auth) {
                     return t
                       .getRestApi()
