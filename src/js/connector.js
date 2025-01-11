@@ -1,8 +1,9 @@
 //console.log('Hello World!');
-async function getEnv() {
-    const apikey = await fetch("/.netlify/functions/envvar") //need this to get environemnt vars from netlify 
-        .then(apikey => envvar.apikey); //save apikey in the actual thing not just null
-}                                                                                   //changed envvar to apikey as const not commited yet
+const apikey = "";
+ async function getEnv(apikey) {
+   apikey = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
+        .then(apikey => envvar.apikey);                         //save apikey in the actual thing not just null
+}                                                                               
 
 
 window.TrelloPowerUp.initialize({
@@ -172,7 +173,7 @@ window.TrelloPowerUp.initialize({
             }
         },
      },
-    {
+    {   
         appKey: apikey,
         appName: "TestCard-PowerUp",
         appAuthor: "J D",
