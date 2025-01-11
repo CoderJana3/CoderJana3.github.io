@@ -130,18 +130,19 @@ window.TrelloPowerUp.initialize({
                 console.log("Test 1: " + testkey1, '\n', "Test 2: " + testkey2);
 
                 const isAuth = null;
-                function authorizedTest (t, isAuth) {
+                function authorizedTest (t, auth) {
                     return t
                       .getRestApi()
                       .isAuthorized()
                       .then(function(authorized){
                         if(authorized){
-                            isAuth = true;
+                            auth = true;
                         } else {
-                            isAuth = false;
+                            auth = false;
                         }
                       });
                     };
+                    isAuth = authorizedTest(t, isAuth);
                 console.log("Client is authorized: " + isAuth);
                     
 
