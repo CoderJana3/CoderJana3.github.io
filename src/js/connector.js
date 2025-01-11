@@ -1,11 +1,12 @@
 //console.log('Hello World!');
 /*Getting and setting the API_KEY to use later on for t.getRestApi()*/
 const apikey = "";
- async function getEnv(apikey) {
-   envkey = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envkey => envvar.json());  
-    apikey = JSON.stringify(envkey.apikey);                      //save apikey in the actual thing not just null
-}                                                                               
+ async function getEnv(envkey) {
+   const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
+        .then(envvar => envvar.json());  
+   envkey = JSON.stringify(envvar.apikey);                      //save apikey in the actual thing not just null
+};
+apikey = getEnv(envkey);                                                                               
 
 
 window.TrelloPowerUp.initialize({
