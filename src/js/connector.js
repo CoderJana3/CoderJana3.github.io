@@ -1,4 +1,5 @@
 //console.log('Hello World!');
+/*Getting and setting the API_KEY to use later on for t.getRestApi()*/
 const apikey = "";
  async function getEnv(apikey) {
    apikey = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
@@ -80,6 +81,8 @@ window.TrelloPowerUp.initialize({
                 console.log(JSON.stringify(context, null, 2));
                 
                 /*Section: Getting the API_KEY*/
+                /*Just the test is here, the actual API_KEY needs to be defined outside intitialize, because
+                it is used after when defining the appKey, appName and appAuthor to use t.getRestApi() */
                 var test = false;                                                      //env is set up
                 const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
                 .then(envvar => envvar.json());
@@ -91,19 +94,19 @@ window.TrelloPowerUp.initialize({
                 
                 /* Section: Getting the Token */
                 
-                const token = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";       //test token for tokenlooksvalid
-                const tokenLooksValid = function(token) {                         //from Trello Power Up Example from glitch
+                const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";       //test token for tokenlooksvalid
+                const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
                     // If this returns false, the Promise won't resolve.
-                    return /^[0-9a-f]{64}$/.test(token);
+                    return /^[0-9a-f]{64}$/.test(testtoken);
                   }
-                console.log("Token test worked:" + tokenLooksValid(token));     //to document if tokenloosvalid test worked(tokenlooksvalid is a function, 
+                console.log("Token test worked:" + tokenLooksValid(testtoken));     //to document if tokenloosvalid test worked(tokenlooksvalid is a function, 
                                                                                 //so it needs an input to return a result)
                 
                 /*Section: creating the URL */
                 var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token=APIToken'; //?key=APIKey&token=APIToken'; 
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
                 //console.log(URL);             //don't use anymore, secrets 
-                
+                console.log("Below should be logs from the testing section");
                 /*Section: Getting the Attachments*/ 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
