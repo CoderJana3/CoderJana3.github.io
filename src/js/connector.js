@@ -7,7 +7,25 @@ async function getEnv(envkey) {
    envkey = '"' + envvar.apikey + '"'; 
    return envkey;                    
 };
-apikey = getEnv(apikey);                                                                               
+apikey = getEnv(apikey);           
+
+var isAuthorizedTest = function(t){
+    return t.getRestApi()
+            .isAuthorized()
+            .then(function(t, authorized){
+                if(authorized){
+                    return t.popup({
+                        title: 'Trello is Authorized',
+                        url: './tautht.html'
+                    })
+                } else {
+                    return t.popup({
+                        title: 'Trello is NOT Authorized',
+                        url: './tauthf.html'
+                    })
+                }
+            }).catch(error => console.error(error));
+};
 
 
 window.TrelloPowerUp.initialize({
@@ -75,7 +93,7 @@ window.TrelloPowerUp.initialize({
      }, 
      'save-attachment': function(t, options){
         console.log("entered save-attachment!");
-        return {
+        return [{
             callback: (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
                 //const fetch = require('node-fetch');
 
@@ -133,21 +151,21 @@ window.TrelloPowerUp.initialize({
 
                 var isAuth = undefined;
                 //function authorizedTest (t, auth) {
-                    return t.getRestApi()
-                      .isAuthorized()
-                      .then(function(t, authorized){
-                        if(authorized){
-                           return t.popup({
-                            title: 'Trello is Authorized',
-                            url: './tautht.html'
-                           })
-                        } else {
-                            return t.popup({
-                                title: 'Trello is NOT Authorized',
-                                url: './tauthf.html'
-                            })
-                        }
-                    }).catch(error => console.error(error));
+                    // return t.getRestApi()
+                    //   .isAuthorized()
+                    //   .then(function(t, authorized){
+                    //     if(authorized){
+                    //        return t.popup({
+                    //         title: 'Trello is Authorized',
+                    //         url: './tautht.html'
+                    //        })
+                    //     } else {
+                    //         return t.popup({
+                    //             title: 'Trello is NOT Authorized',
+                    //             url: './tauthf.html'
+                    //         })
+                    //     }
+                    // }).catch(error => console.error(error));
                    // };
                 isAuth = authorizedTest(t, isAuth);
                 console.log("Client is authorized: " + isAuth);
@@ -194,7 +212,11 @@ window.TrelloPowerUp.initialize({
                
                             
             })
-            }
+            },
+            {
+                text: 'authorise',
+                callback: isAuthorizedTest,
+            }]
         },
      },
     {   
