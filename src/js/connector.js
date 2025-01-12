@@ -12,7 +12,7 @@ apikey = getEnv(apikey);
 var isAuthorizedTest = function(t){
     return t.getRestApi()
             .isAuthorized()
-            .then(function(t, authorized){
+            .then(authorized => function(t, authorized){
                 if(authorized){
                     return t.popup({
                         title: 'Trello is Authorized',
@@ -215,7 +215,7 @@ window.TrelloPowerUp.initialize({
             },
             {
                 text: 'authorise',
-                callback: isAuthorizedTest,
+                callback: isAuthorizedTest, //did not solve popup is not a function problem, creates second button but not with text declared here
             }]
         },
      },
