@@ -212,11 +212,12 @@ window.TrelloPowerUp.initialize({
                
                             
             })
-            },
-            {
-                text: 'authorise',
-                callback: isAuthorizedTest, //did not solve popup is not a function problem, creates second button but not with text declared here
-            }]
+             },
+            // {
+            //     text: 'authorise',                      //popupProblem was solbed by removing t from .then(function()) declarations
+            //     callback: isAuthorizedTest, //did not solve popup is not a function problem, creates second button but not with text declared here
+            // }
+        ]                                  //replaces function declared above
         },
      },
     {   
