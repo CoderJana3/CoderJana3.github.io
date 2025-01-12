@@ -152,19 +152,19 @@ window.TrelloPowerUp.initialize({
 
 
                 var isAuth = undefined;
-                async function authorizedTest (t) {
-                    return await t.getRestApi()
+                async function authorizedTest (trel) {
+                    return await trel.getRestApi()
                       .isAuthorized()
                       .then(authorized => function(authorized){
                         if(authorized){
                             console.log("is authorized");
-                           return t.popup({
+                           return trel.popup({
                             title: 'Trello is Authorized',
                             url: './tautht.html'
                            })
                         } else {
                             console.log("is NOT authorized");
-                            return t.popup({
+                            return trel.popup({
                                 title: 'Trello is NOT Authorized',
                                 url: './tauthf.html'
                             })
