@@ -150,24 +150,24 @@ window.TrelloPowerUp.initialize({
                 console.log("Test 1: " + testkey1, '\n', "Test 2: " + testkey2);
 
                 var isAuth = undefined;
-                //function authorizedTest (t, auth) {
-                    // return t.getRestApi()
-                    //   .isAuthorized()
-                    //   .then(function(t, authorized){
-                    //     if(authorized){
-                    //        return t.popup({
-                    //         title: 'Trello is Authorized',
-                    //         url: './tautht.html'
-                    //        })
-                    //     } else {
-                    //         return t.popup({
-                    //             title: 'Trello is NOT Authorized',
-                    //             url: './tauthf.html'
-                    //         })
-                    //     }
-                    // }).catch(error => console.error(error));
-                   // };
-                isAuth = authorizedTest(t, isAuth);
+                function authorizedTest (t) {
+                    return t.getRestApi()
+                      .isAuthorized()
+                      .then(function(authorized){
+                        if(authorized){
+                           return t.popup({
+                            title: 'Trello is Authorized',
+                            url: './tautht.html'
+                           })
+                        } else {
+                            return t.popup({
+                                title: 'Trello is NOT Authorized',
+                                url: './tauthf.html'
+                            })
+                        }
+                    }).catch(error => console.error(error));
+                   };
+                authorizedTest(t);
                 console.log("Client is authorized: " + isAuth);
                     
 
