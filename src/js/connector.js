@@ -150,10 +150,11 @@ window.TrelloPowerUp.initialize({
                 console.log("Test 1: " + testkey1, '\n', "Test 2: " + testkey2);
 
                 var isAuth = undefined;
-                async function authorizedTest (t) {
-                    return await t.getRestApi()
+                function authorizedTest (t) {
+                    return  t.getRestApi()
                       .isAuthorized()
-                      .then(function(authorized){
+                      .then(async function(authorized){
+                        await authorized;
                         if(authorized){
                            return t.popup({
                             title: 'Trello is Authorized',
