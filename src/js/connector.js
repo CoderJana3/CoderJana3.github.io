@@ -94,7 +94,10 @@ window.TrelloPowerUp.initialize({
      'save-attachment': function(t, options){
         console.log("entered save-attachment!");
         return [{
+            text: 'Authorise',
             callback: isAuthorizedTest,
+        },
+            {
             callback: (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
                 //const fetch = require('node-fetch');
 
@@ -149,6 +152,8 @@ window.TrelloPowerUp.initialize({
                 const testkey1 = '"' + envvar.testkey + '"';
                 const testkey2 = JSON.stringify(envvar.testkey);
                 console.log("Test 1: " + testkey1, '\n', "Test 2: " + testkey2);
+
+
 
                 var isAuth = undefined;
                 // function authorizedTest (t) {
