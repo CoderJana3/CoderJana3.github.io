@@ -157,11 +157,13 @@ window.TrelloPowerUp.initialize({
                       .isAuthorized()
                       .then(authorized => function(authorized){
                         if(authorized){
+                            console.log("is authorized");
                            return t.popup({
                             title: 'Trello is Authorized',
                             url: './tautht.html'
                            })
                         } else {
+                            console.log("is NOT authorized");
                             return t.popup({
                                 title: 'Trello is NOT Authorized',
                                 url: './tauthf.html'
