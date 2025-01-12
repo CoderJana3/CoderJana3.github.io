@@ -170,7 +170,7 @@ window.TrelloPowerUp.initialize({
                         }
                     }).catch(error => console.error(error));
                    };
-                //authorizedTest(t);
+                authorizedTest(t);
                 console.log("Client is authorized: " + isAuth);
                     
 
