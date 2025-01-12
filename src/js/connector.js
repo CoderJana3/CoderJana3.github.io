@@ -12,7 +12,7 @@ apikey = getEnv(apikey);
 var isAuthorizedTest = function(t){
     return t.getRestApi()
             .isAuthorized()
-            .then(authorized => function(t, authorized){
+            .then(function(authorized){ //dont put authorized => function, nothing happens literally nothing not even what is supposed to 
                 if(authorized){
                     return t.popup({
                         title: 'Trello is Authorized',
