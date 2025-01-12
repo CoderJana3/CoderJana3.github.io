@@ -93,11 +93,7 @@ window.TrelloPowerUp.initialize({
      }, 
      'save-attachment': function(t, options){
         console.log("entered save-attachment!");
-        return [{
-            text: 'Authorise',
-            callback: isAuthorizedTest,
-        },
-            {
+        return [{                                                   //if you put multiple callbacks, the lowest one will be carried out
             callback: (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
                 //const fetch = require('node-fetch');
 
@@ -156,25 +152,25 @@ window.TrelloPowerUp.initialize({
 
 
                 var isAuth = undefined;
-                // function authorizedTest (t) {
-                //     return  t.getRestApi()
-                //       .isAuthorized()
-                //       .then(async function(authorized){
-                //         await authorized;
-                //         if(authorized){
-                //            return t.popup({
-                //             title: 'Trello is Authorized',
-                //             url: './tautht.html'
-                //            })
-                //         } else {
-                //             return t.popup({
-                //                 title: 'Trello is NOT Authorized',
-                //                 url: './tauthf.html'
-                //             })
-                //         }
-                //     }).catch(error => console.error(error));
-                //    };
-                // authorizedTest(t);
+                async function authorizedTest (t) {
+                    return await t.getRestApi()
+                      .isAuthorized()
+                      .then(async function(authorized){
+                        await authorized;
+                        if(authorized){
+                           return t.popup({
+                            title: 'Trello is Authorized',
+                            url: './tautht.html'
+                           })
+                        } else {
+                            return t.popup({
+                                title: 'Trello is NOT Authorized',
+                                url: './tauthf.html'
+                            })
+                        }
+                    }).catch(error => console.error(error));
+                   };
+                //authorizedTest(t);
                 console.log("Client is authorized: " + isAuth);
                     
 
