@@ -7,6 +7,7 @@ t.render(function(){
 async function getKey(envvar) {                                                     //env is set up
     envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
                 .then(envvar => envvar.json());
+    return envvar;
 };
 var envvar = undefined;
 envvar = getKey(envvar);
