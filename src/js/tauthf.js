@@ -15,12 +15,14 @@ authBtn.addEventListener("click", function(){
     console.log(JSON.stringify(context, null, 2));
     console.log(context.card);  
     
-    var test = false; 
+    var test = undefined; 
     
     var envvar = undefined;
     envvar = getKey(envvar);
     if(envvar.testkey == 101){                                            //test to check if above function works
         test = true;
+    } else {
+        test = false;
     }
     console.log("process.env works:" + test); 
 
@@ -28,6 +30,6 @@ authBtn.addEventListener("click", function(){
     const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
         // If this returns false, the Promise won't resolve.
         return /^[0-9a-f]{64}$/.test(testtoken);
-      }                           //get's the correct card callback
+      }                                                     //get's the correct card callback
     return t.closePopup();                                  //call authorize at this point but for testing just close
 });
