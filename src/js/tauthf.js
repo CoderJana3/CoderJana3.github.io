@@ -4,13 +4,7 @@ t.render(function(){
     return t.sizeTo("#content");
 });
 
-async function getKey(envvar) {                                                     //env is set up
-    envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
-                .then(envvar => envvar.json());
-    return envvar;
-};
-var envvar = undefined;
-envvar = getKey(envvar);
+
 
 var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", function(){
@@ -19,6 +13,13 @@ authBtn.addEventListener("click", function(){
     console.log(context.card);  
     
     var test = undefined; 
+    async function getKey(envvar) {                                                     //env is set up
+        envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
+                    .then(envvar => envvar.json());
+        return envvar;
+    };
+    var envvar = undefined;
+    envvar = getKey(envvar);
     
     
     if(envvar.testkey == 101){                                            //test to check if above function works
