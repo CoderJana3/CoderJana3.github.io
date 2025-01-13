@@ -9,16 +9,21 @@ async function getEnv(envkey) {
 };
 apikey = getEnv(apikey);           
 
-var isAuthorizedTest = function(t){
+var isAuth = undefined;
+var isAuthorizedTest = function(t, isAuth){
     return t.getRestApi()
             .isAuthorized()
             .then(function(authorized){ //dont put authorized => function, nothing happens literally nothing not even what is supposed to 
                 if(authorized){
+                    isAuth = true;
+                    console.log(isAuth);
                     return t.popup({
                         title: 'Trello is Authorized',
                         url: './tautht.html'
                     })
                 } else {
+                    isAuth = false;
+                    console.log(isAuth);
                     return t.popup({
                         title: 'Trello is NOT Authorized',
                         url: './tauthf.html'
