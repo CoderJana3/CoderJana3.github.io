@@ -13,7 +13,7 @@ authBtn.addEventListener("click", function(){
     console.log(context.card);  
     
     var test = false; 
-    const envvar = undefined;
+    var envvar = undefined;
     async function getKey(envvar) {                                                     //env is set up
         envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
                     .then(envvar => envvar.json());
