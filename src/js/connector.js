@@ -94,17 +94,17 @@ window.TrelloPowerUp.initialize({
      'save-attachment': function(t, options){
         console.log("entered save-attachment!");
         return [{                                                   //if you put multiple callbacks, the lowest one will be carried out
-            callback: (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
+            callback: isAuthorizedTest,/* (async function(t, opts){                     //async added because of the await fetch for API_KEY_TEST
                 //const fetch = require('node-fetch');
 
                 /* Section: Getting the Card-ID*/
-                var context = t.getContext();                                           //gives JSON-Resp with detailed information
+               /* var context = t.getContext();                                           //gives JSON-Resp with detailed information
                 console.log(JSON.stringify(context, null, 2));
                 
                 /*Section: Getting the API_KEY*/
                 /*Just the test is here, the actual API_KEY needs to be defined outside intitialize, because
                 it is used after when defining the appKey, appName and appAuthor to use t.getRestApi() */
-                var test = false;                                                      //env is set up
+                /*var test = false;                                                      //env is set up
                 const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
                 .then(envvar => envvar.json());
 
@@ -115,7 +115,7 @@ window.TrelloPowerUp.initialize({
                 
                 /* Section: Getting the Token */
                 
-                const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";       //test token for tokenlooksvalid
+               /* const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5";       //test token for tokenlooksvalid
                 const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
                     // If this returns false, the Promise won't resolve.
                     return /^[0-9a-f]{64}$/.test(testtoken);
@@ -124,10 +124,10 @@ window.TrelloPowerUp.initialize({
                                                                                 //so it needs an input to return a result)
                 
                 /*Section: creating the URL */
-                var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token=APIToken'; //?key=APIKey&token=APIToken'; 
+               // var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token=APIToken'; //?key=APIKey&token=APIToken'; 
                 //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
                 //console.log(URL);             //don't use anymore, secrets 
-                console.log("Below should be logs from the testing section");
+                //console.log("Below should be logs from the testing section");
                 /*Section: Getting the Attachments*/ 
                 //  const response  = fetch(URL, {
                 //  method: 'GET',
@@ -145,33 +145,33 @@ window.TrelloPowerUp.initialize({
                 //  .catch(err => console.error(err));
 
                 /*Testing Section:*/
-                const testkey1 = '"' + envvar.testkey + '"';
+                /*const testkey1 = '"' + envvar.testkey + '"';
                 const testkey2 = JSON.stringify(envvar.testkey);
                 console.log("Test 1: " + testkey1, '\n', "Test 2: " + testkey2);
 
 
 
                 var isAuth = undefined;
-                async function authorizedTest (trel) {
-                    return await trel.getRestApi()
-                      .isAuthorized()
-                      .then(authorized => function(authorized){
-                        if(authorized){
-                            console.log("is authorized");
-                           return trel.popup({
-                            title: 'Trello is Authorized',
-                            url: './tautht.html'
-                           })
-                        } else {
-                            console.log("is NOT authorized");
-                            return trel.popup({
-                                title: 'Trello is NOT Authorized',
-                                url: './tauthf.html'
-                            })
-                        }
-                    }).catch(error => console.error(error));
-                   };
-                authorizedTest(t);
+                // async function authorizedTest (trel) {
+                //     return await trel.getRestApi()
+                //       .isAuthorized()
+                //       .then(authorized => function(authorized){
+                //         if(authorized){
+                //             console.log("is authorized");
+                //            return trel.popup({
+                //             title: 'Trello is Authorized',
+                //             url: './tautht.html'
+                //            })
+                //         } else {
+                //             console.log("is NOT authorized");
+                //             return trel.popup({
+                //                 title: 'Trello is NOT Authorized',
+                //                 url: './tauthf.html'
+                //             })
+                //         }
+                //     }).catch(error => console.error(error));
+                //    };
+                // authorizedTest(t);
                 console.log("Client is authorized: " + isAuth);
                     
 
@@ -215,7 +215,7 @@ window.TrelloPowerUp.initialize({
                 //check why name is available over opts and nothings else
                
                             
-            })
+            //})
              },
             // {
             //     text: 'authorise',                      //popupProblem was solbed by removing t from .then(function()) declarations
