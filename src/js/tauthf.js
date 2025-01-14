@@ -43,18 +43,20 @@ authBtn.addEventListener("click", async function(){
     }
     console.log("process.env works: " + test); 
 
-    /*Section: Getting Token and Test*/
+    /*Section:TokenTest Function defintion*/
     const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
         // If this returns false, the Promise won't resolve.
         return /^[0-9a-f]{64}$/.test(testtoken);
       } 
     
     /*Section: creating the URL */
+    var testURL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=';
     var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token='; //?key=APIKey&token=APIToken'; 
     //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
 
     /*Section: Getting Token and making request*/
     var gottoken = undefined;
+    var validtoken = false;
     await t.getRestApi()
      .getToken()
      .then(function (token) {
@@ -62,10 +64,16 @@ authBtn.addEventListener("click", async function(){
             console.log("No Token given, do authorization")
             gottoken = false;
         } 
-        //GET REQUEST for attachments with URL created above plus token //maybe put this outside getToken, just save token?
-        URL = URL + token + "'";
+        validtoken = tokenLooksValid(token);
+        if(validtoken){
+            console.log("Got a valid token!");
+            //GET REQUEST for attachments with URL created above plus token //maybe put this outside getToken, just save token?
+    
+            //URL = URL + token + "'";
         // make a request with token
-        //gottoken = null;
+        }
+        console.log(testURL);
+        
         console.log("End of getToken!");
     });
     console.log("getToken Test: " + gottoken);
