@@ -7,24 +7,25 @@ t.render(function(){
 
 
 var authBtn = document.getElementById("auth");
-authBtn.addEventListener("click", function(){
+authBtn.addEventListener("click", async function(){
     var context = t.getContext();                                           //gives JSON-Resp with detailed information
     console.log(JSON.stringify(context, null, 2));
     console.log(context.card);  
     
     var test = undefined; 
     var testkey = undefined;
-    async function getKey(envkey) {  
-        console.log("Entered getKey()!");                                        //only prints when getKey is called                
-        const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify //env is set up
+    //async function getKey(envkey) {  
+        //console.log("Entered getKey()!");                                        //only prints when getKey is called                
+    const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify //env is set up
                     .then(envvar => envvar.json()).catch(err => console.error(err));
                     
-        console.log("Testkey Value = " + testkey); 
-        envkey = envvar.testkey;
-        return envkey;
-    };
+    console.log("Testkey Value = " + testkey); 
+    //envkey = envvar.testkey;
+    testkey = envvar.testkey;
+    //return envkey;
+    //};
     
-    testkey = getKey(testkey);                                                    //so this calls the function, but doesn't get data
+    //testkey = getKey(testkey);                                                    //so this calls the function, but doesn't get data
     
     
     if(testkey == 101){                                            //test to check if above function works
