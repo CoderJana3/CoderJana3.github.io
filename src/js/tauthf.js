@@ -17,7 +17,8 @@ authBtn.addEventListener("click", function(){
     async function getKey(envkey) {  
         console.log("Entered getKey()!");                                        //only prints when getKey is called                
         const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify //env is set up
-                    .then(envvar => envvar.json());
+                    .then(envvar => envvar.json()).catch(err => console.error(err));
+                    )
         console.log("Testkey Value = " + testkey); 
         envkey = envvar.testkey;
         return envkey;
