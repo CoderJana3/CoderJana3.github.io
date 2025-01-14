@@ -13,7 +13,7 @@ async function getEnv(envkey) {
 const testkeyNum = "198374638a1caca81e18273764602019";
 const keyLooksValid = function(testK) {                         //from Trello Power Up Example from glitch
     // If this returns false, the Promise won't resolve.
-    return /^[0-9a-f]{32}$/.test(testK);
+    return /^[a-f0-9]{32}$/.test(testK);
   } 
 apikey = getEnv(apikey); 
 const isTestkey = keyLooksValid(testkeyNum);
