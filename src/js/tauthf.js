@@ -24,7 +24,7 @@ t.render(function(){
 /*Define what happens on clicking the Button in the popup*/
 var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", async function(){
-    
+    console.log("Not Authorized!")
                                                     
     return t.closePopup();                                  //call authorize at this point but for testing just close
 });
