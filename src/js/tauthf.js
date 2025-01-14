@@ -24,7 +24,7 @@ authBtn.addEventListener("click", function(){
         return envkey;
     };
     
-    envvar = getKey(testkey);                                                    //so this calls the function, but doesn't get data
+    testkey = getKey(testkey);                                                    //so this calls the function, but doesn't get data
     
     
     if(testkey == 101){                                            //test to check if above function works
