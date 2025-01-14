@@ -17,6 +17,7 @@ authBtn.addEventListener("click", function(){
         console.log("Entered getKey()!");                                        //only prints when getKey is called                
         const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify //env is set up
                     .then(envvar => envvar.json());
+        console.log("Testkey Value = " + testkey); 
         envkey = envvar.testkey;
         return envkey;
     };
@@ -29,7 +30,7 @@ authBtn.addEventListener("click", function(){
     } else {
         test = false;
     }
-    console.log("Testkey Value = " + testkey);                   //undefined, so getKey doesn't work 
+                      //undefined, so getKey doesn't work 
     console.log("process.env works: " + test); 
 
 
