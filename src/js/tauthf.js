@@ -27,7 +27,7 @@ authBtn.addEventListener("click", function(){
     } else {
         test = false;
     }
-    console.log("process.env works:" + test); 
+    console.log("process.env works: " + test); 
 
 
     const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
