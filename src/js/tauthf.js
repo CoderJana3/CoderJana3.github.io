@@ -10,13 +10,15 @@ async function getEnv(envkey) {
 
 // const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5"; 
 const testkeyNum = "198374638a1caca81e18273764602019";
-const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
+const keyLooksValid = function(testK) {                         //from Trello Power Up Example from glitch
     // If this returns false, the Promise won't resolve.
-    return /^[0-9a-f]{32}$/.test(testtoken);
+    return /^[0-9a-f]{32}$/.test(testK);
   } 
 apikey = getEnv(apikey); 
-const isTestkey = tokenLooksValid(testkeyNum);
-console.log("tokenLooksValid can be changed to test validKey: " + isTestkey);
+const isTestkey = keyLooksValid(testkeyNum);
+const isKey = keyLooksValid(apikey);
+console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
+
 
 
 /*Creating Trello iframe with Information needed for t.getRestApi()*/
