@@ -19,7 +19,7 @@ authBtn.addEventListener("click", function(){
                     .then(envvar => envvar.json()));
     };
     var envvar = undefined;
-    envvar = getKey(envvar);
+    //envvar = getKey(envvar);
     
     
     if(envvar.testkey == 101){                                            //test to check if above function works
