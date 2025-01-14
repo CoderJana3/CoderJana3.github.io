@@ -66,6 +66,7 @@ closeBtn.addEventListener("click", async function(){
         validtoken = tokenLooksValid(token);
         if(validtoken){
             console.log("Got a valid token!");
+            gottoken = true;
             //GET REQUEST for attachments with URL created above plus token //maybe put this outside getToken, just save token?
             //maybe just create URL in here, otherwise there's gonna be an ' in the definition(nope should work)
             URL = URL + token;

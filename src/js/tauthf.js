@@ -25,13 +25,17 @@ t.render(function(){
 var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", function(){
     console.log("Not Authorized!")
-    // t.getRestApi()
-    // .authorize({scope:read})
-    // .then(function(t){
-    //     console.log("Successfully authorized!");
-    //     t.alert("Success!")
-    //     return t.closePopup(); 
-    // });
+    t.getRestApi()
+    .authorize({scope:read})
+    .then(function(t){
+        console.log("Successfully authorized!");
+        t.alert("Success!")
+        return t.closePopup();
+        
+    }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
+        console.log("Error while authorizing: User denied Authorization");
+        alert("Cancelled!");
+      });
                                                     
-                                     //call authorize at this point but for testing just close
+    //return t.closePopup();                                 //call authorize at this point but for testing just close
 });
