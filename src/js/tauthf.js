@@ -22,13 +22,13 @@ authBtn.addEventListener("click", function(){
     //envvar = getKey(envvar);
     
     
-    if(envvar.testkey == 101){                                            //test to check if above function works
-        test = true;
-    } else {
-        test = false;
-    }
-    console.log("Testkey Value = " + envvar.testkey);                   //undefined, so getKey doesn't work 
-    console.log("process.env works: " + test); 
+    // if(envvar.testkey == 101){                                            //test to check if above function works
+    //     test = true;
+    // } else {
+    //     test = false;
+    // }
+    // console.log("Testkey Value = " + envvar.testkey);                   //undefined, so getKey doesn't work 
+    // console.log("process.env works: " + test); 
 
 
     const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
