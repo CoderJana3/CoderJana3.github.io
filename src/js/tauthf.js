@@ -3,7 +3,7 @@ var apikey = undefined;
 async function getEnv(envkey) {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json());  
-   envkey = '"' + envvar.apikey + '"'; 
+   //envkey = '"' + envvar.apikey + '"'; 
    return envkey;                    
 };
 apikey = getEnv(apikey); 
@@ -26,7 +26,7 @@ var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", function(){
     console.log("Not Authorized!")
     t.getRestApi()
-    .authorize({expiration: "1hour"},{scope:"read"})
+    .authorize({scope:"read"})
     .then(function(t){
         console.log("Successfully authorized!");
         t.alert("Success!")
