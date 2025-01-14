@@ -55,7 +55,7 @@ authBtn.addEventListener("click", async function(){
 
     /*Section: Getting Token and making request*/
     var gottoken = undefined;
-    t.getRestApi()
+    await t.getRestApi()
      .getToken()
      .then(function (token) {
         if (!token) {
