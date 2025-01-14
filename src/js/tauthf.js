@@ -65,7 +65,7 @@ authBtn.addEventListener("click", async function(){
         //GET REQUEST for attachments with URL created above plus token
         URL = URL + token + "'";
 //     // make a request with token
-        gottoken = null;
+        //gottoken = null;
         console.log("End of getToken!");
     });
     console.log("getToken Test: " + gottoken);
