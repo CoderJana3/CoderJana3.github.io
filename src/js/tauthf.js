@@ -50,7 +50,7 @@ authBtn.addEventListener("click", async function(){
       } 
     
     /*Section: creating the URL */
-    //var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token='; //?key=APIKey&token=APIToken'; 
+    var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envvar.apikey + '&token='; //?key=APIKey&token=APIToken'; 
     //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
 
     /*Section: Getting Token and making request*/
@@ -62,9 +62,9 @@ authBtn.addEventListener("click", async function(){
             console.log("No Token given, do authorization")
             gottoken = false;
         } 
-        //GET REQUEST for attachments with URL created above plus token
+        //GET REQUEST for attachments with URL created above plus token //maybe put this outside getToken, just save token?
         URL = URL + token + "'";
-//     // make a request with token
+        // make a request with token
         //gottoken = null;
         console.log("End of getToken!");
     });
