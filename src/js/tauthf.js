@@ -14,9 +14,8 @@ authBtn.addEventListener("click", function(){
     
     var test = undefined; 
     async function getKey(envvar) {                                                     //env is set up
-        envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
-                    .then(envvar => envvar.json());
-        return envvar;
+         return (envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
+                    .then(envvar => envvar.json()));
     };
     var envvar = undefined;
     envvar = getKey(envvar);
@@ -27,7 +26,7 @@ authBtn.addEventListener("click", function(){
     } else {
         test = false;
     }
-    console.log("Testkey Value = " + envvar.testkey);
+    console.log("Testkey Value = " + envvar.testkey);                   //undefined, so getKey doesn't work 
     console.log("process.env works: " + test); 
 
 
