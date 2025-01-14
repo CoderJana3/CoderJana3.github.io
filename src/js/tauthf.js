@@ -13,22 +13,24 @@ authBtn.addEventListener("click", function(){
     console.log(context.card);  
     
     var test = undefined; 
-    async function getKey(envvar) {  
-        console.log("Entered getKey()!");                                                   //env is set up
-         return (envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify 
-                    .then(envvar => envvar.json()));
+    async function getKey(envkey) {  
+        console.log("Entered getKey()!");                                        //only prints when getKey is called                
+        const envvar = await fetch("/.netlify/functions/envvar")              //need this to get environemnt vars from netlify //env is set up
+                    .then(envvar => envvar.json());
+        envkey = envvar.testkey;
+        return envkey;
     };
-    //var envvar = undefined;
-    //envvar = getKey(envvar);
+    var testkey = undefined;
+    envvar = getKey(testkey);                                                    //so this calls the function, but doesn't get data
     
     
-    // if(envvar.testkey == 101){                                            //test to check if above function works
-    //     test = true;
-    // } else {
-    //     test = false;
-    // }
-    // console.log("Testkey Value = " + envvar.testkey);                   //undefined, so getKey doesn't work 
-    // console.log("process.env works: " + test); 
+    if(testkey == 101){                                            //test to check if above function works
+        test = true;
+    } else {
+        test = false;
+    }
+    console.log("Testkey Value = " + testkey);                   //undefined, so getKey doesn't work 
+    console.log("process.env works: " + test); 
 
 
     const tokenLooksValid = function(testtoken) {                         //from Trello Power Up Example from glitch
