@@ -23,8 +23,15 @@ t.render(function(){
 
 /*Define what happens on clicking the Button in the popup*/
 var authBtn = document.getElementById("auth");
-authBtn.addEventListener("click", async function(){
+authBtn.addEventListener("click", function(){
     console.log("Not Authorized!")
+    // t.getRestApi()
+    // .authorize({scope:read})
+    // .then(function(t){
+    //     console.log("Successfully authorized!");
+    //     t.alert("Success!")
+    //     return t.closePopup(); 
+    // });
                                                     
-    return t.closePopup();                                  //call authorize at this point but for testing just close
+                                     //call authorize at this point but for testing just close
 });

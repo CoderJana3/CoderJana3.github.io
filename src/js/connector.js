@@ -46,6 +46,18 @@ window.TrelloPowerUp.initialize({
                     url: "estimate.html",
                 });
             },
+        }, {
+            //icon: 
+            text: 'Clear Token',
+            callback: function(t){
+                console.log("Clicked clearToken button");
+                return t.getRestApi()
+                        .clearToken()
+                        .then(function(t){
+                            console.log("No token is stored!")
+                        });
+            }
+
         }];
     },
     'card-badges': function(t, options){
