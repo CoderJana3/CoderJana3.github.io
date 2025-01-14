@@ -54,17 +54,21 @@ authBtn.addEventListener("click", async function(){
     //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
 
     /*Section: Getting Token and making request*/
+    var gottoken = undefined;
     t.getRestApi()
      .getToken()
      .then(function (token) {
         if (!token) {
             console.log("No Token given, do authorization")
+            gottoken = false;
         }
       //GET REQUEST for attachments with URL created above plus token
         //URL = URL + token + "'";
 //     // make a request with token
+        gottoken = true;
         console.log("End of getToken!");
     });
+    console.log("getToken Test: " + gottoken);
                                                     
     return t.closePopup();                                  //call authorize at this point but for testing just close
 });
