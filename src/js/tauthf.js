@@ -61,11 +61,9 @@ authBtn.addEventListener("click", async function(){
         if (!token) {
             console.log("No Token given, do authorization")
             gottoken = false;
-        } else {
-            gotToken = true;
-        }
-      //GET REQUEST for attachments with URL created above plus token
-        //URL = URL + token + "'";
+        } 
+        //GET REQUEST for attachments with URL created above plus token
+        URL = URL + token + "'";
 //     // make a request with token
         gottoken = null;
         console.log("End of getToken!");
