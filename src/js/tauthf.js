@@ -4,14 +4,14 @@ async function getEnv(envkey) {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json());  
     console.log("Testkey " + envvar.testkey);
-   //envkey = '"' + envvar.apikey + '"'; 
+   envkey = '"' + envvar.apikey + '"'; 
    return envkey;                    
 };
 apikey = getEnv(apikey); 
 
 /*Creating Trello iframe with Information needed for t.getRestApi()*/
 var t = window.TrelloPowerUp.iframe({
-    appKey: '"' + apikey + '"',
+    appKey: apikey,
     appName: "TestCard-PowerUp",
     appAuthor: "J D",
 });
