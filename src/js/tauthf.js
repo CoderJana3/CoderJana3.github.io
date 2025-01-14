@@ -27,6 +27,7 @@ authBtn.addEventListener("click", function(){
     } else {
         test = false;
     }
+    console.log("Testkey Value = " + envvar.testkey);
     console.log("process.env works: " + test); 
 
 
