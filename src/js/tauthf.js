@@ -26,7 +26,7 @@ var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", function(){
     console.log("Not Authorized!")
     t.getRestApi()
-    .authorize({scope:read})
+    .authorize({expiration: "1hour"},{scope:"read"})
     .then(function(t){
         console.log("Successfully authorized!");
         t.alert("Success!")
