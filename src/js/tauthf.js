@@ -3,7 +3,7 @@ var apikey = undefined;
 async function getEnv(envkey) {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json());  
-    console.log("Testkey " + envvar.testkey);
+    console.log("Testkey " + envvar.apikey);
    //envkey = '"' + envvar.apikey + '"'; 
    envkey = envvar.apikey;
    return envkey;                    
@@ -37,8 +37,8 @@ t.render(function(){
 
 /*Define what happens on clicking the Button in the popup*/
 var authBtn = document.getElementById("auth");
-authBtn.addEventListener("click", function(){
-    console.log("Not Authorized!")
+authBtn.addEventListener("click", function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
+    console.log("Not Authorized!")                                  //waiting on object Promise
     t.getRestApi()
     .authorize({scope:"read"})
     .then(function(t){
