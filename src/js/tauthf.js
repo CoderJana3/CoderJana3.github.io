@@ -13,7 +13,8 @@ async function getEnv(envkey) {
 const testkeyNum = "g98374638a1caca81e18273764602015";
 const keyLooksValid = function(testK) {                         //from Trello Power Up Example from glitch
     // If this returns false, the Promise won't resolve.
-    return /^[A-Za-z0-9]{32}$/.test(testK);
+    //return /^[A-Za-z0-9]{32}$/.test(testK);
+    return /[A-Za-z0-9]{32}/.test(testK);
   } 
 apikey = getEnv(apikey); 
 const isTestkey = keyLooksValid(testkeyNum);
@@ -46,7 +47,7 @@ t.render(function(){
 /*Define what happens on clicking the Button in the popup*/
 var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
-    console.log("Not Authorized!")                                  //waiting on object Promise
+    console.log("Not Authorized!")                                  //waiting on object Promise it didn't
     await t.getRestApi()
     .authorize({scope:"read"})
     .then(function(t){

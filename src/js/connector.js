@@ -16,14 +16,14 @@ var isAuthorizedTest = function(t, isAuth){
             .then(function(authorized){ //dont put authorized => function, nothing happens literally nothing not even what is supposed to 
                 if(authorized){
                     isAuth = true;
-                    console.log(isAuth);
+                    console.log("User is authorized: " + isAuth);
                     return t.popup({
                         title: 'Trello is Authorized',
                         url: './tautht.html'
                     })
                 } else {
                     isAuth = false;
-                    console.log(isAuth);
+                    console.log("User is not authorized: " + isAuth);
                     return t.popup({
                         title: 'Trello is NOT Authorized',
                         url: './tauthf.html'
