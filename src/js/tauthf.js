@@ -73,7 +73,7 @@ t.render(function(){
 
 
 /*Define what happens on clicking the Button in the popup*/
-//var authBtn = document.getElementById("auth");
+var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
     console.log("Clicked Authorize Button!")  
     // const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
