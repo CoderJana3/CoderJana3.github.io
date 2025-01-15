@@ -65,7 +65,7 @@ authBtn.addEventListener("click", async function(){                       //try 
     } else if (apikey == ""){
         console.log("APItestKey is emptyString!");
     } else if(apikey != undefined){
-        console.log("APItestKey is defined! ");
+        console.log("APItestKey is defined! " + apikey);
     } else {
         console.log("APItestKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
     }
