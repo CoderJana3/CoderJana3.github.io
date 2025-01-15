@@ -2,11 +2,16 @@
 
 async function getEnv(envkey) {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json()); 
+        .then(envvar => {
+            envvar.json();
+            envkey = envvar.apikey;
+            return envkey;
+
+        }); 
     console.log("Testkey " + envvar.testkey);
-   //envkey = '"' + envvar.apikey + '"'; 
-   envkey = JSON.stringify( envvar.apikey);
-   return envkey;                    
+//    //envkey = '"' + envvar.apikey + '"'; 
+//    envkey = JSON.stringify( envvar.apikey);
+//    return envkey;                    
 };
 
 // const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5"; 
