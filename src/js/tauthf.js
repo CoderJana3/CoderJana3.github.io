@@ -16,8 +16,9 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     // If this returns false, the Promise won't resolve.
     return /^[A-Za-z0-9]{32}$/.test(testK);
   } 
-
-var apikey = Promise.resolve(getEnv(apikey));
+var apikey = "";
+var apikeypromise = Promise.resolve(getEnv(apikey));
+apikeypromise.then((value) => {apikey = value});
 // apikey = getEnv(apikey).then(function() {
 //     envkey = envvar.apikey;
 //     return envkey}); ; //for some reason this returns a promise, fulfilled but not just the value
