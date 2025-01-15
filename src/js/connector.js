@@ -23,7 +23,7 @@ var isAuthorizedTest = function(t, isAuth){
                     })
                 } else {
                     isAuth = false;
-                    console.log("User is not authorized: " + isAuth);
+                    console.log("User is authorized: " + isAuth);
                     return t.popup({
                         title: 'Trello is NOT Authorized',
                         url: './tauthf.html'
