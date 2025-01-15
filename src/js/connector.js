@@ -7,7 +7,17 @@ async function getEnv(envkey) {
    envkey = '"' + envvar.apikey + '"'; 
    return envkey;                    
 };
-apikey = getEnv(apikey);           
+apikey = getEnv(apikey);  
+
+if(apikey instanceof Promise){
+    console.log("Apikey is a Promise");
+} else if (apikey == ""){
+    console.log("APIKey is emptyString!");
+} else if(apikey != undefined){
+    console.log("APIKey is defined! " + apikey);
+} else {
+    console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+}
 
 var isAuth = undefined;
 var isAuthorizedTest = function(t, isAuth){

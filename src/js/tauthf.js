@@ -5,8 +5,8 @@ async function getEnv(envkey) {
         .then(envvar => envvar.json()); 
     //console.log("Testkey " + envvar.testkey);
     //envkey = '"' + envvar.apikey + '"'; 
-    envkey = JSON.stringify( envvar.apikey);
-    console.log(envkey);
+    envkey = JSON.stringify( envvar.apikey);        //gets the value
+    //console.log(envkey);  
     return envkey;                    
 };
 
