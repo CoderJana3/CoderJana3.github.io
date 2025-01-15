@@ -1,6 +1,6 @@
 /*Getting and setting the API_KEY to use later on for t.getRestApi()*/
 
-var apikey = async function () {
+async function getEnv(envkey) {
    const envkey = "";
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json()); 
@@ -16,6 +16,8 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     // If this returns false, the Promise won't resolve.
     return /^[A-Za-z0-9]{32}$/.test(testK);
   } 
+var apikey = "";
+apikey = getEnv(apikey);
 // apikey = getEnv(apikey).then(function() {
 //     envkey = envvar.apikey;
 //     return envkey}); ; //for some reason this returns a promise, fulfilled but not just the value
