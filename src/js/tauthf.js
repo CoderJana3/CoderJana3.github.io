@@ -32,9 +32,9 @@ var t = window.TrelloPowerUp.iframe({
 if(t.appKey != undefined){
     console.log("appKey was defined!");
 } else if (t.appKey == ""){
-    console.log("appKey is emptyString!")
+    console.log("appKey is emptyString!");
 } else {
-    console.log("appKey is undefined!")
+    console.log("appKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
 }
 
 /*Render for popup size window*/
