@@ -76,18 +76,18 @@ t.render(function(){
 //var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
     console.log("Clicked Authorize Button!")  
-    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json())
-    var apikey = JSON.stringify( envvar.apikey);
-    if(apikey instanceof Promise){
-        console.log("Apitestkey is a Promise");
-    } else if (apikey == ""){
-        console.log("APItestKey is emptyString!");
-    } else if(apikey != undefined){
-        console.log("APItestKey is defined! " + apikey);
-    } else {
-        console.log("APItestKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
-    }
+    // const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
+    //     .then(envvar => envvar.json())
+    // var apikey = JSON.stringify( envvar.apikey);
+    // if(apikey instanceof Promise){
+    //     console.log("Apitestkey is a Promise");
+    // } else if (apikey == ""){
+    //     console.log("APItestKey is emptyString!");
+    // } else if(apikey != undefined){
+    //     console.log("APItestKey is defined! " + apikey);
+    // } else {
+    //     console.log("APItestKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+    // }
 
 
     if(keyLooksValid(apikey)){
