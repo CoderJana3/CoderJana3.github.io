@@ -15,7 +15,7 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     // If this returns false, the Promise won't resolve.
     return /^[A-Za-z0-9]{32}$/.test(testK);
   } 
-//apikey = getEnv(apikey); 
+apikey = getEnv(apikey); 
 const isTestkey = keyLooksValid(testkeyNum);
 const isKey = keyLooksValid(apikey);
 console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
@@ -29,9 +29,9 @@ var t = window.TrelloPowerUp.iframe({
     appAuthor: "J D",
 });
 
-if(t.appKey != undefined){
+if(apikey != undefined){
     console.log("appKey was defined!");
-} else if (t.appKey == ""){
+} else if (apikey == ""){
     console.log("appKey is emptyString!");
 } else {
     console.log("appKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
