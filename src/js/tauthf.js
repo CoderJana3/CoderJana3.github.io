@@ -18,7 +18,9 @@ const keyLooksValid = function(testK) {                         //from Trello Po
   } 
 var apikey = "";
 var apikeypromise = Promise.resolve(getEnv(apikey));
+console.log("Resolve Promise Test: " + apikeypromise);
 apikeypromise.then((value) => {apikey = value});
+console.log("Resolve Promise Test 2: " + apikeypromise);
 // apikey = getEnv(apikey).then(function() {
 //     envkey = envvar.apikey;
 //     return envkey}); ; //for some reason this returns a promise, fulfilled but not just the value
