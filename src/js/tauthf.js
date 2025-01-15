@@ -24,8 +24,8 @@ console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
 
 /*Creating Trello iframe with Information needed for t.getRestApi()*/
 var t = window.TrelloPowerUp.iframe({
-    appKey: apikey,
     appName: "TestCard-PowerUp",
+    appKey: apikey,
     appAuthor: "J D",
 });
 
