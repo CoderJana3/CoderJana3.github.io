@@ -29,8 +29,8 @@ const keyLooksValid = function(testK) {                         //from Trello Po
 // console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
 /*Creating second EventListener for env Var*/
 var apikey = "";
-var authBtn = document.getElementById("auth");
-authBtn.addEventListener("click", async function() {
+var content = document.getElementById("content");
+content.addEventListener("click", async function() {
     console.log("Entered first click function!");
     const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json())
