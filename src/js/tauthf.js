@@ -17,6 +17,7 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     return /\w{32}/.test(testK);
   } 
 apikey = getEnv(apikey); 
+console.log(apikey);
 const isTestkey = keyLooksValid(testkeyNum);
 const isKey = keyLooksValid(apikey);
 console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
