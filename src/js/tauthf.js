@@ -29,9 +29,9 @@ var t = window.TrelloPowerUp.iframe({
     appAuthor: "J D",
 });
 
-if(t.apikey != undefined){
+if(t.appKey != undefined){
     console.log("appKey was defined!");
-} else if (t.apikey == ""){
+} else if (t.appKey == ""){
     console.log("appKey is emptyString!")
 } else {
     console.log("appKey is undefined!")
