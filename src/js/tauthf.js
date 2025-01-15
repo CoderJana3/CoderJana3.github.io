@@ -37,7 +37,7 @@ if(apikey instanceof Promise){
 } else if (apikey == ""){
     console.log("APIKey is emptyString!");
 } else if(apikey != undefined){
-    console.log("APIKey is defined!")
+    console.log("APIKey is defined! " + apikey);
 } else {
     console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
 }
