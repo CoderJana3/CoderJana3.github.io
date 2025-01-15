@@ -37,9 +37,9 @@ t.render(function(){
 
 /*Define what happens on clicking the Button in the popup*/
 var authBtn = document.getElementById("auth");
-authBtn.addEventListener("click", function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
+authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
     console.log("Not Authorized!")                                  //waiting on object Promise
-    t.getRestApi()
+    await t.getRestApi()
     .authorize({scope:"read"})
     .then(function(t){
         console.log("Successfully authorized!");
