@@ -16,17 +16,17 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     // If this returns false, the Promise won't resolve.
     return /^[A-Za-z0-9]{32}$/.test(testK);
   } 
-var apikey = "";
-var apikeypromise = Promise.resolve(getEnv(apikey));
-console.log("Resolve Promise Test: " + apikeypromise);
-apikeypromise.then((value) => {apikey = value});
-console.log("Resolve Promise Test 2: " + apikeypromise);
-// apikey = getEnv(apikey).then(function() {
-//     envkey = envvar.apikey;
-//     return envkey}); ; //for some reason this returns a promise, fulfilled but not just the value
-const isTestkey = keyLooksValid(testkeyNum);
-const isKey = keyLooksValid(apikey);
-console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
+// var apikey = "";
+// var apikeypromise = Promise.resolve(getEnv(apikey));
+// console.log("Resolve Promise Test: " + apikeypromise);
+// apikeypromise.then((value) => {apikey = value});
+// console.log("Resolve Promise Test 2: " + apikeypromise);
+// // apikey = getEnv(apikey).then(function() {
+// //     envkey = envvar.apikey;
+// //     return envkey}); ; //for some reason this returns a promise, fulfilled but not just the value
+// const isTestkey = keyLooksValid(testkeyNum);
+// const isKey = keyLooksValid(apikey);
+// console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
 
 
 
@@ -59,7 +59,7 @@ authBtn.addEventListener("click", async function(){                       //try 
     console.log("Clicked Authorize Button!")  
     const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json())
-    apikey = JSON.stringify( envvar.apikey);
+    var apikey = JSON.stringify( envvar.apikey);
     if(apikey instanceof Promise){
         console.log("Apitestkey is a Promise");
     } else if (apikey == ""){
