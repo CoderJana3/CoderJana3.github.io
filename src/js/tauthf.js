@@ -29,6 +29,12 @@ var t = window.TrelloPowerUp.iframe({
     appAuthor: "J D",
 });
 
+if(t.apikey != undefined){
+    console.log("appKey was defined!");
+} else {
+    console.log("appKey is undefined!")
+}
+
 /*Render for popup size window*/
 t.render(function(){
     return t.sizeTo("#content");
