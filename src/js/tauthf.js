@@ -32,12 +32,14 @@ var t = window.TrelloPowerUp.iframe({
     appAuthor: "J D",
 });
 
-if(apikey != undefined){
-    console.log("appKey was defined!");
+if(apikey instanceof Promise){
+    console.log("Apikey is a Promise");
 } else if (apikey == ""){
-    console.log("appKey is emptyString!");
+    console.log("APIKey is emptyString!");
+} else if(apikey != undefined){
+    console.log("APIKey is defined!")
 } else {
-    console.log("appKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+    console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
 }
 
 /*Render for popup size window*/
