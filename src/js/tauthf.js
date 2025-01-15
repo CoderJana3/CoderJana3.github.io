@@ -1,15 +1,13 @@
 /*Getting and setting the API_KEY to use later on for t.getRestApi()*/
-var apikey = "";
-async function getEnv(envkey) {
+
+var apikey = async function () {
+   const envkey = "";
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json())
-        .then(function() {
-            envkey = envvar.apikey;
-            return envkey});  
+        .then(envvar => envvar.json()); 
     console.log("Testkey " + envvar.testkey);
    //envkey = '"' + envvar.apikey + '"'; 
-   //envkey = JSON.stringify( envvar.apikey);
-   //return envkey;                    
+   envkey = JSON.stringify( envvar.apikey);
+   return envkey;                    
 };
 
 // const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5"; 
@@ -18,7 +16,9 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     // If this returns false, the Promise won't resolve.
     return /^[A-Za-z0-9]{32}$/.test(testK);
   } 
-apikey = getEnv(apikey); //for some reason this returns a promise, fulfilled but not just the value
+// apikey = getEnv(apikey).then(function() {
+//     envkey = envvar.apikey;
+//     return envkey}); ; //for some reason this returns a promise, fulfilled but not just the value
 const isTestkey = keyLooksValid(testkeyNum);
 const isKey = keyLooksValid(apikey);
 console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
@@ -49,7 +49,7 @@ t.render(function(){
 /*Define what happens on clicking the Button in the popup*/
 var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
-    console.log("Entered EventListener!")  
+    console.log("Clicked Authorize Button!")  
     if(keyLooksValid(apikey)){
         await t.getRestApi()
                .authorize({scope:"read"})
