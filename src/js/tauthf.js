@@ -3,7 +3,7 @@ var apikey = "";
 async function getEnv(envkey) {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json())
-        .then(envvar => {
+        .then(function() {
             envkey = envvar.apikey;
             return envkey});  
     console.log("Testkey " + envvar.testkey);
