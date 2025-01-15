@@ -1,5 +1,5 @@
 /*Getting and setting the API_KEY to use later on for t.getRestApi()*/
-var apikey = undefined;
+var apikey = "";
 async function getEnv(envkey) {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json());  
@@ -31,6 +31,8 @@ var t = window.TrelloPowerUp.iframe({
 
 if(t.apikey != undefined){
     console.log("appKey was defined!");
+} else if (t.apikey == ""){
+    console.log("appKey is emptyString!")
 } else {
     console.log("appKey is undefined!")
 }
