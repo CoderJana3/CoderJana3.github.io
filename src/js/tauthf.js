@@ -68,13 +68,13 @@ var t = window.TrelloPowerUp.iframe({
 });
 
 if(apikey instanceof Promise){
-    console.log("Apikey is a Promise");
+    console.log("Apikey is a Promise (tauthf.js)");
 } else if (apikey == ""){
-    console.log("APIKey is emptyString!");
+    console.log("APIKey is emptyString! (tauthf.js)");
 } else if(apikey != undefined){
-    console.log("APIKey is defined! " + apikey);
+    console.log("APIKey is defined! (tauthf.js)" + apikey);
 } else {
-    console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+    console.log("APIKey is undefined! (tauthf.js)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
 }
 
 /*Render for popup size window*/
@@ -91,13 +91,13 @@ authBtn.addEventListener("click", async function(){                       //try 
         .then(envvar => envvar.json())
     apikey = JSON.stringify( envvar.apikey);
     if(apikey instanceof Promise){
-        console.log("Apitestkey is a Promise");
+        console.log("Apitestkey is a Promise (click btn)");
     } else if (apikey == ""){
-        console.log("APItestKey is emptyString!");
+        console.log("APItestKey is emptyString! (click btn)");
     } else if(apikey != undefined){
-        console.log("APItestKey is defined! ");
+        console.log("APItestKey is defined! (click btn)");
     } else {
-        console.log("APItestKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+        console.log("APItestKey is undefined! (click btn)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
     }
 
 

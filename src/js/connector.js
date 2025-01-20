@@ -10,13 +10,13 @@ async function getEnv(envkey) {
 apikey = getEnv(apikey);  
 
 if(apikey instanceof Promise){
-    console.log("Apikey is a Promise");
+    console.log("Apikey is a Promise (connector.js)");
 } else if (apikey == ""){
-    console.log("APIKey is emptyString!");
+    console.log("APIKey is emptyString! (connector.js)");
 } else if(apikey != undefined){
-    console.log("APIKey is defined! " + apikey);
+    console.log("APIKey is defined! (connector.js)" + apikey);
 } else {
-    console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+    console.log("APIKey is undefined! (connector.js)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
 }
 
 var isAuth = undefined;
