@@ -1,18 +1,17 @@
 /*Getting and setting the API_KEY to use later on for t.getRestApi()*/
 
-async function getEnv(envkey) {
+async function getEnv() {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json()); 
     //console.log("Testkey " + envvar.testkey);
     //envkey = '"' + envvar.apikey + '"'; 
-    envkey = envvar.apikey;        //gets the value
+     var envkey = envvar.apikey;        //gets the value
     //console.log(envkey);  
     return envkey;                    
 };
 
-var test = "";
 var promiseKey = "";
-getEnv(test).then((value) => {value = promiseKey});
+getEnv().then((value) => {value = promiseKey});
 if(promiseKey instanceof Promise){
     console.log("Promisekey is a Promise");
 } else if (promiseKey == ""){
