@@ -40,24 +40,24 @@ const keyLooksValid = function(testK) {                         //from Trello Po
 // console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
 /*Creating second EventListener for env Var*/
 var apikey = "";
-var content = document.getElementById("content");
-content.addEventListener("click", async function() {
-    console.log("Entered first click function!");
-    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json())
-    apikey = JSON.stringify( envvar.apikey);
-    if(apikey instanceof Promise){
-        console.log("Apikey is a Promise");
-    } else if (apikey == ""){
-        console.log("APIKey is emptyString!");
-    } else if(apikey != undefined){
-        console.log("APIKey is defined! ");
-    } else {
-        console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
-    }
-    //return apikey;
+// var content = document.getElementById("content");
+// content.addEventListener("click", async function() {
+//     console.log("Entered first click function!");
+//     const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
+//         .then(envvar => envvar.json())
+//     apikey = JSON.stringify( envvar.apikey);
+//     if(apikey instanceof Promise){
+//         console.log("Apikey is a Promise");
+//     } else if (apikey == ""){
+//         console.log("APIKey is emptyString!");
+//     } else if(apikey != undefined){
+//         console.log("APIKey is defined! ");
+//     } else {
+//         console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+//     }
+//     //return apikey;
     
-})
+// })
 
 
 /*Creating Trello iframe with Information needed for t.getRestApi()*/
@@ -87,32 +87,33 @@ t.render(function(){
 var authBtn = document.getElementById("auth");
 authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
     console.log("Clicked Authorize Button!")  
-    // const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-    //     .then(envvar => envvar.json())
-    // var apikey = JSON.stringify( envvar.apikey);
-    // if(apikey instanceof Promise){
-    //     console.log("Apitestkey is a Promise");
-    // } else if (apikey == ""){
-    //     console.log("APItestKey is emptyString!");
-    // } else if(apikey != undefined){
-    //     console.log("APItestKey is defined! " + apikey);
-    // } else {
-    //     console.log("APItestKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
-    // }
+    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
+        .then(envvar => envvar.json())
+    apikey = JSON.stringify( envvar.apikey);
+    if(apikey instanceof Promise){
+        console.log("Apitestkey is a Promise");
+    } else if (apikey == ""){
+        console.log("APItestKey is emptyString!");
+    } else if(apikey != undefined){
+        console.log("APItestKey is defined! ");
+    } else {
+        console.log("APItestKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+    }
 
 
     if(keyLooksValid(apikey)){
-        await t.getRestApi()
-               .authorize({scope:"read"})
-               .then(function(t){
-                    console.log("Successfully authorized!");
-                     t.alert("Success!")
-                    return t.closePopup();
+        console.log("Valid Apikey!");
+        // await t.getRestApi()
+        //        .authorize({scope:"read"})
+        //        .then(function(t){
+        //             console.log("Successfully authorized!");
+        //              t.alert("Success!")
+        //             return t.closePopup();
         
-                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
-                        console.log("Error while authorizing: User denied Authorization");
-                         alert("Cancelled!");
-                    });
+        //          }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
+        //                 console.log("Error while authorizing: User denied Authorization");
+        //                  alert("Cancelled!");
+        //             });
     } else {
         alert("No valid APIKey!");
     }                                //waiting on object Promise it didn't
