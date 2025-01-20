@@ -31,7 +31,7 @@ async function getEnv() {
         /**Section:TokenTest Function Defintion*/
         const tokenLooksValid = function(testtoken) {                           //from Trello Power Up Example from glitch
             // If this returns false, the Promise won't resolve.
-            return /^[0-9a-f]{64}$/.test(testtoken);                            //does not work right now ;(
+            return /^[0-9a-f]{63}$/.test(testtoken);                            //does not work right now ;(
         } 
         
         /**Section: start creating the URL */                                    //create a Base URL with the information that's already available, aka card ID and API Key
