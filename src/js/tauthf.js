@@ -1,60 +1,67 @@
-/*Getting and setting the API_KEY to use later on for t.getRestApi()*/
+/** Getting and setting the API_KEY to use later on for t.getRestApi()*/
 
 async function getEnv() {
-   const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json()); 
-    //console.log("Testkey " + envvar.testkey);
-    //envkey = '"' + envvar.apikey + '"'; 
-    //gets the value
-    //console.log(envkey);  
-    //return envkey;   
-    //return envvar;  
-    var envkey = envvar.apikey; 
+   const envvar = await fetch("/.netlify/functions/envvar")                         //need this to get environemnt vars from netlify 
+        .then(envvar => envvar.json());   
+    var envkey = envvar.apikey;                                                     //save the apikey in var envkey to use it later on
+                                                                                    //as the apikey is already stringified in the Body of the response there is no need 
+                                                                                    //to use stringify again
+
+    /**Creating the iframe needed for Trello with all necessary Information */
     var t = window.TrelloPowerUp.iframe({
         appName: "TestCard-PowerUp",
         appKey: envkey,
         appAuthor: "J D",
     }); 
 
+    /**Render for Popup Window */
     t.render(function(){
         return t.sizeTo("#content")
     });
 
-    /*Define what happens on clicking the Button in the popup*/
-    var authBtn = document.getElementById("auth");
+    const testkeyNum = "g98374638a1caca81e18273764602015";
+    const keyLooksValid = function(testK) {                                         //from Trello Power Up Example from glitch
+        // If this returns false, the Promise won't resolve.
+        return /^[A-Za-z0-9]{32}$/.test(testK);
+    } 
+    console.log("Test KeyLooksValid worked: " + keyLooksValid(testkeyNum));         //Test to see if the keyLooksValid Function works
+
+    /**Define what happens on clicking the Button in the popup*/
+    var authBtn = document.getElementById("auth");                                  //get the correct Button
     authBtn.addEventListener("click", async function(){                      
         console.log("Clicked Authorize Button!")  
-        if(keyLooksValid(envkey)){
+        if(keyLooksValid(envkey)){                                                  //If a valid APIKey was given
             console.log("Valid Apikey!");
-            t.getRestApi()
-                .authorize({scope:"read"})
+            t.getRestApi()                                                          //get a REST API Instance
+                .authorize({scope:"read"})                                          //authorize with only Read access
             .then(function(t){
-                    console.log("Successfully authorized!");
-                    alert("Success!")               //this made an error, try alert("Success!") instead of t.alert("Success!")-> error moved one row down, try
-                    //return t.closePopup();         //removing the return            
-                }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
+                    console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
+                    alert("Success!")               
+                    //return t.closePopup();                   
+                }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled!");
                     });
         } else {
-            alert("No valid APIKey!");
-        }                                //waiting on object Promise it didn't
+            alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
+        }                                
     
                                                     
-    //return t.closePopup();                                 //call authorize at this point but for testing just close
+    return t.closePopup();                                                          //close the Popup                       
 });
    
                    
 };
 
+getEnv();                                                       //Necessary, otherwise clicking the button doesnt work
+
+
+
+/**OLD CODE, can probably be deleted */
 // async function resEnv(){
 //     const result = await getEnv()
 //     return result
 // }
-
-getEnv();                                                       //necessary, otherwise clicking the button doesnt work
-
-
 // var promiseKey = "";
 // var test = "Test is not a Promise";
 // //(async()=> {test = await resEnv()})()              //wrapping ()around async and adding ()after it made it return a promise without await
@@ -77,12 +84,7 @@ getEnv();                                                       //necessary, oth
 // }
 
 // const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5"; 
-const testkeyNum = "g98374638a1caca81e18273764602015";
-const keyLooksValid = function(testK) {                         //from Trello Power Up Example from glitch
-    // If this returns false, the Promise won't resolve.
-    return /^[A-Za-z0-9]{32}$/.test(testK);
-  } 
-  console.log("Test KeyLooksValid worked: " + keyLooksValid(testkeyNum));
+
 // var apikey = "";
 // var apikeypromise = Promise.resolve(getEnv(apikey));
 // console.log("Resolve Promise Test: " + apikeypromise);
