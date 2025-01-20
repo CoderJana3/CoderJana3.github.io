@@ -30,8 +30,8 @@ async function getEnv() {
                 .authorize({scope:"read"})
             .then(function(t){
                     console.log("Successfully authorized!");
-                    alert("Success!") //this made an error, try alert("Success!") instead of t.alert("Success!")
-                    return t.closePopup();
+                    alert("Success!")               //this made an error, try alert("Success!") instead of t.alert("Success!")-> error moved one row down, try
+                    //return t.closePopup();         //removing the return            
                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled!");

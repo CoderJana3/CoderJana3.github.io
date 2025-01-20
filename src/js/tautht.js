@@ -70,6 +70,8 @@ async function getEnv() {
                 //maybe just create URL in here, otherwise there's gonna be an ' in the definition(nope should work)
                 URL = URL + token;
             // make a request with token
+            } else {
+                console.log("Not a valid Token");
             }
             //console.log(testURL);
             
