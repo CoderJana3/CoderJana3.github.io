@@ -11,7 +11,8 @@ async function getEnv() {
 };
 
 var promiseKey = "";
-var test = await getEnv();
+async()=> {var test = getEnv();}
+
 if(test instanceof Promise){
     console.log("Test is a Promise")
 } else {
