@@ -52,7 +52,7 @@ async function getEnv() {
 //     return result
 // }
 
-//getEnv();
+getEnv();
 
 
 // var promiseKey = "";
