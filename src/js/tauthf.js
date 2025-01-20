@@ -11,7 +11,7 @@ async function getEnv() {
 };
 
 var promiseKey = "";
-var test = "";
+var test = "test";
 async()=> {test = getEnv();}
 
 if(test instanceof Promise){
