@@ -17,7 +17,7 @@ async()=> {test = getEnv();}
 if(test instanceof Promise){
     console.log("Test is a Promise")
 } else {
-    console.log("Test is not a Promise" + test)
+    console.log("Test is not a Promise : X" + test + "X")
 }
 getEnv().then((value) => {promiseKey = value});
 if(promiseKey instanceof Promise){
