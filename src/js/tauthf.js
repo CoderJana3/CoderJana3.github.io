@@ -2,23 +2,29 @@
 
 async function getEnv() {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        //.then(envvar => envvar.json()); 
+        .then(envvar => envvar.json()); 
     //console.log("Testkey " + envvar.testkey);
     //envkey = '"' + envvar.apikey + '"'; 
-     //var envkey = envvar.apikey;        //gets the value
+    var envkey = envvar.apikey; 
+    var t = window.TrelloPowerUp.iframe({
+        appName: "TestCard-PowerUp",
+        appKey: envkey,
+        appAuthor: "J D",
+    });       //gets the value
     //console.log(envkey);  
     //return envkey;   
-    return envvar;                 
+    //return envvar;                 
 };
 
-async function resEnv(){
-    const result = await getEnv()
-    return result
-}
+// async function resEnv(){
+//     const result = await getEnv()
+//     return result
+// }
 
+getEnv();
 var promiseKey = "";
 var test = "Test is not a Promise";
-(async()=> {test = await resEnv()})()              //wrapping ()around async and adding ()after it made it return a promise without await
+//(async()=> {test = await resEnv()})()              //wrapping ()around async and adding ()after it made it return a promise without await
                                                     //adding await made it return test unchanged
 
 if(test instanceof Promise){
@@ -78,11 +84,11 @@ var apikey = "";
 
 
 /*Creating Trello iframe with Information needed for t.getRestApi()*/
-var t = window.TrelloPowerUp.iframe({
-    appName: "TestCard-PowerUp",
-    appKey: promiseKey,
-    appAuthor: "J D",
-});
+// var t = window.TrelloPowerUp.iframe({
+//     appName: "TestCard-PowerUp",
+//     appKey: promiseKey,
+//     appAuthor: "J D",
+// });
 
 if(apikey instanceof Promise){
     console.log("Apikey is a Promise (tauthf.js)");
