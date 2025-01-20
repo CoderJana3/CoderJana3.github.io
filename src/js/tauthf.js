@@ -2,17 +2,19 @@
 
 async function getEnv() {
    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json()); 
+        //.then(envvar => envvar.json()); 
     //console.log("Testkey " + envvar.testkey);
     //envkey = '"' + envvar.apikey + '"'; 
-     var envkey = envvar.apikey;        //gets the value
+     //var envkey = envvar.apikey;        //gets the value
     //console.log(envkey);  
-    return envkey;                    
+    //return envkey;   
+    return envvar;                 
 };
 
 var promiseKey = "";
 var test = "Test is not a Promise";
-(async()=> {test = await getEnv();})()
+(async()=> {test = await getEnv().then((envvar) => {test = envvar.apikey})})()              //wrapping ()around async and adding ()after it made it return a promise without await
+                                                    //adding await made it return test unchanged
 
 if(test instanceof Promise){
     console.log("Test is a Promise")
