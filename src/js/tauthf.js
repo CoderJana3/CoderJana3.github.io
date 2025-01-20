@@ -115,6 +115,7 @@ authBtn.addEventListener("click", async function(){                       //try 
         //                  alert("Cancelled!");
         //             });
     } else {
+        console.log(apikey);
         alert("No valid APIKey!");
     }                                //waiting on object Promise it didn't
     
