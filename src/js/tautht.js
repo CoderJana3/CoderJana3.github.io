@@ -20,8 +20,8 @@ async function getEnv() {
     });
 
     /**Define what happens on clicking the Close Button in the Popup*/
-    var closeBtn = document.getElementById("close");                            
-    closeBtn.addEventListener("click", async function(){  
+    var reqBtn = document.getElementById("request");                            
+    reqBtn.addEventListener("click", async function(){  
 
         /**Section: Getting Card-ID*/
         var context = t.getContext();                                           //gives JSON-Resp with detailed information
@@ -65,6 +65,11 @@ async function getEnv() {
         console.log("getToken Test: " + gottoken);                              //Log to check if a valid Token was given
        //return t.closePopup();                                                 //close the Popup when the request has finished
     });
+
+    var closeBtn = document.getElementById("close");
+    closeBtn.addEventListener("click", function(){
+        return t.closePopup();
+    })
 
 
 
