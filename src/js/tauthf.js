@@ -27,6 +27,7 @@ const keyLooksValid = function(testK) {                         //from Trello Po
     // If this returns false, the Promise won't resolve.
     return /^[A-Za-z0-9]{32}$/.test(testK);
   } 
+  console.log("Test KeyLooksValid worked: " + keyLooksValid(testkeyNum));
 // var apikey = "";
 // var apikeypromise = Promise.resolve(getEnv(apikey));
 // console.log("Resolve Promise Test: " + apikeypromise);
