@@ -5,15 +5,46 @@ async function getEnv() {
         .then(envvar => envvar.json()); 
     //console.log("Testkey " + envvar.testkey);
     //envkey = '"' + envvar.apikey + '"'; 
+    //gets the value
+    //console.log(envkey);  
+    //return envkey;   
+    //return envvar;  
     var envkey = envvar.apikey; 
     var t = window.TrelloPowerUp.iframe({
         appName: "TestCard-PowerUp",
         appKey: envkey,
         appAuthor: "J D",
-    });       //gets the value
-    //console.log(envkey);  
-    //return envkey;   
-    //return envvar;                 
+    }); 
+
+    t.render(function(){
+        return t.sizeTo("#content")
+    });
+
+    /*Define what happens on clicking the Button in the popup*/
+    var authBtn = document.getElementById("auth");
+    authBtn.addEventListener("click", async function(){                      
+        console.log("Clicked Authorize Button!")  
+        if(keyLooksValid(envkey)){
+            console.log("Valid Apikey!");
+            t.getRestApi()
+                .authorize({scope:"read"})
+            .then(function(t){
+                    console.log("Successfully authorized!");
+                    t.alert("Success!")
+                    return t.closePopup();
+                }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
+                        console.log("Error while authorizing: User denied Authorization");
+                        alert("Cancelled!");
+                    });
+        } else {
+            alert("No valid APIKey!");
+        }                                //waiting on object Promise it didn't
+    
+                                                    
+    //return t.closePopup();                                 //call authorize at this point but for testing just close
+});
+   
+                   
 };
 
 // async function resEnv(){
@@ -101,46 +132,46 @@ if(apikey instanceof Promise){
 }
 
 /*Render for popup size window*/
-t.render(function(){
-    return t.sizeTo("#content");
-});
+// t.render(function(){
+//     return t.sizeTo("#content");
+// });
 
 
-/*Define what happens on clicking the Button in the popup*/
-var authBtn = document.getElementById("auth");
-authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
-    console.log("Clicked Authorize Button!")  
-    const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
-        .then(envvar => envvar.json())
-   // btnkey = JSON.stringify( envvar.apikey);
-   btnkey = envvar.apikey;
-    if(btnkey instanceof Promise){
-        console.log("Apitestkey is a Promise (click btn)");
-    } else if (btnkey == ""){
-        console.log("APItestKey is emptyString! (click btn)");
-    } else if(btnkey != undefined){
-        console.log("APItestKey is defined! (click btn)");
-    } else {
-        console.log("APItestKey is undefined! (click btn)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
-    }
+// /*Define what happens on clicking the Button in the popup*/
+// var authBtn = document.getElementById("auth");
+// authBtn.addEventListener("click", async function(){                       //try adding async/await for getRestApi -> should solve the Problem if it'S
+//     console.log("Clicked Authorize Button!")  
+//     const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
+//         .then(envvar => envvar.json())
+//    // btnkey = JSON.stringify( envvar.apikey);
+//    btnkey = envvar.apikey;
+//     if(btnkey instanceof Promise){
+//         console.log("Apitestkey is a Promise (click btn)");
+//     } else if (btnkey == ""){
+//         console.log("APItestKey is emptyString! (click btn)");
+//     } else if(btnkey != undefined){
+//         console.log("APItestKey is defined! (click btn)");
+//     } else {
+//         console.log("APItestKey is undefined! (click btn)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+//     }
 
 
-    if(keyLooksValid(btnkey)){
-        console.log("Valid Apikey!");
-        t.getRestApi()
-            .authorize({scope:"read"})
-           .then(function(t){
-                console.log("Successfully authorized!");
-                t.alert("Success!")
-                return t.closePopup();
-            }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
-                    console.log("Error while authorizing: User denied Authorization");
-                     alert("Cancelled!");
-                });
-    } else {
-        alert("No valid APIKey!");
-    }                                //waiting on object Promise it didn't
+//     if(keyLooksValid(btnkey)){
+//         console.log("Valid Apikey!");
+//         t.getRestApi()
+//             .authorize({scope:"read"})
+//            .then(function(t){
+//                 console.log("Successfully authorized!");
+//                 t.alert("Success!")
+//                 return t.closePopup();
+//             }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
+//                     console.log("Error while authorizing: User denied Authorization");
+//                      alert("Cancelled!");
+//                 });
+//     } else {
+//         alert("No valid APIKey!");
+//     }                                //waiting on object Promise it didn't
     
                                                     
-    //return t.closePopup();                                 //call authorize at this point but for testing just close
-});
+//     //return t.closePopup();                                 //call authorize at this point but for testing just close
+// });
