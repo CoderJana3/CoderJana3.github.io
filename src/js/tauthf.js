@@ -11,9 +11,14 @@ async function getEnv() {
     return envvar;                 
 };
 
+async function resEnv(){
+    const result = await getEnv()
+    return result
+}
+
 var promiseKey = "";
 var test = "Test is not a Promise";
-(async()=> {test = await getEnv().then((envvar) => {test = envvar.apikey})})()              //wrapping ()around async and adding ()after it made it return a promise without await
+(async()=> {test = await resEnv()})()              //wrapping ()around async and adding ()after it made it return a promise without await
                                                     //adding await made it return test unchanged
 
 if(test instanceof Promise){
