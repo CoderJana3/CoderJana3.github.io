@@ -25,7 +25,7 @@ async function getEnv() {
         /*Section: Getting Card-ID*/
         var context = t.getContext();                                           //gives JSON-Resp with detailed information
         console.log(JSON.stringify(context, null, 2));                          //gives the correct Card Information
-        console.log(context.card);  
+        console.log("Card-ID:" + context.card);  
         
         /*Section: Getting API-Key with Test*/
         // var test = undefined; 

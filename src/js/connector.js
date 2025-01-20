@@ -46,8 +46,8 @@ async function getEnv() {
             },
         }, {
             //icon: 
-            text: 'Clear Token',
-            callback: function(t){
+            //text: 'Clear Token',
+            /*callback:*/ function(t){
                 console.log("Clicked clearToken button");
                 return t.getRestApi()
                         .clearToken()
