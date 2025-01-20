@@ -52,27 +52,29 @@ async function getEnv() {
 //     return result
 // }
 
-getEnv();
-var promiseKey = "";
-var test = "Test is not a Promise";
-//(async()=> {test = await resEnv()})()              //wrapping ()around async and adding ()after it made it return a promise without await
-                                                    //adding await made it return test unchanged
+//getEnv();
 
-if(test instanceof Promise){
-    console.log("Test is a Promise")
-} else {
-    console.log(test)
-}
-getEnv().then((value) => {promiseKey = value});
-if(promiseKey instanceof Promise){
-    console.log("Promisekey is a Promise");
-} else if (promiseKey == ""){
-    console.log("PromiseKey is emptyString!");
-} else if(promiseKey != undefined){
-    console.log("PromiseKey is defined! ");
-} else {
-    console.log("PromiseKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
-}
+
+// var promiseKey = "";
+// var test = "Test is not a Promise";
+// //(async()=> {test = await resEnv()})()              //wrapping ()around async and adding ()after it made it return a promise without await
+//                                                     //adding await made it return test unchanged
+
+// if(test instanceof Promise){
+//     console.log("Test is a Promise")
+// } else {
+//     console.log(test)
+// }
+// getEnv().then((value) => {promiseKey = value});
+// if(promiseKey instanceof Promise){
+//     console.log("Promisekey is a Promise");
+// } else if (promiseKey == ""){
+//     console.log("PromiseKey is emptyString!");
+// } else if(promiseKey != undefined){
+//     console.log("PromiseKey is defined! ");
+// } else {
+//     console.log("PromiseKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+// }
 
 // const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5"; 
 const testkeyNum = "g98374638a1caca81e18273764602015";
@@ -93,7 +95,7 @@ const keyLooksValid = function(testK) {                         //from Trello Po
 // const isKey = keyLooksValid(apikey);
 // console.log("valid TestKey: " + isTestkey + "\n" + "validKey: " + isKey);
 /*Creating second EventListener for env Var*/
-var apikey = "";
+//var apikey = "";
 // var content = document.getElementById("content");
 // content.addEventListener("click", async function() {
 //     console.log("Entered first click function!");
@@ -121,15 +123,15 @@ var apikey = "";
 //     appAuthor: "J D",
 // });
 
-if(apikey instanceof Promise){
-    console.log("Apikey is a Promise (tauthf.js)");
-} else if (apikey == ""){
-    console.log("APIKey is emptyString! (tauthf.js)");
-} else if(apikey != undefined){
-    console.log("APIKey is defined! (tauthf.js)" + apikey);
-} else {
-    console.log("APIKey is undefined! (tauthf.js)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
-}
+// if(apikey instanceof Promise){
+//     console.log("Apikey is a Promise (tauthf.js)");
+// } else if (apikey == ""){
+//     console.log("APIKey is emptyString! (tauthf.js)");
+// } else if(apikey != undefined){
+//     console.log("APIKey is defined! (tauthf.js)" + apikey);
+// } else {
+//     console.log("APIKey is undefined! (tauthf.js)" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+// }
 
 /*Render for popup size window*/
 // t.render(function(){
