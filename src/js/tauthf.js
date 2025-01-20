@@ -52,7 +52,7 @@ async function getEnv() {
 //     return result
 // }
 
-getEnv();
+getEnv();                                                       //necessary, otherwise clicking the button doesnt work
 
 
 // var promiseKey = "";
