@@ -5,7 +5,7 @@ async function getEnv(envkey) {
         .then(envvar => envvar.json()); 
     //console.log("Testkey " + envvar.testkey);
     //envkey = '"' + envvar.apikey + '"'; 
-    envkey = JSON.stringify( envvar.apikey);        //gets the value
+    envkey = envvar.apikey;        //gets the value
     //console.log(envkey);  
     return envkey;                    
 };
@@ -105,17 +105,17 @@ authBtn.addEventListener("click", async function(){                       //try 
 
     if(keyLooksValid(btnkey)){
         console.log("Valid Apikey!");
-        // await t.getRestApi()
-        //        .authorize({scope:"read"})
-        //        .then(function(t){
-        //             console.log("Successfully authorized!");
-        //              t.alert("Success!")
-        //             return t.closePopup();
+        await t.getRestApi()
+               .authorize({scope:"read"})
+               .then(function(t){
+                    console.log("Successfully authorized!");
+                     t.alert("Success!")
+                    return t.closePopup();
         
-        //          }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
-        //                 console.log("Error while authorizing: User denied Authorization");
-        //                  alert("Cancelled!");
-        //             });
+                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {
+                        console.log("Error while authorizing: User denied Authorization");
+                         alert("Cancelled!");
+                    });
     } else {
         alert("No valid APIKey!");
     }                                //waiting on object Promise it didn't
