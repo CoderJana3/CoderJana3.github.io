@@ -12,13 +12,13 @@ async function getEnv(envkey) {
 
 var promiseKey = getEnv(promiseKey);
 if(promiseKey instanceof Promise){
-    console.log("Apikey is a Promise");
+    console.log("Promisekey is a Promise");
 } else if (promiseKey == ""){
-    console.log("APIKey is emptyString!");
+    console.log("PromiseKey is emptyString!");
 } else if(promiseKey != undefined){
-    console.log("APIKey is defined! ");
+    console.log("PromiseKey is defined! ");
 } else {
-    console.log("APIKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
+    console.log("PromiseKey is undefined!" + "\n" + "appName: " + t.appName + "\n" + "appAuthor: " + t.appAuthor);
 }
 
 // const testtoken = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f5"; 
