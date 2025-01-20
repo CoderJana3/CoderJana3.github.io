@@ -10,7 +10,9 @@ async function getEnv(envkey) {
     return envkey;                    
 };
 
-var promiseKey = getEnv(promiseKey).then(envkey => promiseKey);
+var test = "";
+var promiseKey = "";
+getEnv(test).then((test) => promiseKey);
 if(promiseKey instanceof Promise){
     console.log("Promisekey is a Promise");
 } else if (promiseKey == ""){
