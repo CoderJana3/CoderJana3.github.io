@@ -90,7 +90,8 @@ authBtn.addEventListener("click", async function(){                       //try 
     console.log("Clicked Authorize Button!")  
     const envvar = await fetch("/.netlify/functions/envvar")    //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json())
-    btnkey = JSON.stringify( envvar.apikey);
+   // btnkey = JSON.stringify( envvar.apikey);
+   btnkey = envvar.apikey;
     if(btnkey instanceof Promise){
         console.log("Apitestkey is a Promise (click btn)");
     } else if (btnkey == ""){
