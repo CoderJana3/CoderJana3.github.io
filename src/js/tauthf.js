@@ -64,7 +64,7 @@ var apikey = "";
 /*Creating Trello iframe with Information needed for t.getRestApi()*/
 var t = window.TrelloPowerUp.iframe({
     appName: "TestCard-PowerUp",
-    appKey: apikey,
+    appKey: promiseKey,
     appAuthor: "J D",
 });
 
