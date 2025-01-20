@@ -47,11 +47,11 @@ async function getEnv() {
         }, {
             //icon: 
             //text: 'Clear Token',
-            /*callback:*/ function(t){
+            callback: function(t){
                 console.log("Clicked clearToken button");
                 return t.getRestApi()
                         .clearToken()
-                        .then(function(t){
+                        .then(function(){
                             console.log("No token is stored!")
                         });
             }
