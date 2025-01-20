@@ -55,7 +55,7 @@ async function getEnv() {
         /*Section: Getting Token and making request*/
         var gottoken = undefined;
         var validtoken = false;
-        t.getRestApi()
+        await t.getRestApi()
         .getToken()
         .then(function (token) {
             if (!token) {
