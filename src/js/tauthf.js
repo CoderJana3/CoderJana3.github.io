@@ -36,9 +36,8 @@ async function getEnv() {
              .authorize({expiration: "1hour", scope:"read"})                        //authorize with only Read access, expiration set to 1hour works, shown in settings
              .then(function(t){                                                     //however isAuthorized does not show that you are authorized
                     console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
-                    alert("Success!");  
-                    t.closePopup();             
-                    //return t.closePopup();                   
+                    alert("Success!");              
+                    //return t.closePopup();   can't close the popup here                
                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled!");
