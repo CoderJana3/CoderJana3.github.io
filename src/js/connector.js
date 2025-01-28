@@ -46,7 +46,7 @@ async function getEnv() {
             },
         }, {
             //icon: 
-            //text: 'Clear Token',//removing the text worked
+            text: 'Clear Token',//removing the text worked
             callback: function(t){                                                              //Card Button to clear the saved Token 
                 console.log("Clicked clearToken button");
                 return t.getRestApi()
