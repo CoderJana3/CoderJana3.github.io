@@ -28,12 +28,12 @@ var isAuthorizedToken = function(t, isAuth){
             .isAuthorized()                                                                     //Check if the User is authorized
             .then(function(authorized){ //dont put authorized => function, nothing happens literally nothing not even what is supposed to 
                 if(authorized){   
-                    alert("Is Authorized clear Token")                                                              //If the User is authorized set isAuth to true
-                    // t.getRestApi()
-                    //  .clearToken()
-                    //  .then(function(){
-                    //     console.log("No token is stored!")
-                    // });
+                    console.log("User is Authorized, clear Token")                                                              //If the User is authorized set isAuth to true
+                    t.getRestApi()
+                     .clearToken()
+                     .then(function(){
+                        console.log("No token is stored!")
+                    });
                 } else {
                    alert("User not Authorized, no Token to clear!")
                 }
