@@ -23,6 +23,22 @@ var isAuthorizedTest = function(t, isAuth){
             }).catch(error => console.error(error));                                            //catch any Errors the Promise may throw
 };
 
+var isAuthorizedToken = function(t, isAuth){
+    return t.getRestApi()                                                                       //get a REST API Instance
+            .isAuthorized()                                                                     //Check if the User is authorized
+            .then(function(authorized){ //dont put authorized => function, nothing happens literally nothing not even what is supposed to 
+                if(authorized){                                                                 //If the User is authorized set isAuth to true
+                    t.getRestApi()
+                     .clearToken()
+                     .then(function(){
+                        console.log("No token is stored!")
+                    });
+                } else {
+                   console.log("User not Authorized, no Token to clear!")
+                }
+            }).catch(error => console.error(error));                                            //catch any Errors the Promise may throw
+};
+
 /**Getting and setting the API_KEY to use t.getRestApi()*/
 async function getEnv() {
    const envvar = await fetch("/.netlify/functions/envvar")                                     //need this to get environemnt vars from netlify 
@@ -47,14 +63,15 @@ async function getEnv() {
         }, {
             //icon: 
             text: 'Clear Token',//removing the text worked
-            callback: function(t){                                                              //Card Button to clear the saved Token 
-                console.log("Clicked clearToken button");
-                return t.getRestApi()
-                        .clearToken()
-                        .then(function(){
-                            console.log("No token is stored!")
-                        });
-            }
+            callback: isAuthorizedToken
+            // callback: function(t){                                                              //Card Button to clear the saved Token 
+            //     console.log("Clicked clearToken button");
+            //     return t.getRestApi()
+            //             .clearToken()
+            //             .then(function(){
+            //                 console.log("No token is stored!")
+            //             });
+            // }
 
         }];
     },
