@@ -33,8 +33,8 @@ async function getEnv() {
         if(keyLooksValid(envkey)){                                                  //If a valid APIKey was given
             console.log("Valid Apikey!");
             t.getRestApi()                                                          //get a REST API Instance
-                .authorize({expiration: "1hour", scope:"read"})                                          //authorize with only Read access
-            .then(function(t){
+                .authorize({ scope:"read"})    //expiration: "1hour",                 //authorize with only Read access, expiration set to 1hour works, shown in settings
+            .then(function(t){                                                      //however isAuthorized does not show that you are authorized
                     console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
                     alert("Success!")               
                     //return t.closePopup();                   
