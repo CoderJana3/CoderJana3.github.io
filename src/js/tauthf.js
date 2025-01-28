@@ -33,21 +33,21 @@ async function getEnv() {
         if(keyLooksValid(envkey)){                                                  //If a valid APIKey was given
             console.log("Valid Apikey!");
             t.getRestApi()                                                          //get a REST API Instance
-                .authorize({expiration: "1hour", scope:"read"})                     //authorize with only Read access, expiration set to 1hour works, shown in settings
-                .then(function(t){                                                  //however isAuthorized does not show that you are authorized
-                        console.log("Successfully authorized!");                    //If Authorize worked alert User to successful authorization
-                        alert("Success!")               
-                        //return t.closePopup();                   
-                    }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
-                            console.log("Error while authorizing: User denied Authorization");
-                            t.alert("Cancelled!");
-                        });
+             .authorize({expiration: "1hour", scope:"read"})                        //authorize with only Read access, expiration set to 1hour works, shown in settings
+             .then(function(t){                                                     //however isAuthorized does not show that you are authorized
+                    console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
+                    alert("Success!")               
+                    //return t.closePopup();                   
+                }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
+                        console.log("Error while authorizing: User denied Authorization");
+                        t.alert("Cancelled!");
+                    }); 
         } else {
             alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
         }                                
     
                                                     
-    return t.closePopup();                                                          //close the Popup                       
+    //return t.closePopup();                                                          //close the Popup                       
 });
    
                    
