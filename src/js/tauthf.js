@@ -41,7 +41,7 @@ async function getEnv() {
                     //return t.closePopup();                   
                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
-                        t.alert("Cancelled!");
+                        alert("Cancelled!");
                     }); 
         } else {
             alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
