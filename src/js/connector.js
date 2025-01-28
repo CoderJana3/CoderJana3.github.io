@@ -34,7 +34,7 @@ var isAuthorizedToken = function(t, isAuth){
                         console.log("No token is stored!")
                     });
                 } else {
-                   console.log("User not Authorized, no Token to clear!")
+                   alert("User not Authorized, no Token to clear!")
                 }
             }).catch(error => console.error(error));                                            //catch any Errors the Promise may throw
 };
