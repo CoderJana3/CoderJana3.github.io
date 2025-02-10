@@ -47,7 +47,7 @@ async function getEnv() {
                         alert("Cancelled! Power-Up not Authorized!");
                     }); 
             
-            t.closePopup();
+            //t.closePopup(); //probably should wrap this in a setTimeOut like in authorize.js
             // if(authsuccess){
             //     console.log("Authsucess: " + authsuccess);
             //     return t.closePopup();
@@ -58,7 +58,9 @@ async function getEnv() {
             alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
         } 
         
-
+        setTimeout(function(){
+            t.closePopup();
+        }, 1*1000);
     
                                                     
     //return t.closePopup();                                                          //close the Popup                       
