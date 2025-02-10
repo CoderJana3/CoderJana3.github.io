@@ -23,7 +23,7 @@ var isAuthorizedTest = function(t, isAuth){
             }).catch(error => console.error(error));                                            //catch any Errors the Promise may throw
 };
 
-var isAuthorizedToken = function(t, isAuth){
+var isAuthorizedToken = function(t){
     return t.getRestApi()                                                                       //get a REST API Instance
             .isAuthorized()                                                                     //Check if the User is authorized
             .then(function(authorized){ //dont put authorized => function, nothing happens literally nothing not even what is supposed to 
