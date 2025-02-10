@@ -33,11 +33,12 @@ async function getEnv() {
         console.log("Clicked Authorize Button!")  
         if(keyLooksValid(envkey)){                                                  //If a valid APIKey was given
             console.log("Valid Apikey!");
+            authsuccess = true;
             t.getRestApi()                                                          //get a REST API Instance
              .authorize({expiration: "1hour", scope:"read"})                        //authorize with only Read access, expiration set to 1hour works, shown in settings
              .then(function(t){                                                     //however isAuthorized does not show that you are authorized
                     console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
-                    authsuccess = true;
+                    
                     alert("Success!");              
                     //return t.closePopup();   can't close the popup here                
                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
