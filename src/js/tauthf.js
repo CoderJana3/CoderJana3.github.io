@@ -27,6 +27,7 @@ async function getEnv() {
     console.log("Test KeyLooksValid worked: " + keyLooksValid(testkeyNum));         //Test to see if the keyLooksValid Function works
 
     /**Define what happens on clicking the Button in the popup*/
+    var authsuccess = false;
     var authBtn = document.getElementById("auth");                                  //get the correct Button
     authBtn.addEventListener("click", async function(){                      
         console.log("Clicked Authorize Button!")  
@@ -36,6 +37,7 @@ async function getEnv() {
              .authorize({expiration: "1hour", scope:"read"})                        //authorize with only Read access, expiration set to 1hour works, shown in settings
              .then(function(t){                                                     //however isAuthorized does not show that you are authorized
                     console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
+                    authsuccess = true;
                     alert("Success!");              
                     //return t.closePopup();   can't close the popup here                
                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
@@ -44,7 +46,14 @@ async function getEnv() {
                     }); 
         } else {
             alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
-        }                                
+        } 
+        if(authsucess){
+            console.log("Authsucess: " + authsuccess);
+            return t.closePopup();
+        } else {
+            console.log("Popup not closed, Authsucess: " + authsuccess);
+        }
+
     
                                                     
     //return t.closePopup();                                                          //close the Popup                       
