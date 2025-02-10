@@ -39,11 +39,11 @@ async function getEnv() {
              .then(function(t){                                                     //however isAuthorized does not show that you are authorized
                     console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
                     authsuccess = true;
-                    alert("Success!");              
+                    alert("Success! Power-Up successfully authorized!");              
                     //return t.closePopup();   can't close the popup here                
                 }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
-                        alert("Cancelled!");
+                        alert("Cancelled! Power-Up not Authorized!");
                     }); 
 
             if(authsuccess){
