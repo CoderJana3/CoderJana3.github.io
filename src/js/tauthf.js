@@ -46,13 +46,14 @@ async function getEnv() {
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled! Power-Up not Authorized!");
                     }); 
-
-            if(authsuccess){
-                console.log("Authsucess: " + authsuccess);
-                return t.closePopup();
-            } else {
-                console.log("Popup not closed, Authsucess: " + authsuccess);
-            }
+            
+            t.closePopup();
+            // if(authsuccess){
+            //     console.log("Authsucess: " + authsuccess);
+            //     return t.closePopup();
+            // } else {
+            //     console.log("Popup not closed, Authsucess: " + authsuccess);
+            // }
         } else {
             alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
         } 
