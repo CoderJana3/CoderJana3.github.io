@@ -52,6 +52,7 @@ async function getEnv() {
                 gottoken = false;                                               //to use alert here, not console.log
             } 
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
+            console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gottoken = true;
