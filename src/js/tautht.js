@@ -32,7 +32,8 @@ async function getEnv() {
         var tokenForTest = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f4";
         const tokenLooksValid = function(testtoken) {                           //from Trello Power Up Example from glitch
             // If this returns false, the Promise won't resolve.
-            return /^[0-9a-f]{64}$/.test(testtoken);                            //does not work right now ;(
+            return /^[A-Za-z0-9]{64}$/.test(testtoken);
+            //return /^[0-9a-f]{64}$/.test(testtoken);                            //does not work right now ;(
         }
         console.log("TokenLooksValid tested with tokenForTest. Did it work: " + tokenLooksValid(tokenForTest)); 
         
