@@ -37,10 +37,15 @@ async function getEnv() {
         }
         console.log("TokenLooksValid tested with tokenForTest. Did it work: " + tokenLooksValid(tokenForTest)); 
         
-        /**Section: start creating the URL */                                    //create a Base URL with the information that's already available, aka card ID and API Key
+        /**Section: start creating the URL for GET Request for Attachments on Card */   
+        //create a Base URL with the information that's already available, aka card ID and API Key
         var testURL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=';
         var URL = 'https://api.trello.com/1/cards/' + context.card + '/attachments?key=' + envkey + '&token='; 
         //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
+
+        /**Section: start creating the URL for GET Request for one Attachment on Card */
+        var URLoneattach = 'https://api.trello.com/1/cards/' + context.card + '/attachments/';
+        //'https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken'
 
         /**Section: Getting Token and making request*/
         var gottoken = undefined;   
@@ -68,7 +73,26 @@ async function getEnv() {
                     return response.text();
                 })
                 .then(text => console.log(text))
-                .catch(err => console.error(err));  
+                .catch(err => console.error(err));
+            
+            const resp = response;
+            console.log("Attachment ID: " + resp.id);
+            URLoneattach = URLoneattach ;
+            // fetch('https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken', {
+            //     method: 'GET',
+            //     headers: {
+            //       'Accept': 'application/json'
+            //     }
+            //   })
+            //     .then(response => {
+            //       console.log(
+            //         `Response: ${response.status} ${response.statusText}`
+            //       );
+            //       return response.text();
+            //     })
+            //     .then(text => console.log(text))
+            //     .catch(err => console.error(err));  
+
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gotvalidtoken = true;
