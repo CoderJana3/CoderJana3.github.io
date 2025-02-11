@@ -68,12 +68,12 @@ async function getEnv() {
                 })
                 .then(response => {
                     response.json();
-                    console.log(
-                    `Response: ${response.status} ${response.statusText}`
-                    );
-                    return response.text();
+                    // console.log(
+                    // `Response: ${response.status} ${response.statusText}`
+                    // );
+                    // return response.text();
                 })
-                .then(text => console.log(text))
+                //.then(text => console.log(text))
                 .catch(err => console.error(err));
             
             const resp = response;
