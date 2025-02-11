@@ -44,12 +44,13 @@ async function getEnv() {
                     //return t.closePopup();  // can't close the popup here                
                 })
              .then(function(t){
-                t.closePopup(); //didn't try this yet, try tomorrow if this works (maybe t context missing/wrong which causes error)
+                t.closePopup(); //still doesn't work causes unhandled (maybe t context missing/wrong which causes error)
              })
              .catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled! Power-Up not Authorized!");
-                    }); 
+                    })
+             .catch(err => console.error(err));  
             
             //t.closePopup(); //probably should wrap this in a setTimeOut like in authorize.js
             // if(authsuccess){
