@@ -66,13 +66,14 @@ async function getEnv() {
                 method: 'GET',
                 headers: {'Accept': 'application/json'}
                 })
-                .then(response => {
-                    response.json();
+                .then(response => //{
+                    response.json()
                     // console.log(
                     // `Response: ${response.status} ${response.statusText}`
                     // );
                     // return response.text();
-                })
+               // }
+            )
                 //.then(text => console.log(text))
                 .catch(err => console.error(err));
                 // .catch(ReferenceError, function(){
