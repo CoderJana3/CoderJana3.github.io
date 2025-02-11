@@ -53,7 +53,7 @@ async function getEnv() {
         var validtoken = false;                                                 //Test Variable to check if the Token that was returned is valid
         await t.getRestApi()                                                    //keep await here, so that log tests come out in correct order
         .getToken()                                                             
-        .then(function (token) {
+        .then(async function (token) {
             if (!token) {                                                       //if no Token was returned
                 console.log("No Token given, do authorization")                 //set gottoken to false and use log to inform User they need to authorize (maybe better)
                 gottoken = false;                                               //to use alert here, not console.log
@@ -62,7 +62,7 @@ async function getEnv() {
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             URL = URL + token; 
-            fetch(URL, {                     //maybe need await here? 
+            await fetch(URL, {                     //maybe need await here? 
                 method: 'GET',
                 headers: {'Accept': 'application/json'}
                 })
@@ -75,6 +75,9 @@ async function getEnv() {
                 })
                 //.then(text => console.log(text))
                 .catch(err => console.error(err));
+                // .catch(ReferenceError, function(){
+                //     console.error();
+                // });
             
             const resp = response;
             console.log("Attachment ID: " + resp.id);
