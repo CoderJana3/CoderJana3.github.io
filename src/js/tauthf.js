@@ -42,7 +42,11 @@ async function getEnv() {
                     alert("Success! Power-Up successfully authorized!");    
                     //t.closePopup();  //both this and the line below throw an unhandled rejection so        
                     //return t.closePopup();  // can't close the popup here                
-                }).catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
+                })
+             .then(function(t){
+                t.closePopup(); //didn't try this yet, try tomorrow if this works (maybe t context missing/wrong which causes error)
+             })
+             .catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled! Power-Up not Authorized!");
                     }); 
@@ -57,10 +61,6 @@ async function getEnv() {
         } else {
             alert("No valid APIKey!");                                              //IF there is no valid APIKey alert the User 
         } 
-        
-        setTimeout(function(){
-            t.closePopup();
-        }, 1*1000);
     
                                                     
     //return t.closePopup();                                                          //close the Popup                       

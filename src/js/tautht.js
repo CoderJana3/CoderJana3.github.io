@@ -43,7 +43,8 @@ async function getEnv() {
         //'https://api.trello.com/1/cards/{id}/attachments?key=APIKey&token=APIToken'   //without API Key and API Token 401 error
 
         /**Section: Getting Token and making request*/
-        var gottoken = undefined;                                               //Test Variable to check that there was a Token returned
+        var gottoken = undefined;   
+        var gotvalidtoken = undefined;                                            //Test Variable to check that there was a Token returned
         var validtoken = false;                                                 //Test Variable to check if the Token that was returned is valid
         await t.getRestApi()                                                    //keep await here, so that log tests come out in correct order
         .getToken()                                                             
@@ -52,20 +53,34 @@ async function getEnv() {
                 console.log("No Token given, do authorization")                 //set gottoken to false and use log to inform User they need to authorize (maybe better)
                 gottoken = false;                                               //to use alert here, not console.log
             } 
+            gottoken = true;
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
-                gottoken = true;
+                gotvalidtoken = true;
                 //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token
-                URL = URL + token;                                              //use the URL created above for this
+                URL = URL + token; 
+                // fetch(URL, {                     //maybe need await here? didn't try yet, try tomorrow 
+                //     method: 'GET',
+                //     headers: {'Accept': 'application/json'}
+                //   })
+                //   .then(response => {
+                //       console.log(
+                //         `Response: ${response.status} ${response.statusText}`
+                //       );
+                //       return response.text();
+                //     })
+                //     .then(text => console.log(text))
+                //     .catch(err => console.error(err));                                             //use the URL created above for this
             } else {
                 console.log("Not a valid Token");   
-                gottoken = false;                                               //If it is invalid, set gottoken to false and inform over console.log that no Valid 
+                gotvalidtoken = false;                                               //If it is invalid, set gottoken to false and inform over console.log that no Valid 
             } 
                                                                                 //Token was found
             console.log("End of getToken!");                                    //Log to show that getToken was used 
         });
+        console.log("getValidToken Test: " + gotvalidtoken);
         console.log("getToken Test: " + gottoken);                              //Log to check if a valid Token was given
        //return t.closePopup();                                                 //close the Popup when the request has finished
     });
