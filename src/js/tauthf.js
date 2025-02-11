@@ -34,7 +34,7 @@ async function getEnv() {
         if(keyLooksValid(envkey)){                                                  //If a valid APIKey was given
             console.log("Valid Apikey!");
             
-            t.getRestApi()                                                          //get a REST API Instance
+            await t.getRestApi()                                                    //get a REST API Instance (with await to handel TypeError t in line 47)
              .authorize({expiration: "1hour", scope:"read"})                        //authorize with only Read access, expiration set to 1hour works, shown in settings
              .then(function(t){                                                     //however isAuthorized does not show that you are authorized fixed
                     console.log("Successfully authorized!");                        //If Authorize worked alert User to successful authorization
@@ -44,13 +44,13 @@ async function getEnv() {
                     //return t.closePopup();  // can't close the popup here                
                 })
              .then(function(t){
-                t.closePopup(); //still doesn't work causes unhandled (maybe t context missing/wrong which causes error)
+                t.closePopup(); //TypeError t is undefined 
              })
              .catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled! Power-Up not Authorized!");
                     })
-             .catch(err => console.error(err));  
+             .catch(err => console.error(err));  //fixed unhandled rejection error from t.closePopup() (line47)
             
             //t.closePopup(); //probably should wrap this in a setTimeOut like in authorize.js
             // if(authsuccess){
