@@ -59,20 +59,21 @@ async function getEnv() {
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gotvalidtoken = true;
-                //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token
+                //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token (get request taken from 
+                //REST API Trello)
                 URL = URL + token; 
-                // fetch(URL, {                     //maybe need await here? didn't try yet, try tomorrow 
-                //     method: 'GET',
-                //     headers: {'Accept': 'application/json'}
-                //   })
-                //   .then(response => {
-                //       console.log(
-                //         `Response: ${response.status} ${response.statusText}`
-                //       );
-                //       return response.text();
-                //     })
-                //     .then(text => console.log(text))
-                //     .catch(err => console.error(err));                                             //use the URL created above for this
+                fetch(URL, {                     //maybe need await here? didn't try yet, try tomorrow 
+                    method: 'GET',
+                    headers: {'Accept': 'application/json'}
+                  })
+                  .then(response => {
+                      console.log(
+                        `Response: ${response.status} ${response.statusText}`
+                      );
+                      return response.text();
+                    })
+                    .then(text => console.log(text))
+                    .catch(err => console.error(err));                                             //use the URL created above for this
             } else {
                 console.log("Not a valid Token");   
                 gotvalidtoken = false;                                               //If it is invalid, set gottoken to false and inform over console.log that no Valid 
@@ -80,8 +81,8 @@ async function getEnv() {
                                                                                 //Token was found
             console.log("End of getToken!");                                    //Log to show that getToken was used 
         });
-        console.log("getValidToken Test: " + gotvalidtoken);
-        console.log("getToken Test: " + gottoken);                              //Log to check if a valid Token was given
+        console.log("getValidToken Test: " + gotvalidtoken);                    //Log to check if a valid Token was given
+        console.log("getToken Test: " + gottoken);                              //Log to check if a Token was given
        //return t.closePopup();                                                 //close the Popup when the request has finished
     });
 
