@@ -56,6 +56,19 @@ async function getEnv() {
             gottoken = true;
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
+            URL = URL + token; 
+            fetch(URL, {                     //maybe need await here? 
+                method: 'GET',
+                headers: {'Accept': 'application/json'}
+                })
+                .then(response => {
+                    console.log(
+                    `Response: ${response.status} ${response.statusText}`
+                    );
+                    return response.text();
+                })
+                .then(text => console.log(text))
+                .catch(err => console.error(err));  
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gotvalidtoken = true;
