@@ -62,7 +62,7 @@ async function getEnv() {
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             URL = URL + token; 
-            await fetch(URL, {                     //maybe need await here? 
+            await fetch(URL, {                     
                 method: 'GET',
                 headers: {'Accept': 'application/json'}
                 })
