@@ -67,7 +67,7 @@ async function getEnv() {
                 headers: {'Accept': 'application/json'}
                 })
                 .then(response => //{
-                    response.json()
+                    response.text()
                     // console.log(
                     // `Response: ${response.status} ${response.statusText}`
                     // );
