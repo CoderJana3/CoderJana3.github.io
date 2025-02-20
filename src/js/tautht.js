@@ -80,7 +80,7 @@ async function getEnv() {
                 //     console.error();
                 // });
             
-            const resp = response;
+            const resp = await response;
             console.log("Attachment ID: " + resp.id);
             URLoneattach = URLoneattach ;
             // fetch('https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken', {
