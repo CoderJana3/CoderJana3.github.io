@@ -73,9 +73,9 @@ async function getEnv() {
                     // );
                     // return response.text();
                // }
-            )
+            ).catch(err => console.error(err));
                 //.then(text => console.log(text))
-                .catch(err => console.error(err));
+                //.catch(err => console.error(err));
                 // .catch(ReferenceError, function(){
                 //     console.error();
                 // });
