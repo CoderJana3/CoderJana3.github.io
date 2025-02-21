@@ -81,8 +81,8 @@ async function getEnv() {
                 // });
             
             var resp = response;
-            console.log("Attachment ID resp: " + resp.id);
-            console.log("Attachment-ID response: " + response.id);
+            console.log("Attachment ID resp: " + resp[0].id);
+            console.log("Attachment-ID response: " + response[0].id);
             URLoneattach = URLoneattach ;
             // fetch('https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken', {
             //     method: 'GET',
