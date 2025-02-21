@@ -62,8 +62,6 @@ async function getEnv() {
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             
-              
-
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gotvalidtoken = true;
@@ -79,6 +77,7 @@ async function getEnv() {
                 console.log("Attachment-ID response: " + response[0].id); 
 
                 //Basic GET REQUEST to get Attachments from card -> check if attachment id is correct and works
+                //Code from: https://developer.atlassian.com/cloud/trello/rest/api-group-cards/#api-cards-id-attachments-get
                 fetch(URL, {                     
                     method: 'GET',
                     headers: {'Accept': 'application/json'}
@@ -93,29 +92,33 @@ async function getEnv() {
                 //GET REQUEST to get Attachment whose ID is included (BASIC)
                 //already created the start of the URL above until attachments/
                 //'https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken'
+                //Basic Code from: https://developer.atlassian.com/cloud/trello/rest/api-group-cards/#api-cards-id-attachments-idattachment-get
                 URLoneattach = URLoneattach + response[0].id + '?key=' + envkey + '&token=' + token;
                                                                 
-                fetch(URLoneattach, {
+                const attachment = fetch(URLoneattach, {
                     method: 'GET',
                     headers: {'Accept': 'application/json'}
                 })
                 .then(response => {
+                    attachment.json();
                     console.log(`Attachment ID Response: ${response.status} ${response.statusText}`);
-                    return response.text();
+                    //return response.text();
                 })
-                .then(text => console.log(text))
+                //.then(text => console.log(text))
                 .catch(err => console.error(err));
 
             } else {
                 console.log("Not a valid Token");   
                 gotvalidtoken = false;                                          //If it is invalid, set gottoken to false and inform over console.log that no Valid 
-            } 
-                                                                                //Token was found
+            }                                                                   //Token was found
+                                                                                
             console.log("End of getToken!");                                    //Log to show that getToken was used 
         });
         console.log("getValidToken Test: " + gotvalidtoken);                    //Log to check if a valid Token was given
         console.log("getToken Test: " + gottoken);                              //Log to check if a Token was given
        //return t.closePopup();                                                 //close the Popup when the request has finished
+
+       console.log("Check if attachment data is available outside getToken: " + attachment.name + attachment.isUpload);
     });
 
     var closeBtn = document.getElementById("close");
