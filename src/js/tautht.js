@@ -61,65 +61,54 @@ async function getEnv() {
             gottoken = true;
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
-            URL = URL + token; 
-            const response = await fetch(URL, {                     
-                method: 'GET',
-                headers: {'Accept': 'application/json'}
-                })
-                .then(response => //{
-                    response.json()
-                    // console.log(
-                    // `Response: ${response.status} ${response.statusText}`
-                    // );
-                    // return response.text();
-               // }
-            ).catch(err => console.error(err));
-                //.then(text => console.log(text))
-                //.catch(err => console.error(err));
-                // .catch(ReferenceError, function(){
-                //     console.error();
-                // });
             
-            var resp = response;
-            console.log("Attachment ID resp: " + resp[0].id);
-            console.log("Attachment-ID response: " + response[0].id);
-            URLoneattach = URLoneattach ;
-            // fetch('https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken', {
-            //     method: 'GET',
-            //     headers: {
-            //       'Accept': 'application/json'
-            //     }
-            //   })
-            //     .then(response => {
-            //       console.log(
-            //         `Response: ${response.status} ${response.statusText}`
-            //       );
-            //       return response.text();
-            //     })
-            //     .then(text => console.log(text))
-            //     .catch(err => console.error(err));  
+              
 
             if(validtoken){     
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gotvalidtoken = true;
-                //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token (get request taken from 
-                //REST API Trello)
-                // URL = URL + token; 
-                fetch(URL, {                     //maybe need await here? didn't try yet, try tomorrow 
+                //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token (get request taken from REST API Trello)
+                URL = URL + token; 
+                const response = await fetch(URL, {                     
+                    method: 'GET',
+                    headers: {'Accept': 'application/json'}
+                })
+                .then(response => response.json())
+                .catch(err => console.error(err));
+               
+                console.log("Attachment-ID response: " + response[0].id); 
+
+                //Basic GET REQUEST to get Attachments from card -> check if attachment id is correct and works
+                fetch(URL, {                     
                     method: 'GET',
                     headers: {'Accept': 'application/json'}
                   })
                   .then(response => {
-                      console.log(
-                        `Response: ${response.status} ${response.statusText}`
-                      );
+                      console.log(`Attachments Response: ${response.status} ${response.statusText}`);
                       return response.text();
                     })
                     .then(text => console.log(text))
-                    .catch(err => console.error(err));                                             //use the URL created above for this
+                    .catch(err => console.error(err)); 
+
+                //GET REQUEST to get Attachment whose ID is included (BASIC)
+                //already created the start of the URL above until attachments/
+                //'https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken'
+                URLoneattach = URLoneattach + response[0].id + '?key=' + envkey + '&token=' + token;
+                                                                
+                fetch(URLoneattach, {
+                    method: 'GET',
+                    headers: {'Accept': 'application/json'}
+                })
+                .then(response => {
+                    console.log(`Attachment ID Response: ${response.status} ${response.statusText}`);
+                    return response.text();
+                })
+                .then(text => console.log(text))
+                .catch(err => console.error(err));
+
             } else {
                 console.log("Not a valid Token");   
-                gotvalidtoken = false;                                               //If it is invalid, set gottoken to false and inform over console.log that no Valid 
+                gotvalidtoken = false;                                          //If it is invalid, set gottoken to false and inform over console.log that no Valid 
             } 
                                                                                 //Token was found
             console.log("End of getToken!");                                    //Log to show that getToken was used 
