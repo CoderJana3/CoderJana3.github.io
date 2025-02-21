@@ -105,18 +105,18 @@ async function getEnv() {
                 //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token (get request taken from 
                 //REST API Trello)
                 // URL = URL + token; 
-                // fetch(URL, {                     //maybe need await here? didn't try yet, try tomorrow 
-                //     method: 'GET',
-                //     headers: {'Accept': 'application/json'}
-                //   })
-                //   .then(response => {
-                //       console.log(
-                //         `Response: ${response.status} ${response.statusText}`
-                //       );
-                //       return response.text();
-                //     })
-                //     .then(text => console.log(text))
-                //     .catch(err => console.error(err));                                             //use the URL created above for this
+                fetch(URL, {                     //maybe need await here? didn't try yet, try tomorrow 
+                    method: 'GET',
+                    headers: {'Accept': 'application/json'}
+                  })
+                  .then(response => {
+                      console.log(
+                        `Response: ${response.status} ${response.statusText}`
+                      );
+                      return response.text();
+                    })
+                    .then(text => console.log(text))
+                    .catch(err => console.error(err));                                             //use the URL created above for this
             } else {
                 console.log("Not a valid Token");   
                 gotvalidtoken = false;                                               //If it is invalid, set gottoken to false and inform over console.log that no Valid 
