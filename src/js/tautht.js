@@ -118,7 +118,7 @@ async function getEnv() {
         console.log("getToken Test: " + gottoken);                              //Log to check if a Token was given
        //return t.closePopup();                                                 //close the Popup when the request has finished
 
-       console.log("Check if attachment data is available outside getToken: " + attachment.name + attachment.isUpload);
+       console.log("Check if attachment data is available outside getToken: " + attachment.name + attachment.isUpload); //did this so i can open popup to different side to test json mapping outisde of trello
     });
 
     var closeBtn = document.getElementById("close");

@@ -43,9 +43,9 @@ async function getEnv() {
                     //t.closePopup();  //both this and the line below throw an unhandled rejection so        
                     //return t.closePopup();  // can't close the popup here                
                 })
-             .then(function(t){
-                t.closePopup(); //TypeError t is undefined -> await for getRestApi didn't solve this
-             })
+            //  .then(function(t){
+            //     t.closePopup(); //TypeError t is undefined -> await for getRestApi didn't solve this
+            //  })
              .catch(TrelloPowerUp.restApiError.AuthDeniedError, function () {  //otherwise alert User to Error while authorizing
                         console.log("Error while authorizing: User denied Authorization");
                         alert("Cancelled! Power-Up not Authorized!");
