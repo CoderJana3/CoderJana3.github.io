@@ -100,7 +100,7 @@ async function getEnv() {
                     headers: {'Accept': 'application/json'}
                 })
                 .then(response => {
-                    attachment.json();
+                    attachment = response.json();
                     console.log(`Attachment ID Response: ${response.status} ${response.statusText}`);
                     //return response.text();
                 })
