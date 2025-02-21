@@ -13,8 +13,8 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
 
 
 var mapbtn = document.getElementById("mapbtn");
-mapbtn.addEventListener("click", function(){
-        var JSONdata = fetchJSONData(); 
+mapbtn.addEventListener("click", async function(){
+        var JSONdata = await fetchJSONData(); 
         console.log("JSONData Test, give out Data ID: " + JSONdata.id);
         //console.log(JSONtest);
 });
