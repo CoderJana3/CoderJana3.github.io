@@ -30,10 +30,10 @@ async function getEnv() {
 
         /**Section:TokenTest Function Defintion*/
         var tokenForTest = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f4";
-        const tokenLooksValid = function(testtoken) {                           //from Trello Power Up Example from glitch
+        const tokenLooksValid = function(testtoken) {                           
             // If this returns false, the Promise won't resolve.
-            return /^[A-Za-z0-9]{76}$/.test(testtoken);
-            //return /^[0-9a-f]{64}$/.test(testtoken);                            //does not work right now ;(
+            return /^[A-Za-z0-9]{76}$/.test(testtoken);                          //fixed
+            //return /^[0-9a-f]{64}$/.test(testtoken);                           //from Trello Power Up Example from glitch
         }
         console.log("TokenLooksValid tested with tokenForTest. Did it work: " + tokenLooksValid(tokenForTest)); 
         
@@ -80,7 +80,7 @@ async function getEnv() {
                 //     console.error();
                 // });
             
-            const resp = this.response;
+            var resp = this.response;
             console.log("Attachment ID: " + resp.id);
             URLoneattach = URLoneattach ;
             // fetch('https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken', {
