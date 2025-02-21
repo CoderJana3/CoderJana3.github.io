@@ -25,6 +25,6 @@ mapbtn.addEventListener("click", async function(){
         .then(data => console.log(data))  
         .catch(error => console.error('Failed to fetch data:', error)); 
 
-        console.log("JSONData Test, give out Data ID: " + JSONdata.id);
+        console.log("JSONData Test, give out Data ID: " + JSONData.id);
         //console.log(JSONtest);
 });
