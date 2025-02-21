@@ -6,7 +6,7 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
                 }   
                     return response.json();  
                 })
-                .then(data => console.log(data))  
+                //.then(data => console.log(data))  
                 .catch(error => console.error('Failed to fetch data:', error)); 
 }
 
