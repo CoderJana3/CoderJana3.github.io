@@ -1,5 +1,5 @@
 
-function fetchJSONData() { fetch('./sample.json')            //copied from https://www.geeksforgeeks.org/read-json-file-using-javascript/
+function fetchJSONData() { fetch('./src/json/test.json')            //copied from https://www.geeksforgeeks.org/read-json-file-using-javascript/
                .then(response => {
                     if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
