@@ -6,13 +6,14 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
                 }   
                     return response.json();  
                 })
-                //.then(data => console.log(data))  
+                .then(data => console.log(data))  
                 .catch(error => console.error('Failed to fetch data:', error)); 
 }
 
-var JSONtest = fetchJSONData(); 
+
 
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", function(){
-        console.log(JSONtest);
+        fetchJSONData(); 
+        //console.log(JSONtest);
 });
