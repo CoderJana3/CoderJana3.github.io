@@ -1,5 +1,6 @@
 
-var JSONtest = "/src/json/test.json";
+import * as data from '/src/json/test.json';
+var JSONtest = data;
 
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", function(){
