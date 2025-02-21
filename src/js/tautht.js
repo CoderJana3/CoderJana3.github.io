@@ -62,12 +62,12 @@ async function getEnv() {
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             URL = URL + token; 
-            await fetch(URL, {                     
+            const response = await fetch(URL, {                     
                 method: 'GET',
                 headers: {'Accept': 'application/json'}
                 })
                 .then(response => //{
-                    response.text()
+                    response.json()
                     // console.log(
                     // `Response: ${response.status} ${response.statusText}`
                     // );
@@ -80,8 +80,9 @@ async function getEnv() {
                 //     console.error();
                 // });
             
-            var resp = this.response;
-            console.log("Attachment ID: " + resp.id);
+            var resp = response;
+            console.log("Attachment ID resp: " + resp.id);
+            console.log("Attachment-ID response: " + response.id);
             URLoneattach = URLoneattach ;
             // fetch('https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken', {
             //     method: 'GET',
