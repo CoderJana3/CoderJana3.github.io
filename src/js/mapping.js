@@ -14,14 +14,14 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
 
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
-        //var JSONdata = await fetchJSONData(); 
-        var JSONData = await fetch('./src/json/test.json')            //copied from https://www.geeksforgeeks.org/read-json-file-using-javascript/
-        .then(response => response.json() 
-         )
-        //.then(data => console.log(data))  
+         
+        var JSONTestData = await fetch('./src/json/test.json')            
+        .then(response => response.json())
         .catch(error => console.error('Failed to fetch data:', error)); 
 
-         console.log(JSONData);
-        console.log("JSONData Test, give out Data ID: " + JSONData.id);
-        //console.log(JSONtest);
+        var stringJSONTEstData = JSON.stringify(JSONTestData);
+        console.log(stringJSONTEstData);
+        console.log(JSONTestData);
+        console.log("JSONData Test, give out Data ID: " + JSONTestData.id);
+       
 });
