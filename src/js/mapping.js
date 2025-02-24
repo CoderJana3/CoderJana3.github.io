@@ -27,7 +27,7 @@ mapbtn.addEventListener("click", async function(){
         var oldlength = Object.keys(JSONTestData).length;
         console.log("Length of OLDJSON: " + oldlength);
         var i = 0;
-        var checkArr = new Array[oldlength];
+        var checkArr = [];
         for(var key in JSONTestData){
             checkArr[i] = key;
             console.log("This is the " + i + "Position of the checkArray and has: " + checkArr[i]);
