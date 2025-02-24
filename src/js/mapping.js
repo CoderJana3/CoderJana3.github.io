@@ -11,6 +11,11 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
 }
 
 
+var oldJSON = document.getElementById("oldjson");
+
+
+
+var newJSON = document.getElementById("newjson");
 
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
@@ -20,6 +25,7 @@ mapbtn.addEventListener("click", async function(){
         .catch(error => console.error('Failed to fetch data:', error)); 
 
         var stringJSONTEstData = JSON.stringify(JSONTestData);
+        oldJSON += stringJSONTEstData;
         console.log(stringJSONTEstData);
         console.log(JSONTestData);
         console.log("JSONData Test, give out Data ID: " + JSONTestData.id);
