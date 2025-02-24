@@ -28,7 +28,7 @@ mapbtn.addEventListener("click", async function(){
         //id + referenceLink + isImported + creationUser
 
         var newJSON = {};
-        JSONTestData.array.forEach(element => {
+        JSONTestData.forEach(element => {
             //do something
             newJSON[element] = JSONTestData[element];
         });
