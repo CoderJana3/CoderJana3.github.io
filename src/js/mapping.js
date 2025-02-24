@@ -30,7 +30,7 @@ mapbtn.addEventListener("click", async function(){
         var checkArr = [];
         for(var key in JSONTestData){
             checkArr[i] = key;
-            console.log("This is the " + i + "Position of the checkArray and has: " + checkArr[i]);
+            //console.log("This is the " + i + "Position of the checkArray and has: " + checkArr[i]);
             i++;
             if(key == "id"){
                 console.log("Found matching Key: " + key);
@@ -49,7 +49,7 @@ mapbtn.addEventListener("click", async function(){
         //**Needed parts of JSON */
         //id + referenceLink + isImported + creationUser
 
-        var newJSON = {};
+        const newJSON = {};
         for(let j=0; j<oldlength; j++){
             if(checkArr[j] == "id"){
                 for(var key in JSONTestData){
@@ -57,7 +57,7 @@ mapbtn.addEventListener("click", async function(){
                         var id = JSONTestData[key];
                     }
                 };
-                newJSON += "id:"+ id;
+                newJSON.id = id;
             }
             if(checkArr[j] == "url"){
                 for(var key in JSONTestData){
@@ -65,7 +65,7 @@ mapbtn.addEventListener("click", async function(){
                         var url = JSONTestData[key];
                     }
                 };
-                newJSON += "referenceLink:"+ url;
+                newJSON.referenceLink = url;
             }
             if(checkArr[j] == "member"){
                 for(var key in JSONTestData){
@@ -73,7 +73,7 @@ mapbtn.addEventListener("click", async function(){
                         var member = JSONTestData[key];
                     }
                 };
-                newJSON += checkArr[j]+":"+ member;
+                newJSON.member = member;
             }
         }
         newJSON += "isImported: true";
