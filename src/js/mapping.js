@@ -28,11 +28,14 @@ mapbtn.addEventListener("click", async function(){
         console.log("Length of OLDJSON: " + oldlength);
         var i = 0;
         for(var key in JSONTestData){
-            if(key == "ID"){
-                console.log(key);
-                console.log(JSONTestData[key]);
+            if(key == "id"){
+                console.log("Found matching Key: " + key);
+                console.log("Value of matched Key: " + JSONTestData[key]);
             }
         };
+        console.log("Data has ID: " + Object.hasOwn(JSONTestData, "id"));
+
+
         var stringJSONTEstData = JSON.stringify(JSONTestData);
         oldJSON.innerText += stringJSONTEstData;
         console.log(stringJSONTEstData);
