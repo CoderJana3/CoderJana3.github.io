@@ -26,6 +26,7 @@ mapbtn.addEventListener("click", async function(){
 
         var oldlength = Object.keys(JSONTestData).length;
         console.log("Length of OLDJSON: " + oldlength);
+        console.log(JSONTestData[1]);
         var stringJSONTEstData = JSON.stringify(JSONTestData);
         oldJSON.innerText += stringJSONTEstData;
         console.log(stringJSONTEstData);
