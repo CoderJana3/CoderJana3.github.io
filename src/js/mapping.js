@@ -13,8 +13,6 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
 
 var oldJSON = document.getElementById("oldjson");
 
-
-
 var newJSON = document.getElementById("newjson");
 
 var mapbtn = document.getElementById("mapbtn");
@@ -32,12 +30,12 @@ mapbtn.addEventListener("click", async function(){
             checkArr[i] = key;
             //console.log("This is the " + i + "Position of the checkArray and has: " + checkArr[i]);
             i++;
-            if(key == "id"){
-                console.log("Found matching Key: " + key);
-                console.log("Value of matched Key: " + JSONTestData[key]);
-            }
+            // if(key == "id"){
+            //     console.log("Found matching Key: " + key);
+            //     console.log("Value of matched Key: " + JSONTestData[key]);
+            // }
         };
-        console.log("Data has ID: " + Object.hasOwn(JSONTestData, "id"));
+        //console.log("Data has ID: " + Object.hasOwn(JSONTestData, "id"));
 
 
         var stringJSONTEstData = JSON.stringify(JSONTestData);
@@ -67,7 +65,7 @@ mapbtn.addEventListener("click", async function(){
                 };
                 newJSON.referenceLink = url;
             }
-            if(checkArr[j] == "member"){
+            if(checkArr[j] == "idmember"){
                 for(var key in JSONTestData){
                     if(key == "member"){
                         var member = JSONTestData[key];
@@ -79,9 +77,10 @@ mapbtn.addEventListener("click", async function(){
         newJSON.isImported = "true";
 
         var stringnewJSON = JSON.stringify(newJSON);
+        newJSON.innerText += stringnewJSON;
         console.log("New JSON Object: " + stringnewJSON);
         console.log(newJSON);
-        newJSON.innerText = stringnewJSON;
+        
 
        
 });
