@@ -77,9 +77,10 @@ mapbtn.addEventListener("click", async function(){
             }
         }
         newJSON.isImported = "true";
-        console.log("New JSON Object: " + JSON.stringify(newJSON));
 
         var stringnewJSON = JSON.stringify(newJSON);
+        console.log("New JSON Object: " + stringnewJSON);
+        console.log(newJSON);
         newJSON.innerText += stringnewJSON;
 
        
