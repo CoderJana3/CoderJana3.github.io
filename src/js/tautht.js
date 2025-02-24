@@ -107,10 +107,12 @@ async function getEnv() {
                 //.then(text => console.log(text))
                 .catch(err => console.error(err));
 
+                console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
+
             } else {
                 console.log("Not a valid Token");   
-                gotvalidtoken = false;                                          //If it is invalid, set gottoken to false and inform over console.log that no Valid 
-            }                                                                   //Token was found
+                gotvalidtoken = false;                                          //If it is invalid, set gottoken to false and inform over console.log  
+            }                                                                   //that no ValidToken was found
                                                                                 
             console.log("End of getToken!");                                    //Log to show that getToken was used 
         });
