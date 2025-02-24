@@ -25,7 +25,7 @@ mapbtn.addEventListener("click", async function(){
         .catch(error => console.error('Failed to fetch data:', error)); 
 
         var stringJSONTEstData = JSON.stringify(JSONTestData);
-        oldJSON += stringJSONTEstData;
+        oldJSON.innerText += stringJSONTEstData;
         console.log(stringJSONTEstData);
         console.log(JSONTestData);
         console.log("JSONData Test, give out Data ID: " + JSONTestData.id);
