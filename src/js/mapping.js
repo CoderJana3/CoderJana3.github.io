@@ -34,10 +34,10 @@ mapbtn.addEventListener("click", async function(){
         //id + referenceLink + isImported + creationUser
 
         var newJSON = {};
-        JSONTestData.forEach(element => {
-            //do something
-            newJSON[element] = JSONTestData[element];
-        });
+        // JSONTestData.forEach(element => {
+        //     //do something
+        //     newJSON[element] = JSONTestData[element];
+        // });
         console.log("New JSON Object: " + newJSON);
 
        
