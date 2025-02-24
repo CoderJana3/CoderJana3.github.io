@@ -23,5 +23,16 @@ mapbtn.addEventListener("click", async function(){
         console.log(stringJSONTEstData);
         console.log(JSONTestData);
         console.log("JSONData Test, give out Data ID: " + JSONTestData.id);
+
+        //**Needed parts of JSON */
+        //id + referenceLink + isImported + creationUser
+
+        var newJSON = {};
+        JSONTestData.array.forEach(element => {
+            //do something
+            newJSON[element] = JSONTestData[element];
+        });
+        console.log("New JSON Object: " + newJSON);
+
        
 });
