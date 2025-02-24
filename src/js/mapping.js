@@ -50,11 +50,36 @@ mapbtn.addEventListener("click", async function(){
         //id + referenceLink + isImported + creationUser
 
         var newJSON = {};
-        // JSONTestData.forEach(element => {
-        //     //do something
-        //     newJSON[element] = JSONTestData[element];
-        // });
+        for(let j=0; j<oldlength; j++){
+            if(checkArr[j] == "id"){
+                for(var key in JSONTestData){
+                    if(key == "id"){
+                        var id = JSONTestData[key];
+                    }
+                };
+                newJSON += "id:"+ id;
+            }
+            if(checkArr[j] == "url"){
+                for(var key in JSONTestData){
+                    if(key == "url"){
+                        var url = JSONTestData[key];
+                    }
+                };
+                newJSON += "referenceLink:"+ url;
+            }
+            if(checkArr[j] == "member"){
+                for(var key in JSONTestData){
+                    if(key == "member"){
+                        var member = JSONTestData[key];
+                    }
+                };
+                newJSON += checkArr[j]+":"+ member;
+            }
+        }
+        newJSON += "isImported: true";
         console.log("New JSON Object: " + newJSON);
+
+        newJSON.innerText += newJSON;
 
        
 });
