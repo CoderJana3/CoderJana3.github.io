@@ -15,6 +15,8 @@ var oldJSON = document.getElementById("oldjson");
 
 var alteredJSON = document.getElementById("newjson");
 
+var addedJSON = document.getElementById("addedjson");
+
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
          
@@ -116,6 +118,7 @@ mapbtn.addEventListener("click", async function(){
         //give out Task JSON Object
         console.log(task);
         console.log(JSON.stringify(task));
+        addedJSON.innerText *= JSON.stringify(task);
 
        
 });
