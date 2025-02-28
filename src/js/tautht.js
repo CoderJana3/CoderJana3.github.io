@@ -94,8 +94,8 @@ async function getEnv() {
                 //'https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken'
                 //Basic Code from: https://developer.atlassian.com/cloud/trello/rest/api-group-cards/#api-cards-id-attachments-idattachment-get
                 URLoneattach = URLoneattach + response[0].id + '?key=' + envkey + '&token=' + token;
-                                                                
-                const attachment = fetch(URLoneattach, {
+                const attachment = null;                                               
+                fetch(URLoneattach, {
                     method: 'GET',
                     headers: {'Accept': 'application/json'}
                 })
@@ -107,7 +107,7 @@ async function getEnv() {
                 //.then(text => console.log(text))
                 .catch(err => console.error(err));
 
-                console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
+                //console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
 
             } else {
                 console.log("Not a valid Token");   
@@ -120,7 +120,7 @@ async function getEnv() {
         console.log("getToken Test: " + gottoken);                              //Log to check if a Token was given
        //return t.closePopup();                                                 //close the Popup when the request has finished
 
-       console.log("Check if attachment data is available outside getToken: " + attachment.name + attachment.isUpload); //did this so i can open popup to different side to test json mapping outisde of trello
+       //console.log("Check if attachment data is available outside getToken: " + attachment.name + attachment.isUpload); //did this so i can open popup to different side to test json mapping outisde of trello
     });
 
     var closeBtn = document.getElementById("close");
