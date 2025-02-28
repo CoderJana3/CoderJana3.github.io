@@ -18,12 +18,16 @@ var alteredJSON = document.getElementById("newjson");
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
          
+        //get Testdata from test.json
         var JSONTestData = await fetch('./src/json/test.json')            
         .then(response => response.json())
         .catch(error => console.error('Failed to fetch data:', error)); 
 
+        //get length of JSON data
         var oldlength = Object.keys(JSONTestData).length;
         console.log("Length of OLDJSON: " + oldlength);
+
+        //create Array with all keys in JSON Test Data 
         var i = 0;
         var checkArr = [];
         for(var key in JSONTestData){
@@ -85,11 +89,23 @@ mapbtn.addEventListener("click", async function(){
         task.id = "idnumber";
         task.state = "state";
         task.priority = "priority";
-        task.informedUsers = [];
+        task.informedUsers = []; //works, creates an Arrays in task
         task.lph = "LPH";
-        task.markup = {};
-        task.markup.id = "idnumbermarkup";
+        task.markup = {}; //works, creates another JSON object in task
+        task.markup.id = "idnumbermarkup"; //works, like this able to add attributes to inner JSON Data
         task.markup.topic = "inner Array of Markup";
+
+        for(let j=0; j<oldlength; j++){
+            if(checkArr[j] == "id"){
+                for(var key in JSONTestData){
+                    if(key == "id"){
+                        var id = JSONTestData[key];
+                    }
+                };
+                task.markup.id = id;
+            }
+
+        }
         
         console.log(task);
         console.log(JSON.stringify(task));
