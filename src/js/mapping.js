@@ -77,11 +77,22 @@ mapbtn.addEventListener("click", async function(){
         newJSON.isImported = "true";
 
         var stringnewJSON = JSON.stringify(newJSON);
-        //newJSON.textarea += "Test div newJSON";
         alteredJSON.innerText += stringnewJSON;
         console.log("New JSON Object: " + stringnewJSON);
         console.log(newJSON);
+
+        const task = {};
+        task.id = "idnumber";
+        task.state = "state";
+        task.priority = "priority";
+        task.informedUsers = [];
+        task.lph = "LPH";
+        task.markup = {};
+        task.markup.id = "idnumbermarkup";
+        task.markup.topic = "inner Array of Markup";
         
+        console.log(task);
+        console.log(JSON.stringify(task));
 
        
 });
