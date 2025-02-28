@@ -116,9 +116,10 @@ mapbtn.addEventListener("click", async function(){
 
         //}
         //give out Task JSON Object
+        var taskstringified = JSON.stringify(task);
         console.log(task);
-        console.log(JSON.stringify(task));
-        addedJSON.innerText *= JSON.stringify(task);
+        console.log(taskstringified);
+        addedJSON.innerText *= taskstringified;
 
        
 });
