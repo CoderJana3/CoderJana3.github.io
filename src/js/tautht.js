@@ -102,9 +102,9 @@ async function getEnv() {
                 .then(attachment => {
                     attachment.json();
                     console.log(`Attachment ID Response: ${response.status} ${response.statusText}`);
-                    //return response.text();
+                    return response.text();
                 })
-                //.then(text => console.log(text))
+                .then(text => console.log(text))
                 .catch(err => console.error(err));
 
                 //console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
