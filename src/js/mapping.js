@@ -41,7 +41,7 @@ mapbtn.addEventListener("click", async function(){
         };
         //console.log("Data has ID: " + Object.hasOwn(JSONTestData, "id"));
 
-
+        //give out JSONTestData to check if it was given correctly
         var stringJSONTEstData = JSON.stringify(JSONTestData);
         oldJSON.innerText += stringJSONTEstData;
         console.log(stringJSONTEstData);
@@ -51,6 +51,7 @@ mapbtn.addEventListener("click", async function(){
         //**Needed parts of JSON */
         //id + referenceLink + isImported + creationUser
 
+        //create new JSON Object with only needed attributes and their values
         const newJSON = {};
         for(let j=0; j<oldlength; j++){
             if(checkArr[j] == "id"){
@@ -80,11 +81,13 @@ mapbtn.addEventListener("click", async function(){
         }
         newJSON.isImported = "true";
 
+        //show new JSON object to check if it was created correctly
         var stringnewJSON = JSON.stringify(newJSON);
         alteredJSON.innerText += stringnewJSON;
         console.log("New JSON Object: " + stringnewJSON);
         console.log(newJSON);
 
+        //create new longer JSON Object to check if specific values can be altered to testvalues
         const task = {};
         task.id = "idnumber";
         task.state = "state";
@@ -94,7 +97,7 @@ mapbtn.addEventListener("click", async function(){
         task.markup = {}; //works, creates another JSON object in task
         //task.markup.id = "idnumbermarkup"; //works, like this able to add attributes to inner JSON Data
         //task.markup.topic = "inner Array of Markup";
-        const markup = task.markup;
+        const markup = task.markup;   //works, no need to have long references just save in var to use later
         markup.id = "idnumbermarkup";
         markup.topic = "inner Array of Markup";
 
@@ -110,7 +113,7 @@ mapbtn.addEventListener("click", async function(){
             }
 
         }
-        
+        //give out Task JSON Object
         console.log(task);
         console.log(JSON.stringify(task));
 
