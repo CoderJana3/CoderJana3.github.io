@@ -92,9 +92,13 @@ mapbtn.addEventListener("click", async function(){
         task.informedUsers = []; //works, creates an Arrays in task
         task.lph = "LPH";
         task.markup = {}; //works, creates another JSON object in task
-        task.markup.id = "idnumbermarkup"; //works, like this able to add attributes to inner JSON Data
-        task.markup.topic = "inner Array of Markup";
+        //task.markup.id = "idnumbermarkup"; //works, like this able to add attributes to inner JSON Data
+        //task.markup.topic = "inner Array of Markup";
+        const markup = task.markup;
+        markup.id = "idnumbermarkup";
+        markup.topic = "inner Array of Markup";
 
+        //adds value to attribute but doesn't change position of attribute
         for(let j=0; j<oldlength; j++){
             if(checkArr[j] == "id"){
                 for(var key in JSONTestData){
