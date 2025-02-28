@@ -93,6 +93,7 @@ async function getEnv() {
                 //already created the start of the URL above until attachments/
                 //'https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken'
                 //Basic Code from: https://developer.atlassian.com/cloud/trello/rest/api-group-cards/#api-cards-id-attachments-idattachment-get
+                /**when trying to get this to work remember to change als instances where response was changed to attachment back to response */
                 URLoneattach = URLoneattach + response[0].id + '?key=' + envkey + '&token=' + token;
                 const attachment = null;                                               
                 fetch(URLoneattach, {
@@ -102,9 +103,9 @@ async function getEnv() {
                 .then(attachment => {
                     attachment.json();
                     console.log(`Attachment ID Response: ${response.status} ${response.statusText}`);
-                    return response.text();
+                    //return response.text();
                 })
-                .then(text => console.log(text))
+                //.then(text => console.log(text))
                 .catch(err => console.error(err));
 
                 //console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);

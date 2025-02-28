@@ -102,17 +102,17 @@ mapbtn.addEventListener("click", async function(){
         markup.topic = "inner Array of Markup";
 
         //adds value to attribute but doesn't change position of attribute
-        for(let j=0; j<oldlength; j++){
-            if(checkArr[j] == "id"){
+        //for(let j=0; j<oldlength; j++){
+          //  if(checkArr[j] == "id"){
                 for(var key in JSONTestData){
                     if(key == "id"){
                         var id = JSONTestData[key];
                     }
                 };
                 task.markup.id = id;
-            }
+            //}
 
-        }
+        //}
         //give out Task JSON Object
         console.log(task);
         console.log(JSON.stringify(task));
