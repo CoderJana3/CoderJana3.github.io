@@ -13,7 +13,7 @@ function fetchJSONData() { fetch('./src/json/test.json')            //copied fro
 
 var oldJSON = document.getElementById("oldjson");
 
-var newJSON = document.getElementById("newjson");
+var alteredJSON = document.getElementById("newjson");
 
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
@@ -77,8 +77,8 @@ mapbtn.addEventListener("click", async function(){
         newJSON.isImported = "true";
 
         var stringnewJSON = JSON.stringify(newJSON);
-        newJSON.textarea += "Test div newJSON";
-        //newJSON.innerText += stringnewJSON;
+        //newJSON.textarea += "Test div newJSON";
+        alteredJSON.innerText += stringnewJSON;
         console.log("New JSON Object: " + stringnewJSON);
         console.log(newJSON);
         
