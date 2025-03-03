@@ -95,7 +95,7 @@ async function getEnv() {
                 //Basic Code from: https://developer.atlassian.com/cloud/trello/rest/api-group-cards/#api-cards-id-attachments-idattachment-get
                 /**when trying to get this to work remember to change als instances where response was changed to attachment back to response */
                 URLoneattach = URLoneattach + response[0].id + '?key=' + envkey + '&token=' + token;                                               
-                const attachment = fetch(URLoneattach, {
+                const attachment = await fetch(URLoneattach, {
                     method: 'GET',
                     headers: {'Accept': 'application/json'}
                 })
