@@ -62,7 +62,7 @@ async function getEnv() {
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
             console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             
-            if(validtoken){     
+            if(validtoken){     //add catch/check for 401 error
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
                 gotvalidtoken = true;
                 //GET REQUEST for attachments with URL created above plus token //and then make a Request with the Token (get request taken from REST API Trello)
@@ -83,7 +83,7 @@ async function getEnv() {
                     headers: {'Accept': 'application/json'}
                   })
                   .then(response => {
-                      console.log(`Attachments Response: ${response.status} ${response.statusText}`);
+                      console.log(`Basic Fetch Attachments Response: ${response.status} ${response.statusText}`);
                       return response.text();
                     })
                     .then(text => console.log(text))
@@ -108,6 +108,20 @@ async function getEnv() {
                 .catch(err => console.error(err));
 
                 console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
+
+                /**Basic GET Request for getting one Attachment */
+                fetch(URLoneattach, {
+                    method: 'GET',
+                    headers: {
+                      'Accept': 'application/json'
+                    }
+                  })
+                    .then(response => {
+                      console.log(`Basic Fetch Attachment ID Response: ${response.status} ${response.statusText}`);
+                      return response.text();
+                    })
+                    .then(text => console.log(text))
+                    .catch(err => console.error(err));
 
             } else {
                 console.log("Not a valid Token");   
