@@ -25,8 +25,8 @@ async function getEnv() {
 
         /**Section: Getting Card-ID*/
         var context = t.getContext();                                           //gives JSON-Resp with detailed information
-        console.log(JSON.stringify(context, null, 2));                          //gives the correct Card Information
-        console.log("Card-ID:" + context.card);                                 //Test to check that the ID was correct
+        //console.log(JSON.stringify(context, null, 2));                          //gives the correct Card Information
+        //console.log("Card-ID:" + context.card);                                 //Test to check that the ID was correct
 
         /**Section:TokenTest Function Defintion*/
         var tokenForTest = "198374638a1caca81e1827376460201982baed5155e6c4934784625fa52372f4";
@@ -35,7 +35,7 @@ async function getEnv() {
             return /^[A-Za-z0-9]{76}$/.test(testtoken);                          //fixed
             //return /^[0-9a-f]{64}$/.test(testtoken);                           //from Trello Power Up Example from glitch
         }
-        console.log("TokenLooksValid tested with tokenForTest. Did it work: " + tokenLooksValid(tokenForTest)); 
+        //console.log("TokenLooksValid tested with tokenForTest. Did it work: " + tokenLooksValid(tokenForTest)); 
         
         /**Section: start creating the URL for GET Request for Attachments on Card */   
         //create a Base URL with the information that's already available, aka card ID and API Key
@@ -60,7 +60,7 @@ async function getEnv() {
             } 
             gottoken = true;
             validtoken = tokenLooksValid(token);                                //use tokenLooksValid to check if the token that was returned is Valid
-            console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
+            //console.log("Test to see what we get back from using tokenLooksValid with a real Token in RESTAPI: " + validtoken);
             
             if(validtoken){     //add catch/check for 401 error
                 console.log("Got a valid token!");                              //If it is valid, set gottoken to true 
@@ -93,7 +93,6 @@ async function getEnv() {
                 //already created the start of the URL above until attachments/
                 //'https://api.trello.com/1/cards/{id}/attachments/{idAttachment}?key=APIKey&token=APIToken'
                 //Basic Code from: https://developer.atlassian.com/cloud/trello/rest/api-group-cards/#api-cards-id-attachments-idattachment-get
-                /**when trying to get this to work remember to change als instances where response was changed to attachment back to response */
                 URLoneattach = URLoneattach + response[0].id + '?key=' + envkey + '&token=' + token;                                               
                 const attachment = await fetch(URLoneattach, {
                     method: 'GET',
