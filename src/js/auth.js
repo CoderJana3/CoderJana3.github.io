@@ -4,17 +4,19 @@ t.render(function(){
     return t.sizeTo("#content");
 });
 
-var oauthUrl = window.origin + "/3rd-party/authorize.html";
+//var oauthUrl = window.origin + "/3rd-party/authorize.html";
+var oauthUrl = "api.planbic.de/auth/login"
 
 var authBtn = document.getElementById("authorize");
 authBtn.addEventListener("click", function(){
     t.authorize(oauthUrl)
     .then(function(token){
-        return t.set("member", "private", "authToken", token);
+        return t.storeSecret('token', token);
+        //return t.set("member", "private", "authToken", token);
     })
     .then(function(){
         return t.closePopup();
     });
 });
 
-//comment for forcepush
+
