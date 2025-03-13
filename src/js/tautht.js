@@ -107,6 +107,34 @@ async function getEnv() {
                 .catch(err => console.error(err));
 
                 console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
+                const task = {};
+                task.id = "idnumber";
+                task.state = "state";
+                task.priority = "priority";
+                task.informedUsers = []; //works, creates an Arrays in task
+                task.lph = "LPH";
+                task.markup = {}; //works, creates another JSON object in task
+                const markup = task.markup;   //works, no need to have long references just save in var to use later
+                markup.id = "to be added later";
+                markup.topic = {};
+                const topic = markup.topic;
+                topic.atGuid = null;
+                topic.atTopicType = null;
+                topic.atTopicStatus = null;
+                topic.referenceLink = "to be added later";
+
+                //adds value to attribute but doesn't change position of attribute
+                for(var key in attachment){
+                    if(key == "id"){
+                        var id = attachment[key];
+                    }
+                    if(key == "url"){
+                        var reflink = attachment[key];
+                    }
+                };
+                markup.id = id;
+                topic.referenceLink = reflink;
+                console.log("New Task Object: " + task);
 
                 /**Basic GET Request for getting one Attachment */
                 fetch(URLoneattach, {
