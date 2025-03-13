@@ -114,14 +114,41 @@ async function getEnv() {
                 task.informedUsers = []; //works, creates an Arrays in task
                 task.lph = "LPH";
                 task.markup = {}; //works, creates another JSON object in task
+                task.visualizationInfo = [];
+                task.ifcLink = null;
+                task.ifcName = null;
+                task.isImported = true;
+                task.isBCF = null;
+                task.projectID = "projectID to be added later";
+                task.projectName = "projectName to be added later";
                 const markup = task.markup;   //works, no need to have long references just save in var to use later
-                markup.id = "to be added later";
+                markup.id = "id to be added later";
                 markup.topic = {};
+                markup.viewpoints = [];
+                markup.comment = [];
+                markup.markupExtra = null;
                 const topic = markup.topic;
                 topic.atGuid = null;
                 topic.atTopicType = null;
                 topic.atTopicStatus = null;
-                topic.referenceLink = "to be added later";
+                topic.referenceLink = "ref link to be added later";
+                topic.title = "title to be added later";
+                topic.priority = null;
+                topic.index = null;
+                topic.labels = [];
+                topic.creationDate = new Date().toString();
+                topic.creationAuthor = "creatAuth to be added later";
+                topic.modifiedDate = null;
+                topic.modifiedAuthor = null;
+                topic.dueDate = null;
+                topic.startDate = null;
+                topic.assignedTo = "assignto to be added later";
+                topic.description = null;
+                topic.stage = null;
+                topic.creationUser = {};
+                const creationUser = topic.creationUser;
+                topic.modifiedUser = null;
+                topic.assignedToUser = {};
 
                 //adds value to attribute but doesn't change position of attribute
                 for(var key in attachment){
@@ -131,9 +158,13 @@ async function getEnv() {
                     if(key == "url"){
                         var reflink = attachment[key];
                     }
+                    if(key == "name"){
+                        var title = attachment[key];
+                    }
                 };
                 markup.id = id;
                 topic.referenceLink = reflink;
+                topic.title = title;
                 console.log("New Task should be below this log:");
                 console.log(task);
 
