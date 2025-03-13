@@ -102,6 +102,10 @@ mapbtn.addEventListener("click", async function(){
         const markup = task.markup;   //works, no need to have long references just save in var to use later
         markup.id = "idnumbermarkup";
         markup.topic = "inner Array of Markup";
+        const topic = markup.topic;
+        topic.atGuid = null;
+        topic.atTopicType = null;
+        topic.referenceLink = null;
 
         //adds value to attribute but doesn't change position of attribute
         //for(let j=0; j<oldlength; j++){
@@ -110,8 +114,12 @@ mapbtn.addEventListener("click", async function(){
                     if(key == "id"){
                         var id = JSONTestData[key];
                     }
+                    if(key == "url"){
+                        var reflink = JSONTestData[key];
+                    }
                 };
                 task.markup.id = id;
+                topic.referenceLink = reflink;
             //}
 
         //}
