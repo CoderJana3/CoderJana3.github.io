@@ -105,7 +105,7 @@ mapbtn.addEventListener("click", async function(){
         const topic = markup.topic;
         topic.atGuid = null;
         topic.atTopicType = null;
-        topic.referenceLink = null;
+        topic.referenceLink = "from data null so here be something else";
 
         //adds value to attribute but doesn't change position of attribute
         //for(let j=0; j<oldlength; j++){
