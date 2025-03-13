@@ -19,6 +19,16 @@ var addedJSON = document.getElementById("addedjson");
 
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
+
+        fetch("https://api.planbic.de/tasks")
+        .then(response=> {
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }   
+            return response.json();  
+        })
+        .then(data => console.log(data))
+        .catch(error => console.error('Failed to fetch data:', error));
          
         //get Testdata from test.json
         var JSONTestData = await fetch('./src/json/test.json')            
@@ -90,44 +100,44 @@ mapbtn.addEventListener("click", async function(){
         console.log(newJSON);
 
         //create new longer JSON Object to check if specific values can be altered to testvalues
-        const task = {};
-        task.id = "idnumber";
-        task.state = "state";
-        task.priority = "priority";
-        task.informedUsers = []; //works, creates an Arrays in task
-        task.lph = "LPH";
-        task.markup = {}; //works, creates another JSON object in task
-        //task.markup.id = "idnumbermarkup"; //works, like this able to add attributes to inner JSON Data
-        //task.markup.topic = "inner Array of Markup";
-        const markup = task.markup;   //works, no need to have long references just save in var to use later
-        markup.id = "idnumbermarkup";
-        markup.topic = {};
-        const topic = markup.topic;
-        topic.atGuid = null;
-        topic.atTopicType = null;
-        topic.referenceLink = "from data null so here be something else";
+        // const task = {};
+        // task.id = "idnumber";
+        // task.state = "state";
+        // task.priority = "priority";
+        // task.informedUsers = []; //works, creates an Arrays in task
+        // task.lph = "LPH";
+        // task.markup = {}; //works, creates another JSON object in task
+        // //task.markup.id = "idnumbermarkup"; //works, like this able to add attributes to inner JSON Data
+        // //task.markup.topic = "inner Array of Markup";
+        // const markup = task.markup;   //works, no need to have long references just save in var to use later
+        // markup.id = "idnumbermarkup";
+        // markup.topic = {};
+        // const topic = markup.topic;
+        // topic.atGuid = null;
+        // topic.atTopicType = null;
+        // topic.referenceLink = "from data null so here be something else";
 
-        //adds value to attribute but doesn't change position of attribute
-        //for(let j=0; j<oldlength; j++){
-          //  if(checkArr[j] == "id"){
-                for(var key in JSONTestData){
-                    if(key == "id"){
-                        var id = JSONTestData[key];
-                    }
-                    if(key == "url"){
-                        var reflink = JSONTestData[key];
-                    }
-                };
-                task.markup.id = id;
-                topic.referenceLink = reflink;
-            //}
+        // //adds value to attribute but doesn't change position of attribute
+        // //for(let j=0; j<oldlength; j++){
+        //   //  if(checkArr[j] == "id"){
+        //         for(var key in JSONTestData){
+        //             if(key == "id"){
+        //                 var id = JSONTestData[key];
+        //             }
+        //             if(key == "url"){
+        //                 var reflink = JSONTestData[key];
+        //             }
+        //         };
+        //         task.markup.id = id;
+        //         topic.referenceLink = reflink;
+        //     //}
 
-        //}
-        //give out Task JSON Object
-        var taskstringified = JSON.stringify(task);
-        console.log(task);
-        console.log(taskstringified);
-        addedJSON.innerText += taskstringified;
+        // //}
+        // //give out Task JSON Object
+        // var taskstringified = JSON.stringify(task);
+        // console.log(task);
+        // console.log(taskstringified);
+        // addedJSON.innerText += taskstringified;
 
        
 });
