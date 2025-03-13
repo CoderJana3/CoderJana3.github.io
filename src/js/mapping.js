@@ -20,7 +20,10 @@ var addedJSON = document.getElementById("addedjson");
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
 
-        fetch("https://api.planbic.de/tasks")
+        fetch("https://api.planbic.de/tasks", {
+            method: 'GET',
+            headers: {'Accept': 'application/json'}
+        })
         .then(response=> {
             if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
