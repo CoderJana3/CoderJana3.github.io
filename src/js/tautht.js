@@ -134,7 +134,8 @@ async function getEnv() {
                 };
                 markup.id = id;
                 topic.referenceLink = reflink;
-                console.log("New Task Object: " + task);
+                console.log("New Task should be below this log:");
+                console.log(task);
 
                 /**Basic GET Request for getting one Attachment */
                 fetch(URLoneattach, {
