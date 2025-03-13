@@ -101,7 +101,7 @@ mapbtn.addEventListener("click", async function(){
         //task.markup.topic = "inner Array of Markup";
         const markup = task.markup;   //works, no need to have long references just save in var to use later
         markup.id = "idnumbermarkup";
-        markup.topic = "inner Array of Markup";
+        markup.topic = {};
         const topic = markup.topic;
         topic.atGuid = null;
         topic.atTopicType = null;
