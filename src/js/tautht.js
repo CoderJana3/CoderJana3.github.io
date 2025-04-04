@@ -168,11 +168,14 @@ async function getEnv() {
                 topic.title = "Datei aus Trello" + title;
                 console.log("New Task should be below this log:");
                 console.log(task);
+                //const bictok = t.loadSecret('token');
 
                 const bicurl = "https://api.planbic.de/tasks";
                 const gettaskresp = await fetch(bicurl, {
                     method: 'GET',
-                    headers: {'Accept': 'application/json'} //auhtorization header einfügen?
+                    headers: {'Accept': 'application/json',
+                              'Authorization' : t.loadSecret('token') //bictok
+                    } 
                     })
                     .then(response => {
                       //console.log(`Basic Fetch Attachment ID Response: ${response.status} ${response.statusText}`);
