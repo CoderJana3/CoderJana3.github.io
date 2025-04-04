@@ -142,7 +142,8 @@ async function getEnv() {
                 topic.modifiedAuthor = null;
                 topic.dueDate = null;
                 topic.startDate = null;
-                topic.assignedTo = "assignto to be added later";
+                //topic.assignedTo = "assignto to be added later";
+                topic.assignedTo = null;
                 topic.description = null;
                 topic.stage = null;
                 topic.creationUser = {};
@@ -167,6 +168,23 @@ async function getEnv() {
                 topic.title = "Datei aus Trello" + title;
                 console.log("New Task should be below this log:");
                 console.log(task);
+
+                const bicurl = "https://api.planbic.de/tasks";
+                const gettaskresp = await fetch(bicurl, {
+                    method: 'GET',
+                    headers: {'Accept': 'application/json'} //auhtorization header einfügen?
+                    })
+                    .then(response => {
+                      //console.log(`Basic Fetch Attachment ID Response: ${response.status} ${response.statusText}`);
+                      return response.text();
+                    })
+                    .catch(err => console.error(err));
+
+                // for(var key in gettaskresp){
+                //     if(key == "id"){ //check if id or project id
+                //         var id = gettaskresp[key];
+                //     }
+                // };
 
                 /**Basic GET Request for getting one Attachment */
                 fetch(URLoneattach, {
