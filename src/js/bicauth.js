@@ -13,7 +13,7 @@ authBtn.addEventListener("click", async() =>{
         console.log("Password was transmitted")
     } else { console.log("No password submitted!")}
 
-    fetch("/auth/login", {
+    fetch("/login", {
         method: 'GET',
         headers: {
             'Accept': 'WWW-Authenticate'
