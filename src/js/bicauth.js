@@ -19,5 +19,6 @@ authBtn.addEventListener("click", async() =>{
         headers: {
             'Accept': 'WWW-Authenticate'
         }
-    })
+    }).catch(err => console.error(err));
+    
 })
