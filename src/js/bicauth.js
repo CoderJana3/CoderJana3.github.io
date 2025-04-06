@@ -16,9 +16,9 @@ authBtn.addEventListener("click", async() =>{
 
     fetch(bicauthURL, {
         method: 'GET',
-        headers: {
-            'Accept': 'WWW-Authenticate'
-        }
+        // headers: {
+        //     'Accept': 'WWW-Authenticate'
+        // }
     }).catch(err => console.error(err));
     
 })
