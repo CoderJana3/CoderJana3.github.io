@@ -1,9 +1,10 @@
 [[redirects]]
-    from = "/auth"
-    to = "https://coderjana3.netlify.app/auth" 
-
-[[redirects]]
     force = true
     from = "/auth/login"
     status = 200
     to = "https://www.api.planbic.de/auth/login"
+
+[[redirects]]
+    from = "/auth"
+    to = "https://coderjana3.netlify.app/auth" 
+
