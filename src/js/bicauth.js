@@ -4,7 +4,7 @@ var password = document.getElementById("passw");
 var authBtn = document.getElementById("authorize");
 var bicauthURL = "https://api.planbic.de/auth/login"
 
-authBtn.addEventListener("click", async(){
+authBtn.addEventListener("click", async() =>{
     if(username.value == "test"){
         console.log("Username was transmitted!");
     } else { console.log("No username submitted!")}
