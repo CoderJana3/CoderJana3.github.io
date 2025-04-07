@@ -1,8 +1,9 @@
 [[redirects]]
-    from = "/login.js"
+    force = true
+    from = "./login.js"
     to = "https://www.api.planbic.de/auth/login"
     status = 200
-    force = true
+    
 
 [[redirects]]
     from = "/auth"
