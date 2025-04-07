@@ -1,5 +1,5 @@
 [[redirects]]
-    from = "./auth/login"
+    from = "/auth/login"
     to = "https://www.api.planbic.de/auth/login"
     force = true
     status = 200
