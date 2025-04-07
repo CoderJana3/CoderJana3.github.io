@@ -168,13 +168,14 @@ async function getEnv() {
                 topic.title = "Datei aus Trello" + title;
                 console.log("New Task should be below this log:");
                 console.log(task);
-                //const bictok = t.loadSecret('token');
+                const bictok = t.loadSecret('token');
 
                 const bicurl = "https://api.planbic.de/tasks";
-                const gettaskresp = await fetch(bicurl, {
+                if(bictok != null){
+                    const gettaskresp = await fetch(bicurl, {
                     method: 'GET',
                     headers: {'Accept': 'application/json',
-                              'Authorization' : t.loadSecret('token') //bictok
+                              'Authorization' : bictok
                     } 
                     })
                     .then(response => {
@@ -182,6 +183,10 @@ async function getEnv() {
                       return response.text();
                     })
                     .catch(err => console.error(err));
+                } else {
+                    alert("Bitte BIC beim Power-Up autorisieren!")
+                }
+                
 
                 // for(var key in gettaskresp){
                 //     if(key == "id"){ //check if id or project id
