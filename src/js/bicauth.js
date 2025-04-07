@@ -6,6 +6,7 @@ var authBtn = document.getElementById("authorize");
 var bicauthURL = "/login.js" //redirect is unneccessary because it still causes CORS error 
 // Quellübergreifende (Cross-Origin) Anfrage blockiert: Die Gleiche-Quelle-Regel verbietet das Lesen der externen Ressource auf 
 // (Grund: CORS-Anfrage schlug fehl). Statuscode: (null).
+var bicauthURL2 = "/auth/login"
 
 authBtn.addEventListener("click", async() =>{
     if(username.value == "test"){
@@ -17,6 +18,13 @@ authBtn.addEventListener("click", async() =>{
     } else { console.log("No password submitted!")}
 
     fetch(bicauthURL, {
+        method: 'GET',
+        // headers: {
+        //     'Accept': 'WWW-Authenticate'
+        // }
+    }).catch(err => console.error(err));
+
+    fetch(bicauthURL2, {
         method: 'GET',
         // headers: {
         //     'Accept': 'WWW-Authenticate'
