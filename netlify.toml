@@ -1,17 +1,1 @@
-[[redirects]]
-    from = "./auth/login"
-    to = "https://www.api.planbic.de/auth/login"
-    force = true
-    status = 200
-
-[[redirects]]
-    force = true
-    from = "./login.js"
-    to = "https://www.api.planbic.de/auth/login"
-    status = 200
-    
-
-[[redirects]]
-    from = "/auth"
-    to = "https://coderjana3.netlify.app/auth" 
 
