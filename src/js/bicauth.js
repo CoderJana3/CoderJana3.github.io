@@ -17,18 +17,18 @@ authBtn.addEventListener("click", async() =>{
         console.log("Password was transmitted")
     } else { console.log("No password submitted!")}
 
-    // fetch(bicauthURL, {
-    //     method: 'GET',
-    //     // headers: {
-    //     //     'Accept': 'WWW-Authenticate'
-    //     // }
-    // }).catch(err => console.error(err));
+    fetch(bicauthURL, {
+        method: 'GET',
+        // headers: {
+        //     'Accept': 'WWW-Authenticate'
+        // }
+    }).catch(err => console.error("login.js "+err));
 
     fetch(bicauthURL2, {
         method: 'GET',
         // headers: {
         //     'Accept': 'WWW-Authenticate'
         // }
-    }).catch(err => console.error(err));
+    }).catch(err => console.error("auth/login "+ err));
     
 })
