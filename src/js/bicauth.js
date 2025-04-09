@@ -34,5 +34,28 @@ authBtn.addEventListener("click", async() =>{
             password:password
         }
     }).catch(err => console.error("auth/login "+ err));
+
+    // const resp = fetch(bicauthURL, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Access-Control-Allow-Origin': 'www.api.planbic.de'
+    //     },
+    //     body:{
+    //         username:username,
+    //         password:password
+    //     }
+    // }).then(response => response.json())
+    //   .catch(err => console.error("auth/login "+ err));
+
+    // if(window.opener && typeof window.opener.authorize ==="function"){
+    //     window.opener.authorize(resp.token);
+    //     console.log("set token to "+ resp.token);
+    // } else {
+    //     sessionStorage.setItem("token", resp.token);
+    //     console.log("save token");
+    // }
+    //  setTimeout(function(){
+    //      window.close();
+    //  }, 1*1000);
     
 })
