@@ -1,6 +1,6 @@
 [[redirects]]
-    from = "/auth/*"
-    to = "https://www.api.planbic.de/auth/login"
     force = true
+    from = "/auth/*"
     status = 200
+    to = "https://www.api.planbic.de/auth/login"
     headers = {'Access-Control-Allow-Origin' = 'www.api.planbic.de'}

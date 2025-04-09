@@ -1,2 +1,2 @@
-/auth/*            https://www.api.planbic.de/auth/login  200!
+#/auth/*            https://www.api.planbic.de/auth/login  200!
 /login.js          https://www.api.planbic.de/auth/login  301!
