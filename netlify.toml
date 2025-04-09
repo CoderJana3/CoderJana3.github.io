@@ -3,3 +3,4 @@
     to = "https://www.api.planbic.de/auth/login"
     force = true
     status = 200
+    headers = {'Access-Control-Allow-Origin' = 'www.api.planbic.de'}
