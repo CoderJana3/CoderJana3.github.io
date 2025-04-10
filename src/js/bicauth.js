@@ -27,7 +27,7 @@ authBtn.addEventListener("click", async() =>{
     fetch(bicauthURL, {
         method: 'POST',
         headers: {
-            'Access-Control-Allow-Origin': 'www.api.planbic.de'
+           // 'Access-Control-Allow-Origin': 'www.api.planbic.de'
         },
         body:{
             username:username,
