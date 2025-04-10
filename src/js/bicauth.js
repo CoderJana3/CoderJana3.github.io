@@ -6,7 +6,7 @@ var bicauthURL = "https://api.planbic.de/auth/login"
 var bicauthURLlog = "/login.js" //redirect is unneccessary because it still causes CORS error 
 // Quellübergreifende (Cross-Origin) Anfrage blockiert: Die Gleiche-Quelle-Regel verbietet das Lesen der externen Ressource auf 
 // (Grund: CORS-Anfrage schlug fehl). Statuscode: (null).
-var bicauthURL2 = "/auth/login"
+var proxyauthURL = "/auth/login"
 
 authBtn.addEventListener("click", async() =>{
     if(username.value == "test"){
@@ -33,7 +33,18 @@ authBtn.addEventListener("click", async() =>{
             username:username,
             password:password
         }
-    }).catch(err => console.error("auth/login "+ err));
+    }).catch(err => console.error("BIC URL: "+ err));
+
+    fetch(proxyauthURL, {
+        method: 'POST',
+        headers: {
+            'Access-Control-Allow-Origin': 'www.api.planbic.de'
+        },
+        body:{
+            username:username,
+            password:password
+        }
+    }).catch(err => console.error("Proxy: "+ err));
 
     // const resp = fetch(bicauthURL, {
     //     method: 'POST',
