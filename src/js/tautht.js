@@ -4,7 +4,7 @@ async function getEnv() {
    const envvar = await fetch("/.netlify/functions/envvar")                     //need this to get environemnt vars from netlify 
         .then(envvar => envvar.json());  
     var envkey = envvar.apikey;                                                 //save the apikey in var envkey to use it later on
-                                                                                //as the apikey is already stringified in the Body of the response there is no need to 
+    var bictoken = envvar.bictoken;                                                                            //as the apikey is already stringified in the Body of the response there is no need to 
                                                                                 //use stringify again
    
    /**Creating Trello iframe with Information needed for t.getRestApi()*/
@@ -168,25 +168,39 @@ async function getEnv() {
                 topic.title = "Datei aus Trello" + title;
                 console.log("New Task should be below this log:");
                 console.log(task);
-                const bictok = t.loadSecret('token');
-
-                const bicurl = "https://api.planbic.de/tasks";
-                if(bictok != null){
-                    const gettaskresp = await fetch(bicurl, {
+                //const bictok = t.loadSecret('token');
+                
+                const bicurlproj = "https://api.planbic.de/projects/personal"
+                if(bictoken != null){
+                    const getprojresp = await fetch(bicurlproj, {
                     method: 'GET',
-                    headers: {'Accept': 'application/json',
-                              'Authorization' : bictok
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization' : 'Bearer' + bictoken
                     } 
                     })
-                    .then(response => {
+                    .then(response => response.json()
                       //console.log(`Basic Fetch Attachment ID Response: ${response.status} ${response.statusText}`);
-                      return response.text();
-                    })
+                      
+                    )
                     .catch(err => console.error(err));
+                    console.log("after Fetch");
                 } else {
                     alert("Bitte BIC beim Power-Up autorisieren!")
                 }
                 
+                const projectID = getprojresp.id;
+                // const bicurltasks = "https://api.planbic.de/tasks" + projectID;
+                // fetch(bicurltasks, {
+                //     method: 'PUT',
+                //     headers: {
+                //         'Accept': 'application/json',
+                //         'Authorization' : 'Bearer' + bictoken
+                //     }, 
+                //     body: {
+                //         'content': task.json
+                //     }
+                // })
 
                 // for(var key in gettaskresp){
                 //     if(key == "id"){ //check if id or project id
