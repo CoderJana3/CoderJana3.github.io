@@ -34,7 +34,7 @@ authBtn.addEventListener("click", async() =>{
             username:username,
             password:password
         }
-    }).catch(err => console.error("BIC URL: "+ err));
+    }).catch(err => console.error("Headers: "+ err));
 
     fetch(bicauthURL, {
         method: 'POST',
@@ -46,7 +46,7 @@ authBtn.addEventListener("click", async() =>{
             username:username,
             password:password
         }
-    }).catch(err => console.error("BIC URL: "+ err));
+    }).catch(err => console.error("No Headers: "+ err));
 
     // fetch(proxyauthURL, {
     //     method: 'POST',
