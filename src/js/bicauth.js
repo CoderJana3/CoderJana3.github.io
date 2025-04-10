@@ -27,8 +27,8 @@ authBtn.addEventListener("click", async() =>{
     fetch(bicauthURL, {
         method: 'POST',
         headers: {
-            'content-type': 'application/json'
-           // 'Access-Control-Allow-Origin': 'www.api.planbic.de'
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': "*"
         },
         body:{
             username:username,
@@ -36,17 +36,17 @@ authBtn.addEventListener("click", async() =>{
         }
     }).catch(err => console.error("Headers: "+ err));
 
-    fetch(bicauthURL, {
-        method: 'POST',
-        headers: {
-            //'content-type': 'application/json'
-           // 'Access-Control-Allow-Origin': 'www.api.planbic.de'
-        },
-        body:{
-            username:username,
-            password:password
-        }
-    }).catch(err => console.error("No Headers: "+ err));
+    // fetch(bicauthURL, {
+    //     method: 'POST',
+    //     headers: {
+    //         //'content-type': 'application/json'
+    //         'Access-Control-Allow-Origin':  
+    //     },
+    //     body:{
+    //         username:username,
+    //         password:password
+    //     }
+    // }).catch(err => console.error("No Headers: "+ err));
 
     // fetch(proxyauthURL, {
     //     method: 'POST',
