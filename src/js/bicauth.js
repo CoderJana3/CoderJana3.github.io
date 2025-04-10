@@ -36,16 +36,28 @@ authBtn.addEventListener("click", async() =>{
         }
     }).catch(err => console.error("BIC URL: "+ err));
 
-    fetch(proxyauthURL, {
+    fetch(bicauthURL, {
         method: 'POST',
         headers: {
-            'Access-Control-Allow-Origin': 'www.api.planbic.de'
+            //'content-type': 'application/json'
+           // 'Access-Control-Allow-Origin': 'www.api.planbic.de'
         },
         body:{
             username:username,
             password:password
         }
-    }).catch(err => console.error("Proxy: "+ err));
+    }).catch(err => console.error("BIC URL: "+ err));
+
+    // fetch(proxyauthURL, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Access-Control-Allow-Origin': 'www.api.planbic.de'
+    //     },
+    //     body:{
+    //         username:username,
+    //         password:password
+    //     }
+    // }).catch(err => console.error("Proxy: "+ err));
 
     // const resp = fetch(bicauthURL, {
     //     method: 'POST',
