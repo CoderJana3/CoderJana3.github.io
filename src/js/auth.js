@@ -13,6 +13,7 @@ var authBtn = document.getElementById("authorize");
 authBtn.addEventListener("click", function(){
     t.authorize(secURL)
     .then(function(token){
+        console.log("entered then function of authorize");
         return t.storeSecret('token', token);
         //return t.set("member", "private", "authToken", token);
     })
