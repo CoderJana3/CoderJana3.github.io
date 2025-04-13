@@ -100,7 +100,7 @@ mapbtn.addEventListener("click", async function(){
         testing.membertest = null;
 
         for(var k in JSONTestData){
-            if(k == "idmember"){
+            if(k == "idMember"){
                 var memb = JSONTestData[k];
                 //testing.membertest = memb;
             }
