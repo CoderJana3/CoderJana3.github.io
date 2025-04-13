@@ -6,12 +6,12 @@ t.render(function(){
 
 //var oauthUrl = window.origin + "/3rd-party/authorize.html";
 //var oauthUrl = "https://api.planbic.de/auth/login"
-var oauthUrl = window.origin + "/bicauth.html";
-var secURL = "https://app.planbic.de/login"
+var authURL = window.origin + "/bicauth.html";
+//var secURL = "https://app.planbic.de/login"
 
 var authBtn = document.getElementById("authorize");
 authBtn.addEventListener("click", function(){
-    t.authorize(secURL)
+    t.authorize(authURL)
     .then(function(token){
         console.log("entered then function of authorize");
         return t.storeSecret('token', token);
