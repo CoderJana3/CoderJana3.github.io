@@ -20,18 +20,18 @@ var addedJSON = document.getElementById("addedjson");
 var mapbtn = document.getElementById("mapbtn");
 mapbtn.addEventListener("click", async function(){
 
-        fetch("https://api.planbic.de/tasks", {
-            method: 'GET',
-            headers: {'Accept': 'application/json'}
-        })
-        .then(response=> {
-            if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }   
-            return response.json();  
-        })
-        .then(data => console.log(data))
-        .catch(error => console.error('Failed to fetch data:', error));
+        // fetch("https://api.planbic.de/tasks", {
+        //     method: 'GET',
+        //     headers: {'Accept': 'application/json'}
+        // })
+        // .then(response=> {
+        //     if (!response.ok) {
+        //     throw new Error(`HTTP error! Status: ${response.status}`);
+        // }   
+        //     return response.json();  
+        // })
+        // .then(data => console.log(data))
+        // .catch(error => console.error('Failed to fetch data:', error));
          
         //get Testdata from test.json
         var JSONTestData = await fetch('./src/json/test.json')            
