@@ -29,7 +29,7 @@ authBtn.addEventListener("click", async() =>{
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'Access-Control-Allow-Origin': "*"
+            //'Access-Control-Allow-Origin': "*"
         },
         body:{
             username:username,

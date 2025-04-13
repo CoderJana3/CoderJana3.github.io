@@ -108,54 +108,65 @@ async function getEnv() {
 
                 console.log("Attachment name and isUpload " + attachment.name + " " + attachment.isUpload);
                 const task = {};
-                task.id = "idnumber";
-                task.state = "state";
-                task.priority = "priority";
-                task.informedUsers = []; //works, creates an Arrays in task
-                task.lph = "LPH";
-                task.markup = {}; //works, creates another JSON object in task
-                task.visualizationInfo = [];
-                task.ifcLink = null;
+                task.id = null;
+                task.project = null;
+                task.projectID = null;
+                task.state = "OPEN";
+                task.lph = null;
+                task.priority = "NORMAL";
                 task.ifcName = null;
-                task.isImported = true;
-                task.isBCF = null;
-                task.projectID = "projectID to be added later";
-                task.projectName = "projectName to be added later";
-                const markup = task.markup;   //works, no need to have long references just save in var to use later
-                markup.id = "id to be added later";
-                markup.topic = {};
-                markup.viewpoints = [];
+                task.ifcLink = null;
+                task.markup = {};
+                const markup = task.markup;
+                markup.id = null;
                 markup.comment = [];
-                markup.markupExtra = null;
+                markup.topic = {};
                 const topic = markup.topic;
                 topic.atGuid = null;
                 topic.atTopicType = null;
                 topic.atTopicStatus = null;
                 topic.referenceLink = "ref link to be added later";
-                topic.title = "title to be added later";
+                topic.title = "Document from Trello";
                 topic.priority = null;
                 topic.index = null;
-                topic.labels = [];
-                topic.creationDate = new Date().toString();
-                topic.creationAuthor = "creatAuth to be added later";
+                topic.labels = null;
+                topic.creationDate = null;
+                topic.creationAuthor = "email";
                 topic.modifiedDate = null;
                 topic.modifiedAuthor = null;
                 topic.dueDate = null;
                 topic.startDate = null;
-                //topic.assignedTo = "assignto to be added later";
-                topic.assignedTo = null;
                 topic.description = null;
-                topic.stage = null;
                 topic.creationUser = {};
                 const creationUser = topic.creationUser;
-                topic.modifiedUser = null;
-                topic.assignedToUser = {};
+                creationUser.id = null;
+                creationUser.title = null;
+                creationUser.salutation = "salutation";
+                creationUser.firstName = "firstname";
+                creationUser.lastName = "lastname";
+                creationUser.mail = "email";
+                creationUser.birthdate = null;
+                creationUser.phoneNumber = null;
+                creationUser.street = "streetname";
+                creationUser.houseNumber = "housenumber";
+                creationUser.zipCode = "zipCode";
+                creationUser.city = "city";
+                creationUser.branch = null;
+                creationUser.country = "DEU";
+                creationUser.profileImage = null;
+                creationUser.isActivated = true;
+                creationUser.roleInOrganisations = {};
+                creationUser.roleInProjects = {};
+                creationUser.chatIdentity = null;
+			    creationUser.isUsing2FA = false;
+			    creationUser.isUsing2FAViaMail = false;
+		        topic.modifiedUser = null;
+		        topic.assignedToUser = null;
+
+               
 
                 //adds value to attribute but doesn't change position of attribute
                 for(var key in attachment){
-                    if(key == "id"){
-                        var id = attachment[key];
-                    }
                     if(key == "url"){
                         var reflink = attachment[key];
                     }
@@ -163,7 +174,7 @@ async function getEnv() {
                         var title = attachment[key];
                     }
                 };
-                markup.id = id;
+                //markup.id = id;
                 topic.referenceLink = reflink;
                 topic.title = "Datei aus Trello" + title;
                 console.log("New Task should be below this log:");
@@ -188,25 +199,95 @@ async function getEnv() {
                 } else {
                     alert("Bitte BIC beim Power-Up autorisieren!")
                 }
-                
-                const projectID = getprojresp.id;
-                // const bicurltasks = "https://api.planbic.de/tasks" + projectID;
-                // fetch(bicurltasks, {
-                //     method: 'PUT',
-                //     headers: {
-                //         'Accept': 'application/json',
-                //         'Authorization' : 'Bearer' + bictoken
-                //     }, 
-                //     body: {
-                //         'content': task.json
-                //     }
-                // })
 
-                // for(var key in gettaskresp){
-                //     if(key == "id"){ //check if id or project id
-                //         var id = gettaskresp[key];
-                //     }
-                // };
+                const projectID = getprojresp.id;
+                const projectmanager = getprojresp.projectmanager;
+                for(var key in projectmanager){
+                    if(key == "id"){
+                        var id = attachment[key];
+                    }
+                    if(key == "title"){
+                        var bictitle = attachment[key];
+                    }
+                    if(key == "salutation"){
+                        var salutation = attachment[key];
+                    }
+                    if(key == "firstName"){
+                        var fName = attachment[key];
+                    }
+                    if(key == "lastName"){
+                        var lName = attachment[key];
+                    }
+                    if(key == "mail"){
+                        var mail = attachment[key];
+                    }
+                    if(key == "birthdate"){
+                        var bdate = attachment[key];
+                    }
+                    if(key == "phoneNumber"){
+                        var pNumber = attachment[key];
+                    }
+                    if(key == "street"){
+                        var street = attachment[key];
+                    }
+                    if(key == "houseNumber"){
+                        var hNumber = attachment[key];
+                    }
+                    if(key == "zipCode"){
+                        var zCode = attachment[key];
+                    }
+                    if(key == "city"){
+                        var city = attachment[key];
+                    }
+                    if(key == "branch"){
+                        var branch = attachment[key];
+                    }
+                    if(key == "country"){
+                        var country = attachment[key];
+                    }
+                    if(key == "profileImage"){
+                        var pImage = attachment[key];
+                    }
+                    if(key == "isActivated"){
+                        var isA = attachment[key];
+                    }
+                    if(key == "roleInOrganisations"){
+                        var roleIO = attachment[key];
+                    }
+                    if(key == "roleInProjects"){
+                        var roleIP = attachment[key];
+                    }
+                    if(key == "chatIdentity"){
+                        var cI = attachment[key];
+                    }
+                    if(key == "isUsing2FA"){
+                        var isU2FA = attachment[key];
+                    }
+                    if(key == "isUsing2FAViaMail"){
+                        var isU2FAMail = attachment[key];
+                    }
+                };
+
+                const bicurltasks = "https://api.planbic.de/tasks/" + projectID;
+                fetch(bicurltasks, {
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization' : 'Bearer' + bictoken,
+                        'Accept-Language' : 'de,en-US;q=0.7,en;q=0.3',
+                        'Accept-Encoding' : gzip, deflate, br, zstd,
+                        'Content-Type': 'application/json'
+                    }, 
+                    body: {
+                        'content': task.json
+                    }
+                })
+
+                for(var key in gettaskresp){
+                    if(key == "id"){ //check if id or project id
+                        var id = gettaskresp[key];
+                    }
+                };
 
                 /**Basic GET Request for getting one Attachment */
                 fetch(URLoneattach, {
@@ -249,6 +330,46 @@ getEnv();                                                                       
 
 
 /**OLD CODE*/
+ // task.informedUsers = []; //works, creates an Arrays in task
+                // task.lph = "LPH";
+                // task.markup = {}; //works, creates another JSON object in task
+                // task.visualizationInfo = [];
+                // task.ifcLink = null;
+                // task.ifcName = null;
+                // task.isImported = true;
+                // task.isBCF = null;
+                // task.projectID = "projectID to be added later";
+                // task.projectName = "projectName to be added later";
+                // //const markup = task.markup;   //works, no need to have long references just save in var to use later
+                // markup.id = "id to be added later";
+                // markup.topic = {};
+                // markup.viewpoints = [];
+                // markup.comment = [];
+                // markup.markupExtra = null;
+                // //const topic = markup.topic;
+                // topic.atGuid = null;
+                // topic.atTopicType = null;
+                // topic.atTopicStatus = null;
+                // topic.referenceLink = "ref link to be added later";
+                // topic.title = "title to be added later";
+                // topic.priority = null;
+                // topic.index = null;
+                // topic.labels = [];
+                // topic.creationDate = new Date().toString();
+                // topic.creationAuthor = "creatAuth to be added later";
+                // topic.modifiedDate = null;
+                // topic.modifiedAuthor = null;
+                // topic.dueDate = null;
+                // topic.startDate = null;
+                // //topic.assignedTo = "assignto to be added later";
+                // topic.assignedTo = null;
+                // topic.description = null;
+                // topic.stage = null;
+                // topic.creationUser = {};
+                // //const creationUser = topic.creationUser;
+                // topic.modifiedUser = null;
+                // topic.assignedToUser = {};
+
 // /*Creating Trello iframe with Information needed for t.getRestApi()*/
 // var t = window.TrelloPowerUp.iframe({
 //     appKey: apikey,
