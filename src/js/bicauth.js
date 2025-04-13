@@ -1,3 +1,4 @@
+const { response } = require("express");
 
 var username = document.getElementById("usenam");
 var password = document.getElementById("passw");
@@ -48,18 +49,19 @@ authBtn.addEventListener("click", async() =>{
     //     }
     // }).catch(err => console.error("No Headers: "+ err));
 
-    fetch('./netlify/functions/server.js', {
+    fetch('./netlify/functions/datetest.js', {
         method: 'POST',
         headers: {
             //'Access-Control-Allow-Origin': 'www.api.planbic.de'
         },
         body:{
-            username:username,
+            //username:username,
             //password:password,
             date: new Date().toString()
         }
-    }).catch(err => console.error("Proxy: "+ err));
-
+    }).then(response => response.json())
+    .catch(err => console.error("Proxy: "+ err));
+    console.log(response);
     // const resp = fetch(bicauthURL, {
     //     method: 'POST',
     //     headers: {
