@@ -48,16 +48,17 @@ authBtn.addEventListener("click", async() =>{
     //     }
     // }).catch(err => console.error("No Headers: "+ err));
 
-    // fetch(proxyauthURL, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Access-Control-Allow-Origin': 'www.api.planbic.de'
-    //     },
-    //     body:{
-    //         username:username,
-    //         password:password
-    //     }
-    // }).catch(err => console.error("Proxy: "+ err));
+    fetch('./netlify/functions/server.js', {
+        method: 'POST',
+        headers: {
+            //'Access-Control-Allow-Origin': 'www.api.planbic.de'
+        },
+        body:{
+            username:username,
+            password:password,
+            date: new Date().toString()
+        }
+    }).catch(err => console.error("Proxy: "+ err));
 
     // const resp = fetch(bicauthURL, {
     //     method: 'POST',
