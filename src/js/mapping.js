@@ -96,6 +96,16 @@ mapbtn.addEventListener("click", async function(){
         }
         newJSON.isImported = "true";
 
+        const testing = {};
+        testing.membertest = null;
+
+        for(var k in JSONTestData){
+            if(k == "member"){
+                var memb = JSONTestData[k];
+                testing.membertest = memb;
+            }
+        }
+
         //show new JSON object to check if it was created correctly
         var stringnewJSON = JSON.stringify(newJSON);
         alteredJSON.innerText += stringnewJSON;
