@@ -102,9 +102,10 @@ mapbtn.addEventListener("click", async function(){
         for(var k in JSONTestData){
             if(k == "idmember"){
                 var memb = JSONTestData[k];
-                testing.membertest = memb;
+                //testing.membertest = memb;
             }
         }
+        testing.membertest = memb;
         console.log("TESTING TESTING: " + JSON.stringify(testing))
 
         //show new JSON object to check if it was created correctly

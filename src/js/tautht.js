@@ -269,19 +269,25 @@ async function getEnv() {
                 };
 
                 const bicurltasks = "https://api.planbic.de/tasks/" + projectID;
-                fetch(bicurltasks, {
-                    method: 'PUT',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization' : 'Bearer' + bictoken,
-                        'Accept-Language' : 'de,en-US;q=0.7,en;q=0.3',
-                        'Accept-Encoding' : gzip, deflate, br, zstd,
-                        'Content-Type': 'application/json'
-                    }, 
-                    body: {
-                        'content': task.json
-                    }
-                })
+                if(bictoken != null){
+                    fetch(bicurltasks, {
+                        method: 'PUT',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Authorization' : 'Bearer' + bictoken,
+                            'Accept-Language' : 'de,en-US;q=0.7,en;q=0.3',
+                            'Accept-Encoding' : gzip, deflate, br, zstd,
+                            'Content-Type': 'application/json'
+                        }, 
+                        body: {
+                            'content': task.json
+                        }
+                    })
+                    .catch(err => console.error(err));
+                } else {
+                    alert("Bitte BIC beim Power-Up autorisieren!")
+                }
+                
 
                 for(var key in gettaskresp){
                     if(key == "id"){ //check if id or project id
