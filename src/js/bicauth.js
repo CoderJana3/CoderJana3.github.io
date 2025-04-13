@@ -55,7 +55,7 @@ authBtn.addEventListener("click", async() =>{
         },
         body:{
             username:username,
-            password:password,
+            //password:password,
             date: new Date().toString()
         }
     }).catch(err => console.error("Proxy: "+ err));
