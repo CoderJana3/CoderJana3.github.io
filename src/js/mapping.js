@@ -105,6 +105,7 @@ mapbtn.addEventListener("click", async function(){
                 testing.membertest = memb;
             }
         }
+        console.log("TESTING TESTING: " + JSON.stringify(testing))
 
         //show new JSON object to check if it was created correctly
         var stringnewJSON = JSON.stringify(newJSON);
