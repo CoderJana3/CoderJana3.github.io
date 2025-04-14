@@ -199,12 +199,12 @@ async function getEnv() {
                 } else {
                     alert("Bitte BIC beim Power-Up autorisieren!")
                 }
-
+                
                 const projectID = getprojresp.id;
-                const projectmanager = getprojresp.projectmanager;
+                const projectmanager = getprojresp.projectManager;
                 for(var key in projectmanager){
                     if(key == "id"){
-                        var id = attachment[key];
+                        var idNum = attachment[key];
                     }
                     if(key == "title"){
                         var bictitle = attachment[key];
@@ -267,9 +267,35 @@ async function getEnv() {
                         var isU2FAMail = attachment[key];
                     }
                 };
+                creationUser.id = idNum;
+                creationUser.title = bictitle;
+                creationUser.salutation = salutation;
+                creationUser.firstName = fName;
+                creationUser.lastName = lName;
+                creationUser.mail = mail;
+                creationUser.birthdate = bdate;
+                creationUser.phoneNumber = pNumber;
+                creationUser.street = street;
+                creationUser.houseNumber = hNumber;
+                creationUser.zipCode = zCode;
+                creationUser.city = city;
+                creationUser.branch = branch;
+                creationUser.country = country;
+                creationUser.profileImage = pImage;
+                creationUser.isActivated = isA;
+                creationUser.roleInOrganisations = roleIO;
+                creationUser.roleInProjects = roleIP;
+                creationUser.chatIdentity = cI;
+			    creationUser.isUsing2FA = isU2FA;
+			    creationUser.isUsing2FAViaMail = isU2FAMail;
+                topic.creationAuthor = mail;
+
+                creationUser.roleInProjects = roleIP;
 
                 const bicurltasks = "https://api.planbic.de/tasks/" + projectID;
                 if(bictoken != null){
+                    //PUT Anfrage konnte hier nicht getestet werden; wurde über REST Client 
+                    // erfolgreich getestet
                     fetch(bicurltasks, {
                         method: 'PUT',
                         headers: {
